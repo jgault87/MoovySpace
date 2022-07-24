@@ -34,7 +34,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     movies(username: String): [Movie]
-    movie(thoughtId: String!): Movie
+    movie(movieId: String!): Movie
     me: User
   }
 
