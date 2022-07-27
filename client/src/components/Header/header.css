@@ -1,0 +1,13 @@
+header {
+    position: relative;
+    width: 100vw;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+}
+.searchBar {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 80%;
+    height: auto;
+}

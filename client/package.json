@@ -4,6 +4,8 @@
 	"private": true,
 	"proxy": "http://localhost:3001",
 	"dependencies": {
+		"@emotion/react": "^11.9.3",
+    	"@emotion/styled": "^11.9.3",
 		"@apollo/client": "^3.6.9",
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
@@ -16,7 +18,8 @@
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "5.0.1",
-		"web-vitals": "^0.2.4"
+		"web-vitals": "^0.2.4",
+		"@mui/icons-material": "^5.8.4"
 	},
 	"scripts": {
 		"start": "react-scripts start",
