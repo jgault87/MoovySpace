@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import SearchResults from "./ResultList";
 // Import search method
