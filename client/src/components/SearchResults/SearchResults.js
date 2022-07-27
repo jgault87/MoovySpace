@@ -7,6 +7,8 @@ const SearchResults = () => {
   // Declare a new state variable called "results"
   const [results, setResults] = useState([]);
 
+  // Get search results and set state
+
   return <div>SearchResults</div>;
 };
 
