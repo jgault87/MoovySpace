@@ -1,7 +1,8 @@
 import './homepage.css';
 import { Link } from 'react-router-dom';
-import Login from '../../pages/Login';
-import Signup from '../../pages/Signup';
+import Login from '../Login/Login'
+import Signup from '../Signup/Signup';
+
 
 import Auth from '../../utils/auth';
 
