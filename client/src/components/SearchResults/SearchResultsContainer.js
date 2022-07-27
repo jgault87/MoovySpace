@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ResultList from "./ResultList";
+import SearchResults from "./ResultList";
 // Import search method
 import search from "../../utils/API";
 
@@ -22,7 +22,7 @@ const SearchResultsContainer = () => {
 
   return (
     <div>
-      <ResultList results={results} />
+      <SearchResults results={results} />
     </div>
   );
 };
