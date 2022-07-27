@@ -2,6 +2,7 @@ import './homepage.css';
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup';
+import Header from '../Header/index'
 
 
 import Auth from '../../utils/auth';
@@ -14,6 +15,7 @@ const HomePage = () => {
 
   return (
     <>
+    <Header />
       <div className='split left'>
         <div className='centered'>
           <img src='' alt='Movies' />
