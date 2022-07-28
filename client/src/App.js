@@ -5,9 +5,8 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import AuthService from './utils/auth';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header/index';
 import Home from './pages/Home';
@@ -43,39 +42,30 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* Put something here if we want it on every page */}
-
-        {/* Adding auth logic to routes as an extra layer of protection */}
-        {/* Takes the user to the welcome page if they aren't signed in */}
-
-        <Switch>
-
-          <Route path="/">
-            <Welcome />
-          </Route>
-
-          <Route path="/home">
-            {AuthService.loggedIn() ?
-              <>
-                <Header />
-                <Home /> 
-                </>
-                : <Welcome />}
-          </Route>
-
-          <Route path="/me">
-           {AuthService.loggedIn() ? <Profile /> : <Welcome /> }
-          </Route>
-
-          <Route path="/profiles/:username">
-            {AuthService.loggedIn() ? <Profile /> : <Welcome /> }
-          </Route>
-
-          <Route path="/thoughts/:thoughtId">
-            {AuthService.loggedIn() ? <SingleThought /> : <Welcome /> }
-          </Route>
-
-        </Switch>
+           <Routes>
+            <Route 
+                path="/"
+                element={<Welcome />}
+              />
+              <Route 
+                path="/home"
+                element ={<><Header /> <Home /></>}
+              />
+              
+              <Route 
+                path="/me" 
+                element={<Profile />}
+              />
+              <Route 
+                path="/profiles/:username" 
+                element={<Profile />}
+              />
+              <Route 
+                path="/thoughts/:thoughtId" 
+                element={<SingleThought />}
+              />
+            </Routes>
+          
       </Router>
     </ApolloProvider>
   );
