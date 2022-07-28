@@ -8,6 +8,7 @@ const SearchResultsContainer = () => {
   // Declare a new state variable called "results"
   const [details, setDetails] = useState([]);
   const [trailer, setTrailer] = useState([]);
+  const [search, setSearch] = useState("");
 
   // Get movie
   const searchMovie = async (query) => {
@@ -36,7 +37,18 @@ const SearchResultsContainer = () => {
     searchMovie("12 Pound Balls");
   }, []);
 
+  // Handler for input changes to the search form
+  const handleInputChange = (e) => setSearch(e.target.value);
+
+  // Handler for what happens when the search form is submitted
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    searchMovie(search);
+  };
+
   return (
+    // Need to add the search form in here as well to display the search bar and results in same page.
+    // Refer to Week 20 Assignment 20 for tips
     <div>
       <SearchResults details={details} trailer={trailer} />
     </div>
