@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchResults from "./ResultList";
-// Import search method
-import { searchDetails, searchTrailer } from "../../utils/API";
+// import { searchDetails, searchTrailer } from "../../utils/API";
 import axios from "axios";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -30,15 +29,6 @@ const SearchResultsContainer = () => {
           });
       });
   };
-
-  // Get search results and set state
-  // const searchMovie = async (query) => {
-  //   const response = await searchDetails(query);
-  //   setDetails(response.data.data);
-  // How do I async line 14 for line 17's await???
-  // const trailer = await searchTrailer(response.id);
-  // setTrailer(trailer.results[0].key);
-  // };
 
   // Run this method as component loads so we can render results right away
   // Probably won't need this useEffect, might delete later
