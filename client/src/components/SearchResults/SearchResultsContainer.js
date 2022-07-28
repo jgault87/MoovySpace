@@ -25,7 +25,7 @@ const SearchResultsContainer = () => {
             `https://api.themoviedb.org/3/movie/${details.results.id}/videos?api_key=${API_KEY}&language=en-US`
           )
           .then((response) => {
-            setTrailer(details); // firstData is still an empty Object here for some reason
+            setTrailer(details);
           });
       });
   };
