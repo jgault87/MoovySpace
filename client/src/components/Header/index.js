@@ -11,34 +11,34 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header>
-      <form> 
+    <header className="header">
+      <form className="searchForm">
         <input type="input" name="search-bar" className="searchBar" placeholder="Search Movie Titles..." />
       </form>
-      <div className="profilePictureContainer">
-        <AccountCircleIcon />
+      <a id="profilePictureContainer">
+        <AccountCircleIcon fontSize="large" />
+      </a>
+      <div>
+        {Auth.loggedIn() ? (
+          <>
+            <Link className="" to="/me">
+              {Auth.getProfile().data.username}'s profile
+            </Link>
+            <button className="" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link className="notSignedInBtn" to="/login">
+              Login
+            </Link>
+            <Link className="notSignedInBtn" to="/signup">
+              Signup
+            </Link>
+          </>
+        )}
       </div>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link>
-              <button className="" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link className="" to="/login">
-                Login
-              </Link>
-              <Link className="" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
     </header>
   );
 };
