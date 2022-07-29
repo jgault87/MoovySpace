@@ -1,11 +1,28 @@
 import './homepage.css';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup';
-import Header from '../Header/index'
+import Modal from '../Modal/Modal';
 
 
 import Auth from '../../utils/auth';
+
+const BUTTON_WRAPPER_STYLES = {
+  position: 'relative',
+  zIndex: 1
+}
+
+const OTHER_CONTENT_STYLES = {
+  position: 'relative',
+  zIndex: 2,
+  backgroundColor: 'blue',
+  padding: '10px',
+}
+
+
+
+
 
 const HomePage = () => {
   const logout = (event) => {
@@ -13,9 +30,11 @@ const HomePage = () => {
     Auth.logout();
   };
 
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <>
-    <Header />
+ 
       <div className='split left'>
         <div className='centered'>
           <img src='' alt='Movies' />
@@ -26,9 +45,9 @@ const HomePage = () => {
 
       <div className='split right'>
         <div className='centered'>
-          <img src='img_avatar.png' alt='login' />
-          <h2>Login Form</h2>
-          <p>it's working but needs styling</p>
+          {/* <img src='img_avatar.png' alt='login' /> */}
+          {/* <h2>Login Form</h2>
+          <p>it's working but needs styling</p> */}
           <div>
             {Auth.loggedIn() ? (
               <>
@@ -44,8 +63,19 @@ const HomePage = () => {
               </>
             ) : (
               <>
-                <Login />
+                
+               <div style={BUTTON_WRAPPER_STYLES}>
+                
+               <Login />
+                <Modal open={isOpen} onClose={()=> setIsOpen(false)}>
                 <Signup />
+                
+                </Modal>
+
+                <button className="btn btn-primary" onClick={()=> setIsOpen(true)}>Signup instead?</button>
+                </div>
+                
+               
               </>
             )}
           </div>

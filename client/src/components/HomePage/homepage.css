@@ -19,7 +19,7 @@
   .right {
     width: 40%;
     right: 0;
-    background-color: rgba(0, 162, 255, 0.581);
+    background-color: var(--color-bg);
   }
   
   /* If you want the content centered horizontally and vertically */

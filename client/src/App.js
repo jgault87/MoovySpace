@@ -42,6 +42,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+<<<<<<< HEAD
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route
@@ -57,6 +58,29 @@ function App() {
           <Route path="/profiles/:username" element={<Profile />} />
           <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
         </Routes>
+=======
+           <Routes>
+            <Route 
+                path="/"
+                element={<Welcome />}
+              />
+              <Route 
+                path="/home"
+                element ={<><Header /> </>}
+              />
+              
+              <Route 
+                path="/me" 
+                element={<Profile />}
+              />
+              <Route 
+                path="/profiles/:username" 
+                element={<Profile />}
+              />
+             
+            </Routes>
+          
+>>>>>>> 7950ccf4272f0d55c07ea8696f810f9535e025ee
       </Router>
     </ApolloProvider>
   );
