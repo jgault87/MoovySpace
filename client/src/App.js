@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -13,6 +13,8 @@ import Home from "./pages/Home";
 import SingleThought from "./pages/SingleThought";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
+import axios from "axios";
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -39,6 +41,33 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // Declare a new state variable called "results"
+  const [details, setDetails] = useState([]);
+  const [trailer, setTrailer] = useState([]);
+
+  // Get movie & trailer data from API
+  const searchMovie = (query) => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+      )
+      .then((response) => {
+        setDetails(response.data);
+        console.log(response.data);
+        return response.data;
+      })
+      .then((response) => {
+        axios
+          .get(
+            `https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
+          )
+          .then((responseTwo) => {
+            setTrailer(responseTwo.data);
+            console.log(responseTwo.data);
+          });
+      });
+  };
+
   return (
     <ApolloProvider client={client}>
       <Router>
