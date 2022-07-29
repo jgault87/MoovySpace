@@ -11,6 +11,7 @@ export const QUERY_USER = gql`
 				title
 				description
 				image
+				backdrop
 				trailer
 			}
 		}
@@ -28,6 +29,7 @@ export const QUERY_ME = gql`
 				title
 				description
 				image
+				backdrop
 				trailer
 			}
 		}
