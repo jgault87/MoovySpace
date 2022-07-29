@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './header.css';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./header.css";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SearchBar from "../SearchBar/SearchBar";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
@@ -12,33 +13,31 @@ const Header = () => {
   };
   return (
     <header>
-      <form> 
-        <input type="input" name="search-bar" className="searchBar" placeholder="Search Movie Titles..." />
-      </form>
+      <SearchBar />
       <div className="profilePictureContainer">
         <AccountCircleIcon />
       </div>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link>
-              <button className="" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link className="" to="/login">
-                Login
-              </Link>
-              <Link className="" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
+      <div>
+        {Auth.loggedIn() ? (
+          <>
+            <Link className="" to="/me">
+              {Auth.getProfile().data.username}'s profile
+            </Link>
+            <button className="" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link className="" to="/login">
+              Login
+            </Link>
+            <Link className="" to="/signup">
+              Signup
+            </Link>
+          </>
+        )}
+      </div>
     </header>
   );
 };
