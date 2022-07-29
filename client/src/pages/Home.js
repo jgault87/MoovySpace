@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { App, AppContext } from "../App";
-import { shouldCanonizeResults } from "@apollo/client/cache/inmemory/helpers";
 
 const Home = () => {
   const searchContext = useContext(AppContext);
