@@ -14,10 +14,10 @@ const Header = () => {
   return (
     <header>
       <SearchBar />
-      <div className="profilePictureContainer">
+      <button id="profilePictureContainer">
         <AccountCircleIcon />
-      </div>
-      <div>
+      </button>
+      {/* <div>
         {Auth.loggedIn() ? (
           <>
             <Link className="" to="/me">
@@ -37,7 +37,7 @@ const Header = () => {
             </Link>
           </>
         )}
-      </div>
+      </div> */}
     </header>
   );
 };
