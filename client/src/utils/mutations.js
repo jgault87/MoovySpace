@@ -39,3 +39,19 @@ export const SAVE_MOVIE = gql`
 		}
 	}
 `;
+
+export const REMOVE_MOVIE = gql`
+	mutation removeMovie($movieId: Int!) {
+		removeMovie(movieId: $movieId) {
+			username
+			email
+			savedMovies {
+				movieId
+				title
+				description
+				image
+				trailer
+			}
+		}
+	}
+`;
