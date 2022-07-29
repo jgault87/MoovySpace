@@ -13,7 +13,6 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
 import axios from "axios";
-// import dotenv from "dotenv";
 export const AppContext = React.createContext();
 // const API_KEY = "e1decf0f5993931acf6f27eec0827ce6";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;

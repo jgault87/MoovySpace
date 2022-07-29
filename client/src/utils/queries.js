@@ -1,37 +1,37 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
-	query user($username: String!) {
-		user(username: $username) {
-			_id
-			username
-			email
-			savedMovies {
-				movieId
-				title
-				description
-				image
-				backdrop
-				trailer
-			}
-		}
-	}
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      savedMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+      }
+    }
+  }
 `;
 
 export const QUERY_ME = gql`
-	query me {
-		me {
-			_id
-			username
-			email
-			savedMovies {
-				movieId
-				title
-				description
-				image
-				backdrop
-				trailer
-			}
-		}
-	}
+  query me {
+    me {
+      _id
+      username
+      email
+      savedMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+      }
+    }
+  }
 `;
