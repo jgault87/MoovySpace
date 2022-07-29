@@ -1,52 +1,282 @@
 [
-  {
-    "username": "Brian Kernighan",
-    "email": "bkernighan@techfriends.dev",
-    "password": "password01"
-  },
-  {
-    "username": "Max Kanat-Alexander",
-    "email": "mkanatalexander@techfriends.dev",
-    "password": "password02"
-  },
-  {
-    "username": "Why The Lucky Stiff",
-    "email": "wtls@techfriends.dev",
-    "password": "password03"
-  },
-  {
-    "username": "Kent Beck",
-    "email": "kbeck@techfriends.dev",
-    "password": "password04"
-  },
-  {
-    "username": "Edward V. Berard",
-    "email": "evberard@techfriends.dev",
-    "password": "password05"
-  },
-  {
-    "username": "Alan Kay",
-    "email": "akay@techfriends.dev",
-    "password": "password06"
-  },
-  {
-    "username": "C.A.R. Hoare",
-    "email": "choare@techfriends.dev",
-    "password": "password07"
-  },
-  {
-    "username": "David Thomas",
-    "email": "dthomas@techfriends.dev",
-    "password": "password08"
-  },
-  {
-    "username": "Donald Knuth",
-    "email": "dknuth@techfriends.dev",
-    "password": "password09"
-  },
-  {
-    "username": "Lernantino",
-    "email": "lernantino@techfriends.dev",
-    "password": "password10"
-  }
+	{
+		"username": "Brian Kernighan",
+		"email": "bkernighan@techfriends.dev",
+		"password": "password01",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Max Kanat-Alexander",
+		"email": "mkanatalexander@techfriends.dev",
+		"password": "password02",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Why The Lucky Stiff",
+		"email": "wtls@techfriends.dev",
+		"password": "password03",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Kent Beck",
+		"email": "kbeck@techfriends.dev",
+		"password": "password04",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Edward V. Berard",
+		"email": "evberard@techfriends.dev",
+		"password": "password05",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Alan Kay",
+		"email": "akay@techfriends.dev",
+		"password": "password06",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "C.A.R. Hoare",
+		"email": "choare@techfriends.dev",
+		"password": "password07",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "David Thomas",
+		"email": "dthomas@techfriends.dev",
+		"password": "password08",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Donald Knuth",
+		"email": "dknuth@techfriends.dev",
+		"password": "password09",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	},
+	{
+		"username": "Lernantino",
+		"email": "lernantino@techfriends.dev",
+		"password": "password10",
+		"savedMovies": [
+			{
+				"movieId": 457860,
+				"title": "12 Pound Balls",
+				"description": "It takes BALLS to win. At least that's what the local bowling clubs in idyllic Warroad, Minnesota used to say, before Emily came along. Now that she has returned to resurrect her name on the champion's board, Gunnar and the boys in town are polishing up their equipment for another shot at the title. This screwball ensemble mockumentary captures Emily's return from retirement, to avenge her loss to Gunnar, and bring justice to her family name. It's gutter-ball madness where split happens.",
+				"image": "/fdCLybIzlJBuhJhgTPRFPPpsvIC.jpg",
+				"trailer": "A-Bw_9Zsl3k"
+			},
+			{
+				"movieId": 457712,
+				"title": "The VelociPastor",
+				"description": "After losing his parents, a priest travels to China, where he inherits a mysterious ability that allows him to turn into a dinosaur. At first horrified by this new power, a hooker convinces him to use it to fight crime. And ninjas.",
+				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
+				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"trailer": "0vwq7R1FHNs"
+			}
+		]
+	}
 ]
