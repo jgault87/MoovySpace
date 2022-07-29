@@ -23,9 +23,9 @@ const Header = () => {
           <input type="checkbox" id="touch" />
           <ul className="slide">
             <li>
-              <Link id="profileLink" to="/me"> {Auth.getProfile().data.username}'s profile </Link></li>
+              <Link className="profileLinks" to="/me"> Profile </Link></li>
             <li>
-              <button id="logoutLink" onClick={logout}> Logout </button>
+              <button type="button" className="profileLinks" id="logoutLink" onClick={logout}> Logout </button>
             </li>
           </ul>
         </div>
@@ -35,10 +35,10 @@ const Header = () => {
           <input type="checkbox" id="touch" />
           <ul className="slide">
             <li>
-              <Link className="loginLink" to="/login"> Login </Link>
+              <Link className="profileLinks" to="/login"> Login </Link>
             </li>
             <li>
-              <Link className="signupLink" to="/signup"> Signup </Link>
+              <Link className="profileLinks" to="/signup"> Signup </Link>
             </li>
           </ul>
         </div>

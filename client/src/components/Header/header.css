@@ -4,7 +4,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    top: 20px;
+    top: 10px;
     right: 20px;
     cursor: pointer;
     border: none;
@@ -16,7 +16,6 @@
     transition: 500ms;
     margin: 0 auto;
     margin-top: 10px;
-    color: white;
 }
 #profilePictureContainer:before {
     color: rgba(255,255,255,0.5);
@@ -29,7 +28,7 @@
     height: 40px;
     background-color: #1b2845;
     background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
-    transition: 500ms;
+    transition: var(--transition)
 }
 #profilePictureContainer:hover {
     background-position: right;
@@ -41,23 +40,23 @@
     outline: none;
 }
 
-.loggedInContainer {
-    display: block;
-    position: absolute;
-    top: 95px;
-    right: 10px;
-}
-#profileLink {
+.profileLinks{
     position: relative;
-    display: block;
-    margin-bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: var(--color-primary);
+    font-size: 16px;
 }
 #logoutLink {
-    display: block;
-    position: relative;
+    padding: 0;
+    border: none;
+    background: none;
 }
   
 .slide {
+    position: absolute;
+    top: 80px;
+    display: block;
     clear:both;
     width:100%;
     height:0px;
@@ -65,9 +64,11 @@
     text-align:right;
     transition: height .7s ease;
 }
+
+#touch {
+    position: absolute; opacity: 0; height: 0px;
+}    
   
-.slide li {padding : 10px;}
-  
-#touch {position: absolute; opacity: 0;}    
-  
-#touch:checked + .slide {height: 140px;}
+#touch:checked + .slide {
+    height: 140px;
+}
