@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header/index";
 import Home from "./pages/Home";
-import SingleThought from "./pages/SingleThought";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
 import axios from "axios";
@@ -95,7 +94,6 @@ export function App() {
             />
             <Route path="/me" element={<Profile />} />
             <Route path="/profiles/:username" element={<Profile />} />
-            <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
           </Routes>
         </Router>
       </ApolloProvider>
