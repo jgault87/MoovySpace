@@ -1,33 +1,33 @@
-import React from 'react';
+import React from "react";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from './components/Header/index';
-import Home from './pages/Home';
-import SingleThought from './pages/SingleThought';
-import Profile from './pages/Profile';
-import Welcome from './components/HomePage/HomePage';
+import Header from "./components/Header/index";
+import Home from "./pages/Home";
+import SingleThought from "./pages/SingleThought";
+import Profile from "./pages/Profile";
+import Welcome from "./components/HomePage/HomePage";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -42,30 +42,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-           <Routes>
-            <Route 
-                path="/"
-                element={<Welcome />}
-              />
-              <Route 
-                path="/home"
-                element ={<><Header /> <Home /></>}
-              />
-              
-              <Route 
-                path="/me" 
-                element={<Profile />}
-              />
-              <Route 
-                path="/profiles/:username" 
-                element={<Profile />}
-              />
-              <Route 
-                path="/thoughts/:thoughtId" 
-                element={<SingleThought />}
-              />
-            </Routes>
-          
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route
+            path="/home"
+            element={
+              <>
+                <Header /> <Home />
+              </>
+            }
+          />
+
+          <Route path="/me" element={<Profile />} />
+          <Route path="/profiles/:username" element={<Profile />} />
+          <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
+        </Routes>
       </Router>
     </ApolloProvider>
   );
