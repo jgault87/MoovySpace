@@ -10,23 +10,25 @@ const SearchResultsContainer = () => {
   const [trailer, setTrailer] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Get movie
-  const searchMovie = async (query) => {
-    await axios
+  // Get movie & trailer data from API
+  const searchMovie = (query) => {
+    axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
       )
       .then((response) => {
         setDetails(response.data);
+        console.log(response.data);
         return response.data;
       })
-      .then(async (details) => {
-        await axios
+      .then((response) => {
+        axios
           .get(
-            `https://api.themoviedb.org/3/movie/${details.results.id}/videos?api_key=${API_KEY}&language=en-US`
+            `https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
           )
-          .then((response) => {
-            setTrailer(details);
+          .then((responseTwo) => {
+            setTrailer(responseTwo.data);
+            console.log(responseTwo.data);
           });
       });
   };
