@@ -1,62 +1,63 @@
 .movieContainer {
-    position: relative;
-    overflow: scroll;
-    width: auto;
-    height: 75vh;
-    margin: 30px;
-    background-color: transparent;
-    display: grid;
-    grid-template-columns: 30% auto;
+	position: relative;
+	overflow: scroll;
+	width: auto;
+	height: 75vh;
+	margin: 30px;
+	background-color: transparent;
+	display: grid;
+	grid-template-columns: 30% auto;
 }
 #moviePoster {
-    position: relative;
-    margin: 30px;
-    width: auto;
-    height: 90%;
-    float: left;
-    background-color: blue;
+	position: relative;
+	margin: 30px;
+	width: auto;
+	height: 90%;
+	float: left;
+	background-color: blue;
 }
 .movieDetails {
-    margin: 2%;
-    width: auto;
-    height: auto;
-    float: left;
-    background-color: rgb(208, 211, 208);
-    text-align: center;
-    overflow:scroll;
+	margin: 2%;
+	width: auto;
+	height: auto;
+	float: left;
+	background-color: rgb(208, 211, 208);
+	text-align: center;
 }
 .trailerContainer {
-    width: 500px;
-    height: 300px;
-    margin: auto;
-    background-color: white;
-    color: black;
+	width: 500px;
+	height: 300px;
+	margin: auto;
+	background-color: white;
+	color: black;
 }
 #watchListBtn {
-    padding: 0;
-    border: none;
-    background: none;
-    color: blue;
-    cursor: pointer;
+	padding: 0;
+	border: none;
+	background: none;
+	color: blue;
+	cursor: pointer;
 }
-@media (max-width: 1000px){
-    .movieContainer{
-        grid-template-columns: auto;
-    }
-    #moviePoster {
-        top: 10px;
-        width: 300px;
-        height: 300px;
-        background-color: blue;
-    }
-    .movieDetails {
-        position: absolute;
-    }
+@media (max-width: 1000px) {
+	.movieContainer {
+		grid-template-columns: auto;
+        overflow: scroll;
+	}
+	#moviePoster {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+		width: 350px;
+		height: 450px;
+        margin: auto;
+		background-color: blue;
+	}
 }
-@media (max-width: 600px){
-    .trailerContainer {
-        width: auto;
-        height: 300px;
-        margin: 0;
-    }
+@media (max-width: 600px) {
+	.trailerContainer {
+		width: auto;
+		height: 300px;
+		margin: 0;
+	}
 }
