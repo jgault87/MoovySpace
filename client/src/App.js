@@ -8,7 +8,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Feed from './pages/Feed';
+import Feed from "./pages/Feed";
 import Header from "./components/Header/index";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -92,9 +92,8 @@ export function App() {
                 </>
               }
             />
-             <Route path="/feed" element={<Feed />} />
+            <Route path="/feed" element={<Feed />} />
             <Route path="/me" element={<Profile />} />
-           
             <Route path="/profiles/:username" element={<Profile />} />
           </Routes>
         </Router>
