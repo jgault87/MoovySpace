@@ -13,6 +13,7 @@ export const QUERY_USER = gql`
 				image
 				backdrop
 				trailer
+				createdAt
 			}
 		}
 	}
@@ -31,6 +32,7 @@ export const QUERY_ME = gql`
 				image
 				backdrop
 				trailer
+				createdAt
 			}
 		}
 	}
@@ -48,6 +50,7 @@ export const QUERY_MOVIE_FEED = gql`
 				image
 				backdrop
 				trailer
+				createdAt
 			}
 		}
 	}
