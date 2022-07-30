@@ -21,15 +21,15 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input
-        id="searchBar"
-        value={search}
-        onChange={handleInputChange}
-        placeholder="Search for a movie..."
-      />
-      <button id="searchBtn" onClick={handleFormSubmit}>
-        Search
-      </button>
+      <form onSubmit={handleFormSubmit}>
+        <input
+          id="searchBar"
+          value={search}
+          onChange={handleInputChange}
+          placeholder="Search for a movie..."
+        />
+        <button id="searchBtn">Search</button>
+      </form>
     </div>
   );
 };
