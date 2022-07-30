@@ -16,6 +16,7 @@ const typeDefs = gql`
 		image: String
 		backdrop: String
 		trailer: String
+		createdAt: String
 	}
 
 	input inputMovie {
@@ -25,6 +26,7 @@ const typeDefs = gql`
 		image: String
 		backdrop: String
 		trailer: String
+		createdAt: String
 	}
 
 	type Auth {

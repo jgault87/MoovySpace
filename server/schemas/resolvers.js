@@ -13,7 +13,7 @@ const resolvers = {
 		},
 		movies: async (parent, { username }) => {
 			const params = username ? { username } : {};
-			return Movie.find(params);
+			return Movie.find(params).sort({ createdAt: -1 });
 		},
 		movie: async (parent, { movieId }) => {
 			return Movie.findOne({ _id: movieId });

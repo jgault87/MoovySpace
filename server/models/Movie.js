@@ -1,4 +1,5 @@
 const { Schema } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const movieSchema = new Schema({
 	movieId: {
@@ -25,6 +26,11 @@ const movieSchema = new Schema({
 	trailer: {
 		type: String,
 		required: true
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now,
+		get: (timestamp) => dateFormat(timestamp)
 	}
 });
 
