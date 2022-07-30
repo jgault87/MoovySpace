@@ -1,6 +1,5 @@
 .movieContainer {
 	position: relative;
-	overflow: scroll;
 	width: auto;
 	height: 75vh;
 	margin: 30px;
@@ -41,16 +40,15 @@
 @media (max-width: 1000px) {
 	.movieContainer {
 		grid-template-columns: auto;
-        overflow: scroll;
 	}
 	#moviePoster {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 350px;
 		height: 450px;
-        margin: auto;
+		margin: auto;
 		background-color: blue;
 	}
 }
