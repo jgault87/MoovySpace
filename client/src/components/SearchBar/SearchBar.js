@@ -5,7 +5,6 @@ import { App, AppContext } from "../../App";
 import axios from "axios";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
-
 // Handler for input changes to the search form
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -22,13 +21,16 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input id="searchBar" value={search} onChange={handleInputChange} placeholder="Search for a movie..." />
-      <button id="searchBtn" onClick={handleFormSubmit}>Search</button>
+      <input
+        id="searchBar"
+        value={search}
+        onChange={handleInputChange}
+        placeholder="Search for a movie..."
+      />
+      <button id="searchBtn" onClick={handleFormSubmit}>
+        Search
+      </button>
     </div>
-
-
-  
-
   );
 };
 
