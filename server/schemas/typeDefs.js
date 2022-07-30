@@ -14,6 +14,7 @@ const typeDefs = gql`
 		title: String
 		description: String
 		image: String
+		backdrop: String
 		trailer: String
 	}
 
@@ -22,6 +23,7 @@ const typeDefs = gql`
 		title: String
 		description: String
 		image: String
+		backdrop: String
 		trailer: String
 	}
 
