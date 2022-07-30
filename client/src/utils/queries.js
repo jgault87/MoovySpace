@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -11,6 +11,7 @@ export const QUERY_USER = gql`
         title
         description
         image
+        backdrop
         trailer
       }
     }
@@ -28,10 +29,12 @@ export const QUERY_ME = gql`
         title
         description
         image
+        backdrop
         trailer
       }
     }
   }
+
 `;
 
 export const QUERY_MOVIE_FEED = gql`
@@ -44,6 +47,8 @@ export const QUERY_MOVIE_FEED = gql`
         title
         description
         image
+        backdrop
+        trailer
       }
     }
   }

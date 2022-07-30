@@ -1,13 +1,42 @@
-header {
-    position: relative;
-    width: 100vw;
-    height: 100px;
-    background-color: rgb(255, 0, 0);
-}
-.searchBar {
-    display: block;
+#profilePictureContainer {
+    display: inline-block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
     margin: 0 auto;
-    margin-top: 15px;
-    width: 80%;
-    height: auto;
+    margin-top: 10px;
+    color: white;
+}
+#profilePictureContainer:before {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 40px;
+    background-color: #1b2845;
+    background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+    transition: 500ms;
+}
+#profilePictureContainer:hover {
+    background-position: right;
+}
+#profilePictureContainer:hover:before {
+    color: rgba(255,255,255,0.8);
+}
+#profilePictureContainer:focus {
+    outline: none;
 }
