@@ -1,74 +1,76 @@
 #profilePictureContainer {
-    display: inline-block;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    border: none;
-    background-color: #7f5a83;
-    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
-    background-size: 200% 100%;
-    background-position: left;
-    background-repeat: no-repeat;
-    transition: 500ms;
-    margin: 0 auto;
-    margin-top: 10px;
+	display: inline-block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
+	border: none;
+	background-color: #7f5a83;
+	background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+	background-size: 200% 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	transition: 500ms;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 #profilePictureContainer:before {
-    color: rgba(255,255,255,0.5);
-    font-size: 16px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 140px;
-    height: 40px;
-    background-color: #1b2845;
-    background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
-    transition: var(--transition)
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 16px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 140px;
+	height: 40px;
+	background-color: #1b2845;
+	background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+	transition: var(--transition);
 }
 #profilePictureContainer:hover {
-    background-position: right;
+	background-position: right;
 }
 #profilePictureContainer:hover:before {
-    color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 }
 #profilePictureContainer:focus {
-    outline: none;
+	outline: none;
 }
 
-.profileLinks{
-    position: relative;
-    right: 20px;
-    cursor: pointer;
-    color: var(--color-primary);
-    font-size: 16px;
+.profileLinks {
+	position: relative;
+	right: 20px;
+	cursor: pointer;
+	color: var(--color-primary);
+	font-size: 16px;
 }
 #logoutLink {
-    padding: 0;
-    border: none;
-    background: none;
+	padding: 0;
+	border: none;
+	background: none;
 }
-  
+
 .slide {
-    position: absolute;
-    top: 80px;
-    display: block;
-    clear:both;
-    width:100%;
-    height:0px;
-    overflow:scroll;
-    text-align:right;
-    transition: height .7s ease;
+	position: absolute;
+	top: 80px;
+	display: block;
+	clear: both;
+	width: 100%;
+	height: 0px;
+	overflow: hidden;
+	text-align: right;
+	transition: height 0.7s ease;
 }
 
 #touch {
-    position: absolute; opacity: 0; height: 0px;
-}    
-  
+	position: absolute;
+	opacity: 0;
+	height: 0px;
+}
+
 #touch:checked + .slide {
-    height: 140px;
+	height: 140px;
 }

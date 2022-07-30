@@ -153,6 +153,7 @@ a:hover {
 .carousel {
 	background-color: gainsboro;
 	color: #011034;
+	margin-inline: 20px;
 }
 
 @media screen and (max-width: 600px) {
