@@ -8,7 +8,7 @@
     border: none;
     border-bottom: 1px solid #f8f4f4;
     color: var(--color-light);
-    font-size: larger;
+    font-size: large;
     text-align: center;
 }
 #searchBtn {
