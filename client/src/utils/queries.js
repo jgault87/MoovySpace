@@ -34,10 +34,6 @@ export const QUERY_ME = gql`
       }
     }
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 178111fa82fb1751f118fbeb262e45e67becc9ca
 `;
 
 export const QUERY_MOVIE_FEED = gql`
