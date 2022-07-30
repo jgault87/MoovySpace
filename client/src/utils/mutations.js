@@ -36,6 +36,7 @@ export const SAVE_MOVIE = gql`
 				image
 				backdrop
 				trailer
+				createdAt
 			}
 		}
 	}
@@ -53,6 +54,7 @@ export const REMOVE_MOVIE = gql`
 				image
 				backdrop
 				trailer
+				createdAt
 			}
 		}
 	}
