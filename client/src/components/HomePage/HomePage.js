@@ -39,9 +39,6 @@ const HomePage = () => {
 
       <div className="split right">
         <div className="centered">
-          {/* <img src='img_avatar.png' alt='login' /> */}
-          {/* <h2>Login Form</h2>
-          <p>it's working but needs styling</p> */}
           <div>
             {Auth.loggedIn() ? (
               <>
