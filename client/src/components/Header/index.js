@@ -1,15 +1,12 @@
-import React from "react";
-import { useState } from 'react'
-import { Link } from "react-router-dom";
-import "./header.css";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SearchBar from "../SearchBar/SearchBar";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './header.css';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SearchBar from '../SearchBar/SearchBar';
 
-
-import Auth from "../../utils/auth";
+import Auth from '../../utils/auth';
 
 const Header = () => {
-
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -19,26 +16,54 @@ const Header = () => {
       <SearchBar />
       {Auth.loggedIn() ? (
         <div>
-          <label for="touch"><span> <AccountCircleIcon id="profilePictureContainer" /> </span></label>
-          <input type="checkbox" id="touch" />
-          <ul className="slide">
+          <label for='touch'>
+            <span>
+              {' '}
+              <AccountCircleIcon id='profilePictureContainer' />{' '}
+            </span>
+          </label>
+          <input type='checkbox' id='touch' />
+          <ul className='slide'>
             <li>
-              <Link className="profileLinks" to="/me"> Profile </Link></li>
+              <Link className='profileLinks' to='/me'>
+                {' '}
+                Profile{' '}
+              </Link>
+            </li>
             <li>
-              <button type="button" className="profileLinks" id="logoutLink" onClick={logout}> Logout </button>
+              <button
+                type='button'
+                className='profileLinks'
+                id='logoutLink'
+                onClick={logout}
+              >
+                {' '}
+                Logout{' '}
+              </button>
             </li>
           </ul>
         </div>
       ) : (
         <div>
-          <label for="touch"><span> <AccountCircleIcon id="profilePictureContainer" /> </span></label>
-          <input type="checkbox" id="touch" />
-          <ul className="slide">
+          <label for='touch'>
+            <span>
+              {' '}
+              <AccountCircleIcon id='profilePictureContainer' />{' '}
+            </span>
+          </label>
+          <input type='checkbox' id='touch' />
+          <ul className='slide'>
             <li>
-              <Link className="profileLinks" to="/login"> Login </Link>
+              <Link className='profileLinks' to='/login'>
+                {' '}
+                Login{' '}
+              </Link>
             </li>
             <li>
-              <Link className="profileLinks" to="/signup"> Signup </Link>
+              <Link className='profileLinks' to='/signup'>
+                {' '}
+                Signup{' '}
+              </Link>
             </li>
           </ul>
         </div>
@@ -48,4 +73,3 @@ const Header = () => {
 };
 
 export default Header;
-
