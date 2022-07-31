@@ -8,8 +8,6 @@ const Home = () => {
   const searchContext = useContext(AppContext);
   let posterImage =
     "https://image.tmdb.org/t/p/w500" + searchContext.details.backdrop_path;
-  let trailerLink =
-    "https://www.youtube.com/watch?v=" + searchContext.trailer.key;
   let trailerEmbed = searchContext.trailer.key;
 
   return (
