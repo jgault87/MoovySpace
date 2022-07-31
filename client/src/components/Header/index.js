@@ -31,11 +31,13 @@ const Header = () => {
               </Link>
             </li>
             <li>
+            {/* Take back to welcome page */}
               <button
                 type='button'
                 className='profileLinks'
                 id='logoutLink'
                 onClick={logout}
+                
               >
                 {' '}
                 Logout{' '}
@@ -54,13 +56,13 @@ const Header = () => {
           <input type='checkbox' id='touch' />
           <ul className='slide'>
             <li>
-              <Link className='profileLinks' to='/login'>
+              <Link className='profileLinks' to='/'>
                 {' '}
                 Login{' '}
               </Link>
             </li>
             <li>
-              <Link className='profileLinks' to='/signup'>
+              <Link className='profileLinks' to='/'>
                 {' '}
                 Signup{' '}
               </Link>
