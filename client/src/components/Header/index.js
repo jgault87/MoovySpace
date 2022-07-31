@@ -18,16 +18,16 @@ const Header = () => {
         <div>
           <label>
             <span>
-              {" "}
-              <AccountCircleIcon id="profilePictureContainer" />{" "}
+              
+              <AccountCircleIcon id="profilePictureContainer" />
             </span>
           </label>
           <input type="checkbox" id="touch" />
           <ul className="slide">
             <li>
               <Link className="profileLinks" to="/me">
-                {" "}
-                Profile{" "}
+                
+                Profile
               </Link>
             </li>
             <li>
@@ -39,8 +39,8 @@ const Header = () => {
                 onClick={logout}
                 
               >
-                {" "}
-                Logout{" "}
+                
+                Logout
               </button>
             </li>
           </ul>
@@ -49,7 +49,7 @@ const Header = () => {
         <div>
           <label>
             <span>
-              {" "}
+              
               <AccountCircleIcon id="profilePictureContainer" />{" "}
             </span>
           </label>
@@ -57,14 +57,13 @@ const Header = () => {
           <ul className="slide">
             <li>
               <Link className='profileLinks' to='/'>
-                {' '}
-                Login{' '}
+                
+                Login
               </Link>
             </li>
             <li>
               <Link className='profileLinks' to='/'>
-                {' '}
-                Signup{' '}
+                Signup
               </Link>
             </li>
           </ul>

@@ -51,3 +51,10 @@
 #searchBtn:focus {
     outline: none;
 }
+@media (max-width: 510px) {
+    #searchBar{
+        font-size: smaller;
+        width: 80%;
+        transition: all 1s ;
+    }
+}
