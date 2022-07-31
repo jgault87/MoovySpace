@@ -49,7 +49,6 @@ export function App() {
 
   // Get movie & trailer data from API
   const searchMovie = (query) => {
-    console.log(API_KEY);
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`

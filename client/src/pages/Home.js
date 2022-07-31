@@ -9,8 +9,6 @@ const Home = () => {
   let posterImage =
     "https://image.tmdb.org/t/p/w500" + searchContext.details.poster_path;
 
-  console.log(searchContext.details);
-
   return (
     <main className="movieContainer">
       <div id="moviePoster">
