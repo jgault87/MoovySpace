@@ -56,7 +56,6 @@ export function App() {
       )
       .then((response) => {
         setDetails(response.data.results[0]);
-        console.log(response.data.results[0]);
         return response.data;
       })
       .then((response) => {
@@ -66,7 +65,6 @@ export function App() {
           )
           .then((responseTwo) => {
             setTrailer(responseTwo.data.results[0]);
-            console.log(responseTwo.data);
           });
       });
   };
