@@ -65,7 +65,7 @@ export function App() {
             `https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
           )
           .then((responseTwo) => {
-            setTrailer(responseTwo.data);
+            setTrailer(responseTwo.data.results[0]);
             console.log(responseTwo.data);
           });
       });

@@ -1,25 +1,28 @@
 import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { App, AppContext } from "../App";
-import './mainPage.css'
+import "./mainPage.css";
 
 // div for the movie title, placing here for format reasons
-// <div>{searchContext.details.title}</div> 
+// <div>{searchContext.details.title}</div>
 
 const Home = () => {
   const searchContext = useContext(AppContext);
+  let posterImage =
+    "https://image.tmdb.org/t/p/w500" + searchContext.details.backdrop_path;
+  let trailerLink =
+    "https://www.youtube.com/watch?v=" + searchContext.trailer.key;
 
   return (
-    <main className="movieContainer" >
+    <main className="movieContainer">
       <div id="moviePoster">
-        {/* Movie Poster Here */}
+        <img src={posterImage} alt="Movie Poster" />
       </div>
       <div className="movieDetails">
-        {/* <div>{searchContext.details.title}</div> */}
-        <h1>Title Here</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1>{searchContext.details.title}</h1>
+        <p>{searchContext.details.overview}</p>
         <div className="trailerContainer">
-          {/* Trailer Here */}
+          {trailerLink}
           <p>Trailer</p>
         </div>
         <button id="watchListBtn">Add to watch list</button>
@@ -27,6 +30,5 @@ const Home = () => {
     </main>
   );
 };
-
 
 export default Home;
