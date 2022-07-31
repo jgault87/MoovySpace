@@ -74,3 +74,9 @@
 #touch:checked + .slide {
 	height: 140px;
 }
+@media (max-width: 510px) {
+	#profilePictureContainer{
+		right: 0px;
+		float:right;
+	}
+}

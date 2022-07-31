@@ -18,7 +18,7 @@ const Home = () => {
         <h1>{searchContext.details.title}</h1>
         <p>{searchContext.details.overview}</p>
         <div className="trailerContainer">
-          <Trailer embedId={searchContext.trailer.key} />
+          <Trailer className="trailer" embedId={searchContext.trailer.key} />
         </div>
         <button id="watchListBtn">Add to watch list</button>
       </div>
