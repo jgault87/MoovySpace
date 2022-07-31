@@ -8,7 +8,6 @@ const Home = () => {
   const searchContext = useContext(AppContext);
   let posterImage =
     "https://image.tmdb.org/t/p/w500" + searchContext.details.poster_path;
-  let trailerEmbed = searchContext.trailer.key;
 
   console.log(searchContext.details);
 
@@ -21,8 +20,7 @@ const Home = () => {
         <h1>{searchContext.details.title}</h1>
         <p>{searchContext.details.overview}</p>
         <div className="trailerContainer">
-          <Trailer embedId={trailerEmbed} />
-          {/* <p>Trailer</p> */}
+          <Trailer embedId={searchContext.trailer.key} />
         </div>
         <button id="watchListBtn">Add to watch list</button>
       </div>
