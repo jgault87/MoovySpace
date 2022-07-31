@@ -42,30 +42,27 @@ export function App() {
 	const [details, setDetails] = useState([]);
 	const [trailer, setTrailer] = useState([]);
 
-	// Get movie & trailer data from API
-	const searchMovie = (query) => {
-		// console.log(API_KEY);
-		axios
-			.get(
-				`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
-			)
-			.then((response) => {
-				setDetails(response.data.results[0]);
-				// console.log(response.data.results[0]);
-				return response.data;
-			})
-			.then((response) => {
-				axios
-					.get(
-						`https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
-					)
-					.then((responseTwo) => {
-						setTrailer(responseTwo.data);
-						// console.log(responseTwo.data);
-					});
-			});
-	};
-
+  // Get movie & trailer data from API
+  const searchMovie = (query) => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+      )
+      .then((response) => {
+        setDetails(response.data.results[0]);
+        return response.data;
+      })
+      .then((response) => {
+        axios
+          .get(
+            `https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
+          )
+          .then((responseTwo) => {
+            setTrailer(responseTwo.data.results[0]);
+          });
+      });
+  };
+  
 	const globalState = {
 		details: details,
 		trailer: trailer,
