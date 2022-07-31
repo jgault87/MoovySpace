@@ -1,3 +1,4 @@
+
 img {
     width:300px;
     height:450px;
@@ -30,8 +31,10 @@ img {
 	width: 500px;
 	height: 300px;
 	margin: auto;
-	background-color: white;
-	color: black;
+}
+.trailer {
+	width: 500px;
+	height: 300px;
 }
 #watchListBtn {
 	padding: 0;
@@ -57,9 +60,6 @@ img {
 	}
 }
 @media (max-width: 600px) {
-	#moviePoster {
-		width: auto;
-	}
 	.trailerContainer {
 		width: auto;
 		height: 300px;
