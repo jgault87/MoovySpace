@@ -75,8 +75,8 @@
 	height: 140px;
 }
 @media (max-width: 510px) {
-	#profilePictureContainer{
+	#profilePictureContainer {
 		right: 0px;
-		float:right;
+		float: right;
 	}
 }
