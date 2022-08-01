@@ -69,6 +69,10 @@ export function App() {
       });
   };
 
+  useEffect(() => {
+    searchMovie("Kill Bill");
+  }, []);
+
   const globalState = {
     details: details,
     trailer: trailer,
