@@ -7,14 +7,19 @@ const feedStyles = {
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
-    gridTemplateColumns: '1fr 1fr'
+    gridTemplateColumns: '1fr 1fr 1fr',
+    
   },
   gridItem: {
+    display: 'grid',
     position: 'relative',
     backgroundColor: 'var(--color-primary-variant)',
-    justifyContent: 'center',
+    justifyItems: 'center',
+    alignItems: 'center',
     padding: '1rem',
     borderRadius: '1rem',
+    
+    
   },
   gridImage: {
     borderRadius: '.5rem',
