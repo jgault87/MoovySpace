@@ -7,6 +7,7 @@ const feedStyles = {
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
+    gridTemplateColumns: '1fr 1fr'
   },
   gridItem: {
     position: 'relative',
@@ -17,6 +18,10 @@ const feedStyles = {
   },
   gridImage: {
     borderRadius: '.5rem',
+    border: '1px solid #ddd',
+    padding: '5px',
+    maxWidth: '50%',
+    height: 'auto',
     
   }
 };
@@ -36,16 +41,17 @@ const Feed = () => {
           users.map((user) => (
             <div style={feedStyles.gridItem} key={user._id}>
               <h4>
-                {user.username} recently saved {user.savedMovies.length} movies
+                {user.username} recently saved <strong>{user.savedMovies[0].title}</strong> and {user.savedMovies.length} other movies
                 to their collection
               </h4>
-
-              <h4>{user.savedMovies[0].title}</h4>
               <img
                 style={feedStyles.gridImage}
                 src={`https://image.tmdb.org/t/p/w300${user.savedMovies[0].image}`}
                 alt={user.savedMovies[0].title}
               />
+
+              <h4>{user.savedMovies[0].title}</h4>
+              
               {/* <p>{user.savedMovies[0].description} </p> */}
 
               <p>
