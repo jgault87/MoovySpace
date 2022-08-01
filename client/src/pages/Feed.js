@@ -20,7 +20,7 @@ const Feed = () => {
             <p>{user.savedMovies.length} Movies added to collection</p>
             <p>{user.savedMovies[0].title} Saved Movies</p>
             <p>{user.savedMovies[0].description} Saved Movies</p>
-            <img src={`https://image.tmdb.org/t/p/w300/${user.savedMovies[0].image}`} alt={user.savedMovies[0].title}  /> 
+            <img src={`https://image.tmdb.org/t/p/w300${user.savedMovies[0].image}`} alt={user.savedMovies[0].title}  /> 
             <p><a href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`} > Backdrop </a> </p>
             <p>{user.savedMovies[0].trailer} </p>
             <p>{user.savedMovies[0].createdAt} </p> 
