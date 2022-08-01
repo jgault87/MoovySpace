@@ -20,8 +20,7 @@ const movieSchema = new Schema({
 		required: true
 	},
 	backdrop: {
-		type: String,
-		required: true
+		type: String
 	},
 	trailer: {
 		type: String,
