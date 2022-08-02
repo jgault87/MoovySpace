@@ -70,6 +70,22 @@ const resolvers = {
 
 			throw new AuthenticationError('You need to be logged in!');
 		},
+		// Like movie mutation
+		likeMovie: async (parent, { movie }, context) => {
+			if (context.user) {
+				return User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{
+						$addToSet: {
+							likedMovies: movie
+						}
+					},
+					{
+						new: true
+					}
+				);
+			}
+		},
 		// Remove movie mutation
 		removeMovie: async (parent, { movieId }, context) => {
 			if (context.user) {
