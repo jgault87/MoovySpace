@@ -13,7 +13,7 @@ import Header from "./components/Header/index";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
-import LikedMovies from "./components/LikedMovies"
+import FavoriteMovies from "./components/FavoriteMovies/"
 import SearchBar from "./components/SearchBar/SearchBar"
 
 import axios from "axios";
@@ -100,10 +100,10 @@ export function App() {
             <Route path="/feed" element={<Feed />} />
             <Route path="/me" element={<><Header /><Profile /></>} />
             <Route path="/profiles/:username" element={<Profile />} />
-            <Route path="/likedMovies" element={
+            <Route path="/FavoriteMovies" element={
             <>
               <Header />
-              <LikedMovies />
+              <FavoriteMovies />
             </>
             } 
           />

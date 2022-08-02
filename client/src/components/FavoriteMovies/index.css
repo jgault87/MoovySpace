@@ -1,15 +1,3 @@
-.carBackDrop {
-    background-color: #30a9e0;
-}
-  
-  .coffeeBackDrop {
-    background-color: #ba7b50;
-}
-  
-.passwordBackDrop {
-    background-color: #1e0f2d;
-}
-  
 input[type=radio] {
     display: none;
 }
@@ -26,6 +14,9 @@ input[type=radio] {
     justify-content: center;
     -webkit-transition: background .4s ease-in;
     transition: background .4s ease-in;
+    position: absolute;
+    top: 0px;
+    left: 300px;
 }
   
 .card {

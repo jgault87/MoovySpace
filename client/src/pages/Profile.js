@@ -55,9 +55,9 @@ const Profile = () => {
 				{!userParam && (
 					<div className="profileContainer">
 						<div className="sidebar">
-							<Link to="/likedMovies">Liked Movies</Link>
+							<Link to="/FavoriteMovies">Favorite Movies</Link>
 							<button>Saved Movies</button>
-							<button>Recommended Movies</button>
+							<button>Liked Movies</button>
 						</div>
 						<div className="carousel">
 							{user.savedMovies.map((movie) => {

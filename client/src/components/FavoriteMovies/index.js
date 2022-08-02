@@ -5,7 +5,7 @@ import project3 from '../../testMoviePosters/test3.jpg'
 import Profile from "../../pages/Profile"
 import './index.css'
 
-function likedMovies() {
+function FavoriteMovies() {
     return (
         <main>
             <Profile />
@@ -61,4 +61,4 @@ function likedMovies() {
     )
 }
 
-export default likedMovies;
+export default FavoriteMovies;
