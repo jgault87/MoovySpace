@@ -88,7 +88,7 @@ export function App() {
 						<Route path="/feed" element={<Feed />} />
 						<Route path="/me" element={<Profile />} />
 						<Route path="/profiles/:username" element={<Profile />} />
-						
+					</Routes>
 				</Router>
 			</ApolloProvider>
 		</AppContext.Provider>

@@ -18,7 +18,6 @@ const Header = () => {
         <div>
           <label>
             <span>
-              
               <AccountCircleIcon id="profilePictureContainer" />
             </span>
           </label>
