@@ -108,6 +108,8 @@ input[type=radio] {
     border-radius: 8px;
     min-width: 260px;
     padding: 16px 10px;
+    position: relative;
+    top: 400px;
 }
   
 .upperpart {

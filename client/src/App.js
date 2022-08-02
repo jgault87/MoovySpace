@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
 import LikedMovies from "./components/LikedMovies"
+import SearchBar from "./components/SearchBar/SearchBar"
 
 import axios from "axios";
 export const AppContext = React.createContext();
@@ -90,15 +91,22 @@ export function App() {
               path="/home"
               element={
                 <>
+                  <SearchBar />
                   <Header />
                   <Home />
                 </>
               }
             />
             <Route path="/feed" element={<Feed />} />
-            <Route path="/me" element={<Profile />} />
+            <Route path="/me" element={<><Header /><Profile /></>} />
             <Route path="/profiles/:username" element={<Profile />} />
-            <Route path="/likedMovies" element={<LikedMovies />} />
+            <Route path="/likedMovies" element={
+            <>
+              <Header />
+              <LikedMovies />
+            </>
+            } 
+          />
           </Routes>
         </Router>
       </ApolloProvider>
