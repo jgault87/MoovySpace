@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -54,7 +55,7 @@ const Profile = () => {
 				{!userParam && (
 					<div className="profileContainer">
 						<div className="sidebar">
-							<button>Liked Movies</button>
+							<Link to="/likedMovies">Liked Movies</Link>
 							<button>Saved Movies</button>
 							<button>Recommended Movies</button>
 						</div>

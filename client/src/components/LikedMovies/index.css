@@ -1,0 +1,184 @@
+.carBackDrop {
+    background-color: #30a9e0;
+}
+  
+  .coffeeBackDrop {
+    background-color: #ba7b50;
+}
+  
+.passwordBackDrop {
+    background-color: #1e0f2d;
+}
+  
+input[type=radio] {
+    display: none;
+}
+  
+.projectSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: background .4s ease-in;
+    transition: background .4s ease-in;
+}
+  
+.card {
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease, -webkit-transform .4s ease;
+    cursor: pointer;
+}
+  
+.container {
+    width: 100%;
+    max-width: 780px;
+    max-height: 600px;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+  
+.cards {
+    position: relative;
+    width: 95%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+  
+#item1:checked ~ .cards #project3, #item2:checked ~ .cards #project1, #item3:checked ~ .cards #project2 {
+    -webkit-transform: translatex(-50%) scale(0.8);
+    transform: translatex(-50%) scale(0.8);
+    opacity: .4;
+    z-index: 0;
+    -webkit-transition: .5s ease-in;
+    transition: .5s ease-in;
+}
+  
+#item1:checked ~ .cards #project2, #item2:checked ~ .cards #project3, #item3:checked ~ .cards #project1 {
+    -webkit-transform: translatex(50%) scale(0.8);
+    transform: translatex(50%) scale(0.8);
+    opacity: .4;
+    z-index: 0;
+    -webkit-transition: .5s ease-in;
+    transition: .5s ease-in;
+}
+  
+  #item1:checked ~ .cards #project1, #item2:checked ~ .cards #project2, #item3:checked ~ .cards #project3 {
+    -webkit-transform: translatex(0) scale(1);
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+    -webkit-transition: .5s ease-in;
+    transition: .5s ease-in;
+}
+  
+  #item1:checked ~ .cards #project1 img, #item2:checked ~ .cards #project2 img, #item3:checked ~ .cards #project3 img {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+}
+  
+.infoContainer {
+    background-color: #fff;
+    border-radius: 8px;
+    min-width: 260px;
+    padding: 16px 10px;
+}
+  
+.upperpart {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 12px;
+    height: 36px;
+    overflow: hidden;
+}
+  
+.projectinfo {
+    width: calc(100% - 32px);
+    display: block;
+}
+  
+.projectinfo .title {
+    color: #403d40;
+    font-size: 14px;
+    line-height: 24px;
+}
+.subline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+}
+  
+.liveLink {
+    font-size: 12px;
+    line-height: 8px;
+}
+  
+.githubIcon {
+    position: relative;
+    top: -5px;
+    line-height: 16px;
+    color: #a5a5a5;
+    margin-left: auto;
+    margin-bottom: 0px;
+}
+  
+.infoarea {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    -webkit-transition: -webkit-transform .4s ease-in;
+    transition: -webkit-transform .4s ease-in;
+    transition: transform .4s ease-in;
+    transition: transform .4s ease-in, -webkit-transform .4s ease-in;
+}
+  
+#item1:checked ~ .infoContainer #test {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+  
+#item2:checked ~ .infoContainer #test {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+}
+  
+#item3:checked ~ .infoContainer #test {
+    -webkit-transform: translateY(-80px);
+    transform: translateY(-80px);
+}
