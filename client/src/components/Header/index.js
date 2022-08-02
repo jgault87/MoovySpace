@@ -24,7 +24,7 @@ const Header = () => {
 					<input type="checkbox" id="touch" />
 					<ul className="slide">
 						<li>
-							<Link className="profileLinks" to="/me">
+							<Link className="profileLinks" to="/profile">
 								Profile
 							</Link>
 						</li>

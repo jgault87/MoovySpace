@@ -1,4 +1,5 @@
 import React from 'react';
+import VideocamIcon from '@mui/icons-material/Videocam';
 import project1 from '../../testMoviePosters/test1.jpg'
 import project2 from '../../testMoviePosters/test2.jpg'
 import project3 from '../../testMoviePosters/test3.jpg'
@@ -32,24 +33,27 @@ function FavoriteMovies() {
                         <div className="upperpart">
                             <div className="infoarea" id="test">
                                 <label className="projectinfo" id="projectinfo1">
-                                    <div className="title">PWA Text Editor</div>
+                                    <div className="title">Jack Ass</div>
                                     <div className="subline">
                                         <div className="liveLink"><a href="https://fierce-castle-22192.herokuapp.com/"
                                             target="_blank" rel="noreferrer">Live Link Here</a></div>
+                                        <a className="cameraIcon" href="https://github.com/Noah8863/PWA-Text-Editor" target="_blank" rel="noreferrer"><VideocamIcon /></a>
                                     </div>
                                 </label>
                                 <label className="projectinfo" id="projectinfo2">
-                                    <div className="title">Coffee and Book Finder</div>
+                                    <div className="title">Napoleon Dynamite</div>
                                     <div className="subline">
                                         <div className="liveLink"><a href="https://noah8863.github.io/Coffee-and-Book-Finder/"
                                             target="_blank" rel="noreferrer">Live Link Here</a></div>
+                                        <a className="cameraIcon" href="https://github.com/Noah8863/PWA-Text-Editor" target="_blank" rel="noreferrer"><VideocamIcon /></a>
                                     </div>
                                 </label>
                                 <label className="projectinfo" id="projectinfo3">
-                                    <div className="title">Password Generator</div>
+                                    <div className="title">Interstellar</div>
                                     <div className="subline">
                                         <div className="liveLink"><a href="https://noah8863.github.io/Password-Generator/"
                                             target="_blank" rel="noreferrer">Live Link Here</a></div>
+                                        <a className="cameraIcon" href="https://github.com/Noah8863/PWA-Text-Editor" target="_blank" rel="noreferrer"><VideocamIcon /></a>
                                     </div>
                                 </label>
                             </div>

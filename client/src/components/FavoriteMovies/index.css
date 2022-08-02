@@ -6,17 +6,15 @@ input[type=radio] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
     -webkit-transition: background .4s ease-in;
     transition: background .4s ease-in;
-    position: absolute;
-    top: 0px;
-    left: 300px;
 }
   
 .card {
@@ -59,7 +57,7 @@ input[type=radio] {
     position: relative;
     width: 95%;
     height: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
   
 #item1:checked ~ .cards #project3, #item2:checked ~ .cards #project1, #item3:checked ~ .cards #project2 {
@@ -100,7 +98,9 @@ input[type=radio] {
     min-width: 260px;
     padding: 16px 10px;
     position: relative;
-    top: 400px;
+    display:block;
+    top: 450px;
+    justify-content:center;
 }
   
 .upperpart {
@@ -141,9 +141,9 @@ input[type=radio] {
     line-height: 8px;
 }
   
-.githubIcon {
+.cameraIcon {
     position: relative;
-    top: -5px;
+    top: -15px;
     line-height: 16px;
     color: #a5a5a5;
     margin-left: auto;
@@ -167,11 +167,11 @@ input[type=radio] {
 }
   
 #item2:checked ~ .infoContainer #test {
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
+    -webkit-transform: translateY(-60px);
+    transform: translateY(-50px);
 }
   
 #item3:checked ~ .infoContainer #test {
-    -webkit-transform: translateY(-80px);
-    transform: translateY(-80px);
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
 }

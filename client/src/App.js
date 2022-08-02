@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
 import FavoriteMovies from "./components/FavoriteMovies/"
+import LikedMovies from "./components/LikedMovies/"
 import SearchBar from "./components/SearchBar/SearchBar"
 
 import axios from "axios";
@@ -98,7 +99,7 @@ export function App() {
               }
             />
             <Route path="/feed" element={<Feed />} />
-            <Route path="/me" element={<><Header /><Profile /></>} />
+            <Route path="/profile" element={<><Header /><Profile/></>} />
             <Route path="/profiles/:username" element={<Profile />} />
             <Route path="/FavoriteMovies" element={
             <>
@@ -107,6 +108,7 @@ export function App() {
             </>
             } 
           />
+          <Route path="/LikedMovies" element={<LikedMovies />} />
           </Routes>
         </Router>
       </ApolloProvider>

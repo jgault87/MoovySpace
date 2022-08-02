@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
+import FavoriteMovies from '../components/FavoriteMovies'
 
 const Profile = () => {
 	// const [savedMovies, setSavedMovies] = useState([])
@@ -30,7 +31,7 @@ const Profile = () => {
 
 	// navigate to personal profile page if username is yours
 	if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-		return <Navigate to="/me" />;
+		return <Navigate to="/profile" />;
 	}
 
 	if (loading) {
@@ -56,7 +57,7 @@ const Profile = () => {
 					<div className="profileContainer">
 						<div className="sidebar">
 							<Link to="/FavoriteMovies">Favorite Movies</Link>
-							<button>Saved Movies</button>
+							<Link to="/LikedMovies">Liked Movies</Link>
 							<button>Liked Movies</button>
 						</div>
 						<div className="carousel">
@@ -74,9 +75,12 @@ const Profile = () => {
 									</div>
 								);
 							})}
+							
 						</div>
 					</div>
+					
 				)}
+				
 			</div>
 		</div>
 	);
