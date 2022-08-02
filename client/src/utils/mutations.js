@@ -42,6 +42,24 @@ export const SAVE_MOVIE = gql`
 	}
 `;
 
+export const LIKE_MOVIE = gql`
+	mutation likeMovie($movie: inputMovie!) {
+		likeMovie(movie: $movie) {
+			username
+			email
+			likedMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+		}
+	}
+`;
+
 export const REMOVE_MOVIE = gql`
 	mutation removeMovie($movieId: Int!) {
 		removeMovie(movieId: $movieId) {
