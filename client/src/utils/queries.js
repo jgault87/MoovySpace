@@ -15,6 +15,24 @@ export const QUERY_USER = gql`
         trailer
         createdAt
       }
+      likedMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+        createdAt
+      }
+      favoriteMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+        createdAt
+      }
     }
   }
 `;
@@ -26,6 +44,24 @@ export const QUERY_ME = gql`
       username
       email
       savedMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+        createdAt
+      }
+      likedMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+        createdAt
+      }
+      favoriteMovies {
         movieId
         title
         description

@@ -59,6 +59,23 @@ export const LIKE_MOVIE = gql`
 		}
 	}
 `;
+export const FAVORITE_MOVIE = gql`
+	mutation favoriteMovie($movie: inputMovie!) {
+		favoriteMovie(movie: $movie) {
+			username
+			email
+			favoriteMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+		}
+	}
+`;
 
 export const REMOVE_MOVIE = gql`
 	mutation removeMovie($movieId: Int!) {
@@ -77,3 +94,38 @@ export const REMOVE_MOVIE = gql`
 		}
 	}
 `;
+export const UNLIKE_MOVIE = gql`
+	mutation unlikeMovie($movieId: Int!) {
+		unlikeMovie(movieId: $movieId) {
+			username
+			email
+			likedMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+		}
+	}
+`;
+export const UNFAVORITE_MOVIE = gql`
+	mutation unfavoriteMovie($movieId: Int!) {
+		unfavoriteMovie(movieId: $movieId) {
+			username
+			email
+			favoriteMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+		}
+	}
+`;
+

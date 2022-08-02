@@ -9,7 +9,7 @@ const resolvers = {
 			return User.find().populate('savedMovies');
 		},
 		user: async (parent, { username }) => {
-			return User.findOne({ username }).populate('savedMovies');
+			return await User.findOne({ username }).populate('savedMovies').populate('likedMoves').populated('favoriteMovies');
 		},
 		movies: async (parent, { username }) => {
 			const params = username ? { username } : {};
@@ -20,7 +20,7 @@ const resolvers = {
 		},
 		me: async (parent, args, context) => {
 			if (context.user) {
-				return User.findOne({ _id: context.user._id }).populate('savedMovies');
+				return await User.findOne({ _id: context.user._id }).populate('savedMovies').populate('likedMovies').populate('favoriteMovies');
 			}
 			throw new AuthenticationError('You need to be logged in!');
 		}
@@ -86,7 +86,23 @@ const resolvers = {
 				);
 			}
 		},
-		// Remove movie mutation
+		//Favorite movie mutation
+		favoriteMovie: async (parent, { movie }, context) => {
+			if (context.user) {
+				return User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{
+						$addToSet: {
+							favoriteMovies: movie
+						}
+					},
+					{
+						new: true
+					}
+				);
+			}
+		},
+		// Remove saved movie mutation
 		removeMovie: async (parent, { movieId }, context) => {
 			if (context.user) {
 				return User.findOneAndUpdate(
@@ -99,8 +115,35 @@ const resolvers = {
 			}
 
 			throw new AuthenticationError('You need to be logged in!');
-		}
+		},
+		//remove liked Movie
+		unlikeMovie: async (parent, { movieId }, context) => {
+			if (context.user) {
+				return User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{
+						$pull: { likedMovies: { movieId: movieId } }
+					},
+					{ new: true }
+				);
+			}
+			throw new AuthenticationError('You need to be logged in!');
+		},
+		//remove favorite Movies
+		unfavoriteMovie: async (parent, { movieId }, context) => {
+			if (context.user) {
+				return User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{
+						$pull: { favoriteMovies: { movieId: movieId } }
+					},
+					{ new: true }
+				);
+			}
+			throw new AuthenticationError('You need to be logged in!');
+		},
 	}
+
 };
 
 module.exports = resolvers;
