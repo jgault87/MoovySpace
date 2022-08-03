@@ -48,9 +48,13 @@
 
   .login {
     margin: 5%;
+    /* display: none; */
   }
 
-  .signUp {
-    margin: auto;
-    padding: auto;
+  .signUpOne {
+    margin: 3%;
+  }
+
+  .toggle {
+    display: none;
   }

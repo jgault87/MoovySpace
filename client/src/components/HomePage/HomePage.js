@@ -59,13 +59,14 @@ const HomePage = () => {
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                     <Signup />
                   </Modal>
-
+                  <div className="signUpOne">
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-primary "
                     onClick={() => setIsOpen(true)}
                   >
-                    Signup instead?
+                    Signup instead? ✍️
                   </button>
+                  </div>
                 </div>
               </>
             )}
