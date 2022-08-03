@@ -157,6 +157,7 @@ const SearchBar = () => {
           // className="searchBar"
           freeSolo
           options={top100Films.map((option) => option.title)}
+          onSelect={handleInputChange}
           renderInput={(params) => (
             <TextField {...params} label="Search Box" value={search} />
           )}
