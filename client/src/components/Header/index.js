@@ -34,6 +34,11 @@ const Header = () => {
 							</Link>
 						</li>
 						<li>
+							<Link className="profileLinks" to="/feed">
+								Feed
+							</Link>
+						</li>
+						<li>
 							{/* Take back to welcome page */}
 							<button type="button" className="profileLinks" id="logoutLink" onClick={logout}>
 								Logout

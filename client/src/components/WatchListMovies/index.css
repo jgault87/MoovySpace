@@ -9,8 +9,12 @@ html {
       grid-template-columns: repeat(3, 100%);
   overflow: hidden;
   scroll-behavior: smooth;
-  top: 400px;
   position: relative;
+  top: 400px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
 }
 
 .wrapper section {
@@ -20,7 +24,7 @@ html {
   display: grid;
   -ms-grid-columns: (auto)[5];
       grid-template-columns: repeat(5, auto);
-  margin: 20px 0;
+  margin: 0;
 }
 
 .wrapper section .item {

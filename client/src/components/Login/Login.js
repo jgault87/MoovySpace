@@ -42,10 +42,10 @@ const Login = (props) => {
 	};
 
 	return (
-		<main className="">
+		<main className="cinema">
 			<div className="">
 				<div className="">
-					<h4 className="">Login</h4>
+					<h4 className="">Login 🎬 </h4>
 					<div className="">
 						{data ? (
 							<p>
@@ -68,14 +68,15 @@ const Login = (props) => {
 									type="password"
 									value={formState.password}
 									onChange={handleChange}
-								/>
-								<button className="btn btn-primary" style={{ cursor: 'pointer' }} type="submit">
-									Submit
+								/><div>
+								<button className="btn btn-primary center" style={{ cursor: 'pointer' }} type="submit">
+									Submit 💾
 								</button>
+								</div>
 							</form>
 						)}
 
-						{error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
+						{error && <div className="my-3 p-3 bg-danger text-white login">{error.message}</div>}
 					</div>
 				</div>
 			</div>
