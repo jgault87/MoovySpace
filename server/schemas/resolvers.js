@@ -9,7 +9,7 @@ const resolvers = {
 			return User.find().populate('savedMovies');
 		},
 		user: async (parent, { username }) => {
-			return await User.findOne({ username }).populate('savedMovies').populate('likedMoves').populated('favoriteMovies');
+			return await User.findOne({ username }).populate('savedMovies').populate('likedMoves').populate('favoriteMovies');
 		},
 		movies: async (parent, { username }) => {
 			const params = username ? { username } : {};

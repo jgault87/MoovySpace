@@ -55,7 +55,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": [
+		"favoriteMovies": [
 			{
 				"movieId": 457860,
 				"title": "12 Pound Balls",
@@ -71,6 +71,14 @@
 				"image": "/trSmNw63luh84MBy5XLH0UiN1BC.jpg",
 				"backdrop": "/uxvmoirhbve2JkYVCa18msE3f8R.jpg",
 				"trailer": "JppwKpfOgyo"
+			},
+			{
+				"movieId": 32301,
+				"title": "Demon Island",
+				"description": "Teens trapped on an island are haunted by a demon hidden inside...a pinata.",
+				"image": "/A82DFLlBaj1aVyKG2f0eCwv5Wq7.jpg",
+				"backdrop": "/gEHbyTGGPQ1TGzIXLm4OMAa1FMH.jpg",
+				"trailer": "0vwq7R1FHNs"
 			}
 		]
 	},
@@ -213,7 +221,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": [
+		"favoriteMovies": [
 			{
 				"movieId": 438970,
 				"title": "Sharknado 5: Global Swarming",
@@ -288,7 +296,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": [
+		"favoriteMovies": [
 			{
 				"movieId": 457860,
 				"title": "12 Pound Balls",
@@ -363,7 +371,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": []
+		"favoriteMovies": []
 	},
 	{
 		"username": "Alan Kay",
@@ -421,7 +429,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": []
+		"favoriteMovies": []
 	},
 	{
 		"username": "C.A.R. Hoare",
@@ -479,7 +487,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": []
+		"favoriteMovies": []
 	},
 	{
 		"username": "David Thomas",
@@ -537,7 +545,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": []
+		"favoriteMovies": []
 	},
 	{
 		"username": "Donald Knuth",
@@ -595,7 +603,7 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": []
+		"favoriteMovies": []
 	},
 	{
 		"username": "Lernantino",
@@ -653,6 +661,6 @@
 				"trailer": "RK0yd4LtLdg"
 			}
 		],
-		"favoriteMoves": []
+		"favoriteMovies": []
 	}
 ]

@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
+import FavoriteMovies from '../components/FavoriteMovies';
 
 
 const Profile = () => {
@@ -15,7 +16,7 @@ const Profile = () => {
 
 	const user = data?.me || data?.user || {};
 
-	// console.log(user);
+	console.log(user);
 
 	// const movieData = user.savedMovies.map((movie) => ({
 	// 	movieId: movie.movieId,
@@ -42,11 +43,8 @@ const Profile = () => {
 		return <h4>You need to be logged in to see this. Use the navigation links above to sign up or log in!</h4>;
 	}
 
-	
-
-	console.log(user)
 	return (
-		
+
 		<div>
 			<div className="flex-row justify-center mb-3">
 				<h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
@@ -56,32 +54,65 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="profileContainer">
-						<div className="sidebar">
-							<Link to="/FavoriteMovies">Favorite Movies</Link>
-							<Link to="/LikedMovies">Liked Movies</Link>
-							<button>Liked Movies</button>
-						</div>
-						<div className="carousel">
-							{user.savedMovies.map((movie) => {
-								return (
-									<div className="movieCard">
-										<div className="moviePoster">
-											<img
-												alt="movie poster"
-												src={`https://image.tmdb.org/t/p/w500${movie.image}`}
-												width="200px"
-											/>
-										</div>
-										<h1 className="movieTitle">{movie.title}</h1>
-									</div>
-								);
-							})}
+
+						<h1>Favorite Movies</h1>		
+						{/* <div className="carousel">
 							
+							{user.favoriteMovies.map((favorite) => (
+								<div className="movieCard">
+								<div className="moviePoster">
+									<img
+										alt="movie poster"
+										src={`https://image.tmdb.org/t/p/w500${favorite.image}`}
+										width="200px"
+									/>
+								</div>
+								<h1 className="movieTitle">{favorite.title}</h1>
+							</div>
+						))}
+						</div> */}
+						<FavoriteMovies favoriteMovies={user.favoriteMovies}  />
+
+						<h1>Liked Movies</h1>
+						<div className="carousel">
+						
+							{user.likedMovies.map((liked) => (
+								<div className="movieCard" key={liked.title}>
+
+								<div className="moviePoster">
+									<img
+										alt="movie poster"
+										src={`https://image.tmdb.org/t/p/w500${liked.image}`}
+										width="200px"
+									/>
+								</div>
+								<h1 className="movieTitle">{liked.title}</h1>
+							</div>
+						))}
+						</div>
+
+						<h1>Saved Movies</h1>
+						<div className="carousel">
+						
+							{user.savedMovies.map((movie) => (
+
+								<div className="movieCard" key={movie.title}>
+									<div className="moviePoster">
+										<img
+											alt="movie poster"
+											src={`https://image.tmdb.org/t/p/w500${movie.image}`}
+											width="200px"
+										/>
+									</div>
+									<h1 className="movieTitle">{movie.title}</h1>
+								</div>
+							))}
+
 						</div>
 					</div>
-					
+
 				)}
-				
+
 			</div>
 		</div>
 	);
