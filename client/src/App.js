@@ -51,6 +51,7 @@ export function App() {
   const [trailer, setTrailer] = useState([]);
 
   // Get movie & trailer data from API
+  // Add error catching for movies that don't have trailer videos & add rendering of something to show there's no trailer
   const searchMovie = (query) => {
     axios
       .get(
