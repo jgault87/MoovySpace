@@ -32,7 +32,7 @@ const HomePage = () => {
       <div className="split left">
         <div className="centered">
           <img src="https://i.ytimg.com/vi/f363aMPK2Ng/maxresdefault.jpg" alt="Movies" class=""/>
-          <h2>Site movie preview</h2>
+          <h2 class="cinema"> What is your favorite cinema? 🎥 🎬</h2>
           <p></p>
         </div>
       </div>
