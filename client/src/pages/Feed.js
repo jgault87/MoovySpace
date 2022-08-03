@@ -7,8 +7,7 @@ const feedStyles = {
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    
+    gridTemplateColumns: '1fr 1fr',
   },
   gridItem: {
     display: 'grid',
@@ -18,8 +17,6 @@ const feedStyles = {
     alignItems: 'center',
     padding: '1rem',
     borderRadius: '1rem',
-    
-    
   },
   gridImage: {
     borderRadius: '.5rem',
@@ -27,8 +24,7 @@ const feedStyles = {
     padding: '5px',
     maxWidth: '50%',
     height: 'auto',
-    
-  }
+  },
 };
 
 const Feed = () => {
@@ -43,34 +39,40 @@ const Feed = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          users.map((user) => (
-            <div style={feedStyles.gridItem} key={user._id}>
-              <h4>
-                {user.username} recently saved <strong>{user.savedMovies[0].title}</strong> and {user.savedMovies.length} other movies
-                to their collection
-              </h4>
-              <img
-                style={feedStyles.gridImage}
-                src={`https://image.tmdb.org/t/p/w300${user.savedMovies[0].image}`}
-                alt={user.savedMovies[0].title}
-              />
+          users.map((user) => {
+            if (user.savedMovies.length) {
+              return (
+                <div style={feedStyles.gridItem} key={user._id}>
+                  <h4>
+                    {user.username} recently saved{' '}
+                    <strong>{user.savedMovies[0].title}</strong> and{' '}
+                    {user.savedMovies.length} other movies to their collection
+                  </h4>
+                  <img
+                    style={feedStyles.gridImage}
+                    src={`https://image.tmdb.org/t/p/w300${user.savedMovies[0].image}`}
+                    alt={user.savedMovies[0].title}
+                  />
 
-              <h4>{user.savedMovies[0].title}</h4>
-              
-              {/* <p>{user.savedMovies[0].description} </p> */}
+                  <h4>{user.savedMovies[0].title}</h4>
 
-              <p>
-                <a
-                  href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`}
-                >
-                  {' '}
-                  Backdrop{' '}
-                </a>{' '}
-              </p>
-              <p>{user.savedMovies[0].trailer} </p>
-              <p>{user.savedMovies[0].createdAt} </p>
-            </div>
-          ))
+                  {/* <p>{user.savedMovies[0].description} </p> */}
+
+                  <p>
+                    <a
+                      href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`}
+                    >
+                      {' '}
+                      Backdrop{' '}
+                    </a>{' '}
+                  </p>
+                  <p>{user.savedMovies[0].trailer} </p>
+                  <p>{user.savedMovies[0].createdAt} </p>
+                </div>
+              );
+            }
+            return null;
+          })
         )}
       </div>
     </>
