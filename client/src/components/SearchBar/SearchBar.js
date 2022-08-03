@@ -22,7 +22,7 @@ const SearchBar = () => {
     <div>
       <form onSubmit={handleFormSubmit}>
         <input
-          id="searchBar"
+          className="searchBar"
           value={search}
           onChange={handleInputChange}
           placeholder="Search for a movie..."
