@@ -1,26 +1,13 @@
 import React from 'react';
 import VideocamIcon from '@mui/icons-material/Videocam';
-import project1 from '../../testMoviePosters/test1.jpg'
-import project2 from '../../testMoviePosters/test2.jpg'
-import project3 from '../../testMoviePosters/test3.jpg'
-import Profile from "../../pages/Profile"
-import './index.css'
+import './index.scss'
 
 function FavoriteMovies(props) {
     const { favoriteMovies } = props;
-    console.log(favoriteMovies)
-    // const movieData = user.savedMovies.map((movie) => ({
-	// 	movieId: movie.movieId,
-	// 	title: movie.title,
-	// 	description: movie.description,
-	// 	image: `https://image.tmdb.org/t/p/w500${movie.image}`,
-	// 	trailer: movie.trailer
-	// }));
     return (
-        <main>
-            
+        
             <section className="projectSection" id="projects">
-                <div className="container">
+                <div className="posterContainer">
                     <input type="radio" name="slider" id="item1" defaultChecked></input>
                     <input type="radio" name="slider" id="item2" defaultChecked></input>
                     <input type="radio" name="slider" id="item3" defaultChecked></input>
@@ -76,7 +63,6 @@ function FavoriteMovies(props) {
                     </div>
                 </div>
             </section>
-        </main>
     )
 }
 
