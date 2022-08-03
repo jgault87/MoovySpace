@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import "./SearchBar.css";
 import { AppContext } from "../../App";
 
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+
 // Handler for input changes to the search form
 const SearchBar = () => {
   const [search, setSearch] = useState("");
