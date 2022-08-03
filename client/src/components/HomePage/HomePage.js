@@ -42,7 +42,7 @@ const HomePage = () => {
           <div>
             {Auth.loggedIn() ? (
               <>
-                <Link className="btn btn-lg btn-info m-2" to="/me">
+                <Link className="btn btn-lg btn-info m-2" to="/profile">
                   {Auth.getProfile().data.username}'s profile
                 </Link>
                 <Link className="btn btn-lg btn-info m-2" to="/home">

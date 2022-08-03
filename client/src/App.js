@@ -3,11 +3,15 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Feed from './pages/Feed';
-import Header from './components/Header/index';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Welcome from './components/HomePage/HomePage';
+
+import Feed from "./pages/Feed";
+import Header from "./components/Header/index";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Welcome from "./components/HomePage/HomePage";
+import FavoriteMovies from "./components/FavoriteMovies/"
+import LikedMovies from "./components/LikedMovies/"
+import SearchBar from "./components/SearchBar/SearchBar"
 
 import axios from 'axios';
 export const AppContext = React.createContext();
@@ -73,27 +77,36 @@ export function App() {
 		searchMovie
 	};
 
-	return (
-		<AppContext.Provider value={globalState}>
-			<ApolloProvider client={client}>
-				<Router>
-					<Routes>
-						<Route path="/" element={<Welcome />} />
-						<Route
-							path="/home"
-							element={
-								<>
-									<Header />
-									<Home />
-								</>
-							}
-						/>
-						<Route path="/feed" element={<Feed />} />
-						<Route path="/me" element={<Profile />} />
-						<Route path="/profiles/:username" element={<Profile />} />
-					</Routes>
-				</Router>
-			</ApolloProvider>
-		</AppContext.Provider>
-	);
+  return (
+    <AppContext.Provider value={globalState}>
+      <ApolloProvider client={client}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route
+              path="/home"
+              element={
+                <>
+                  <SearchBar />
+                  <Header />
+                  <Home />
+                </>
+              }
+            />
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/profile" element={<><Header /><Profile/></>} />
+            <Route path="/profiles/:username" element={<Profile />} />
+            <Route path="/FavoriteMovies" element={
+            <>
+              <Header />
+              <FavoriteMovies />
+            </>
+            } 
+          />
+          <Route path="/LikedMovies" element={<LikedMovies />} />
+          </Routes>
+        </Router>
+      </ApolloProvider>
+    </AppContext.Provider>
+  );
 }

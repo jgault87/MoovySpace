@@ -1,9 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./SearchBar.css";
-import { useQuery } from "@apollo/client";
-import { App, AppContext } from "../../App";
-import axios from "axios";
-const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+import { AppContext } from "../../App";
 
 // Handler for input changes to the search form
 const SearchBar = () => {

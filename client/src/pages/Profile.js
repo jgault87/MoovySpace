@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
+
 
 const Profile = () => {
 	// const [savedMovies, setSavedMovies] = useState([])
@@ -29,7 +31,7 @@ const Profile = () => {
 
 	// navigate to personal profile page if username is yours
 	if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-		return <Navigate to="/me" />;
+		return <Navigate to="/profile" />;
 	}
 
 	if (loading) {
@@ -40,7 +42,11 @@ const Profile = () => {
 		return <h4>You need to be logged in to see this. Use the navigation links above to sign up or log in!</h4>;
 	}
 
+	
+
+	console.log(user)
 	return (
+		
 		<div>
 			<div className="flex-row justify-center mb-3">
 				<h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
@@ -51,9 +57,9 @@ const Profile = () => {
 				{!userParam && (
 					<div className="profileContainer">
 						<div className="sidebar">
+							<Link to="/FavoriteMovies">Favorite Movies</Link>
+							<Link to="/LikedMovies">Liked Movies</Link>
 							<button>Liked Movies</button>
-							<button>Saved Movies</button>
-							<button>Recommended Movies</button>
 						</div>
 						<div className="carousel">
 							{user.savedMovies.map((movie) => {
@@ -70,9 +76,12 @@ const Profile = () => {
 									</div>
 								);
 							})}
+							
 						</div>
 					</div>
+					
 				)}
+				
 			</div>
 		</div>
 	);

@@ -13,7 +13,7 @@ const Header = () => {
 	};
 	return (
 		<header>
-			<SearchBar />
+			
 			{Auth.loggedIn() ? (
 				<div>
 					<label htmlFor="touch">
@@ -24,8 +24,13 @@ const Header = () => {
 					<input type="checkbox" id="touch" />
 					<ul className="slide">
 						<li>
-							<Link className="profileLinks" to="/me">
+							<Link className="profileLinks" to="/profile">
 								Profile
+							</Link>
+						</li>
+						<li>
+							<Link className="profileLinks" to="/home">
+								Home
 							</Link>
 						</li>
 						<li>
