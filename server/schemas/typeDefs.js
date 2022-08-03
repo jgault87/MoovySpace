@@ -8,6 +8,7 @@ const typeDefs = gql`
 		password: String
 		savedMovies: [Movie]!
 		likedMovies: [Movie]!
+		favoriteMovies: [Movie]!
 	}
 
 	type Movie {
@@ -48,7 +49,10 @@ const typeDefs = gql`
 		login(email: String!, password: String!): Auth
 		saveMovie(movie: inputMovie!): User
 		likeMovie(movie: inputMovie!): User
+		favoriteMovie(movie: inputMovie!): User
 		removeMovie(movieId: Int!): User
+		unlikeMovie(movieId: Int!): User
+		unfavoriteMovie(movieId: Int!): User
 	}
 `;
 

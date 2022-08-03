@@ -22,7 +22,8 @@ const userSchema = new Schema(
 			minlength: 5
 		},
 		savedMovies: [movieSchema],
-		likedMovies: [movieSchema]
+		likedMovies: [movieSchema],
+		favoriteMovies: [movieSchema]
 	},
 	{
 		toJSON: {
