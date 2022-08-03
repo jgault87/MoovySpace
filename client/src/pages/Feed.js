@@ -71,7 +71,7 @@ const Feed = () => {
                 </div>
               );
             }
-           return <p>Add New Movies to collection</p>;
+            return null;
           })
         )}
       </div>
