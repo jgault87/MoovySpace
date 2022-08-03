@@ -147,7 +147,6 @@ const SearchBar = () => {
       )
       .then((response) => {
         setTitles(response.data.results);
-        console.log(response.data.results);
         return response.data;
       });
   };
@@ -167,7 +166,6 @@ const SearchBar = () => {
   // Handler for what happens when the search form is submitted
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(search);
     searchContext.searchMovie(search);
   };
 
