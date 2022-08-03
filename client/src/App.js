@@ -16,8 +16,6 @@ import Welcome from "./components/HomePage/HomePage";
 import FavoriteMovies from "./components/FavoriteMovies/";
 import LikedMovies from "./components/LikedMovies/";
 import SearchBar from "./components/SearchBar/SearchBar";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 
 import axios from "axios";
 export const AppContext = React.createContext();
