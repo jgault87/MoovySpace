@@ -38,9 +38,9 @@ const Profile = () => {
 								
 						<FavoriteMovies favoriteMovies={user.favoriteMovies}  />
 
-						{/* <LikedMovies likedMovies={user.likedMovies} />
+						<LikedMovies likedMovies={user.likedMovies} />
 					
-						<WatchListMovies savedMovies={user.savedMovies} /> */}
+						{/* <WatchListMovies savedMovies={user.savedMovies} />  */}
 					</div>
 				)}
 			</div>

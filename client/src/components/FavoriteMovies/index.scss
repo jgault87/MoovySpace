@@ -100,7 +100,7 @@ input[type=radio]{
 }
 .cameraIcon {
       position: relative;
-      top: -5px;
+      top: -18px;
       line-height: 16px;
       color: #a5a5a5;
       margin-left: auto;
@@ -121,7 +121,7 @@ input[type=radio]{
     transform: translateY(-50px);
   }
   #item3:checked ~ .infoContainer #test  {
-    transform: translateY(-90px);
+    transform: translateY(-100px);
   }
 @media (max-width: 800px) {
     .projectSection{
