@@ -144,6 +144,7 @@ const SearchBar = () => {
   // Handler for what happens when the search form is submitted
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    console.log(search);
     searchContext.searchMovie(search);
   };
 
@@ -161,7 +162,7 @@ const SearchBar = () => {
           )}
         />
         {/* <input
-          className="searchBar"
+          id="searchBar"
           value={search}
           onChange={handleInputChange}
           placeholder="Search for a movie..."
