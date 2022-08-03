@@ -4,8 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
-import FavoriteMovies from '../components/FavoriteMovies';
-
+// import FavoriteMovies from '../components/FavoriteMovies';
 
 const Profile = () => {
 	// const [savedMovies, setSavedMovies] = useState([])
@@ -44,7 +43,6 @@ const Profile = () => {
 	}
 
 	return (
-
 		<div>
 			<div className="flex-row justify-center mb-3">
 				<h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
@@ -54,8 +52,7 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="profileContainer">
-
-						<h1>Favorite Movies</h1>		
+						<h1>Favorite Movies</h1>
 						{/* <div className="carousel">
 							
 							{user.favoriteMovies.map((favorite) => (
@@ -71,31 +68,27 @@ const Profile = () => {
 							</div>
 						))}
 						</div> */}
-						<FavoriteMovies favoriteMovies={user.favoriteMovies}  />
+						{/* <FavoriteMovies favoriteMovies={user.favoriteMovies}  /> */}
 
 						<h1>Liked Movies</h1>
 						<div className="carousel">
-						
 							{user.likedMovies.map((liked) => (
 								<div className="movieCard" key={liked.title}>
-
-								<div className="moviePoster">
-									<img
-										alt="movie poster"
-										src={`https://image.tmdb.org/t/p/w500${liked.image}`}
-										width="200px"
-									/>
+									<div className="moviePoster">
+										<img
+											alt="movie poster"
+											src={`https://image.tmdb.org/t/p/w500${liked.image}`}
+											width="200px"
+										/>
+									</div>
+									<h1 className="movieTitle">{liked.title}</h1>
 								</div>
-								<h1 className="movieTitle">{liked.title}</h1>
-							</div>
-						))}
+							))}
 						</div>
 
 						<h1>Saved Movies</h1>
 						<div className="carousel">
-						
 							{user.savedMovies.map((movie) => (
-
 								<div className="movieCard" key={movie.title}>
 									<div className="moviePoster">
 										<img
@@ -107,12 +100,9 @@ const Profile = () => {
 									<h1 className="movieTitle">{movie.title}</h1>
 								</div>
 							))}
-
 						</div>
 					</div>
-
 				)}
-
 			</div>
 		</div>
 	);
