@@ -31,8 +31,12 @@ const HomePage = () => {
     <>
       <div className="split left">
         <div className="centered">
-          <img src="" alt="Movies" />
-          <h2>Site movie preview</h2>
+          <img
+            src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg"
+            alt="Movies"
+            className=""
+          />
+          <h2 className="cinema"> What is your favorite cinema? 🎥 </h2>
           <p></p>
         </div>
       </div>
@@ -59,13 +63,14 @@ const HomePage = () => {
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                     <Signup />
                   </Modal>
-
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => setIsOpen(true)}
-                  >
-                    Signup instead?
-                  </button>
+                  <div className="signUpOne">
+                    <button
+                      className="btn btn-primary "
+                      onClick={() => setIsOpen(true)}
+                    >
+                      Signup instead? ✍️
+                    </button>
+                  </div>
                 </div>
               </>
             )}

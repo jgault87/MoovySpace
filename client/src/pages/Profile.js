@@ -26,7 +26,6 @@ const Profile = () => {
 	}
 
 	return (
-
 		<div>
 			<div className="flex-row justify-center mb-3">
 				<h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
@@ -35,7 +34,7 @@ const Profile = () => {
 
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
-					<div className="profileContainer">
+					<div className="">
 								
 						<FavoriteMovies favoriteMovies={user.favoriteMovies}  />
 
@@ -43,9 +42,7 @@ const Profile = () => {
 					
 						<WatchListMovies savedMovies={user.savedMovies} /> */}
 					</div>
-
 				)}
-
 			</div>
 		</div>
 	);
