@@ -9,7 +9,7 @@ const feedStyles = {
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: '1fr',
   },
   gridItem: {
     display: 'grid',
