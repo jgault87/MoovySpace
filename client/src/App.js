@@ -9,6 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Feed from "./pages/Feed";
+import MobileNav from "./components/nav/Nav"
 import Header from "./components/Header/index";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -89,6 +90,7 @@ export function App() {
     <AppContext.Provider value={globalState}>
       <ApolloProvider client={client}>
         <Router>
+          <MobileNav />
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route
