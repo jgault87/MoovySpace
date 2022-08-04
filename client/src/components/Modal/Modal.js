@@ -5,7 +5,7 @@ const Modal = ({open, children, onClose}) => {
 
   return (
     <div>
-        <button onClick={onClose}>Close Modal</button>
+        <button onClick={onClose} className="btn btn-block btn-primary">Click To Go Back To Login In 🔙 </button>
         {children}
     </div>
   )
