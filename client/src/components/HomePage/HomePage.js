@@ -43,9 +43,9 @@ const HomePage = () => {
                 <Link className="btn btn-lg btn-info m-2" to="/home">
                   Homepage
                 </Link>
-                <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                <p className="btn btn-primary" onClick={logout}>
                   Logout
-                </button>
+                </p>
               </>
             ) : (
               <>
