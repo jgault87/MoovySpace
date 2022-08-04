@@ -1,69 +1,71 @@
 img {
-	width: 300px;
-	height: 450px;
+  width: 300px;
+  height: 450px;
 }
+
 .movieContainer {
-	position: relative;
-	width: auto;
-	height: 75vh;
-	background-color: transparent;
-	display: grid;
-	grid-template-columns: 30% auto;
+  position: relative;
+  width: auto;
+  height: 75vh;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 30% auto;
+  transition: var(--transition);
 }
 #moviePoster {
-	margin: 30px;
-	width: auto;
-	height: 90%;
-	float: left;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  margin: 30px;
+  width: auto;
+  height: 90%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
 }
 .movieDetails {
-	margin: 2%;
-	float: left;
-	background-color: rgb(208, 211, 208);
-	text-align: center;
+  margin: 2%;
+  float: left;
+  background-color: var(--color-primary-variant);
+  text-align: center;
 }
 .trailerContainer {
-	width: 500px;
-	height: 300px;
-	margin: auto;
+  width: 500px;
+  height: 300px;
+  margin: auto;
 }
 .trailer {
-	width: 500px;
-	height: 300px;
+  width: 500px;
+  height: 300px;
 }
 #watchListBtn {
-	padding: 0;
-	border: none;
-	background: none;
-	color: blue;
-	cursor: pointer;
+  padding: 0;
+  border: none;
+  background: none;
+  color: blue;
+  cursor: pointer;
 }
 @media (max-width: 1000px) {
-	.movieContainer {
-		grid-template-columns: auto;
-	}
-	#moviePoster {
-		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: auto;
-		height: 450px;
-		margin: 0px;
-		margin-top: 10px;
-	}
+  .movieContainer {
+    grid-template-columns: auto;
+  }
+  #moviePoster {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 450px;
+    margin: 0px;
+    margin-top: 10px;
+  }
 }
 @media (max-width: 600px) {
-	.trailerContainer {
-		width: auto;
-		height: 300px;
-		margin: 0;
-	}
-	.feedGridContainer {
-		grid-template-columns: 1fr;
-	}
-	
+  .trailerContainer {
+    width: auto;
+    height: 300px;
+    margin: 0;
+  }
+  .feedGridContainer {
+    grid-template-columns: 1fr;
+  }
 }

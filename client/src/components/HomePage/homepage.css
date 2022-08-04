@@ -63,7 +63,7 @@
 @media screen and (max-width: 1024px) {
   .left {
     width: 100%;
-    top: 20rem;
+    top: 12rem;
     bottom: 20rem;
     
    
@@ -79,7 +79,7 @@
   }
 
   .centered img {
-    width: 500px;
+    width: 400px;
     height: auto;
   }
 }
