@@ -157,7 +157,6 @@ const SearchBar = () => {
         );
         setTitleOptions(newTitleOptions);
         console.log(titleOptions);
-        // return titleOptions;
       });
   };
 
@@ -172,8 +171,10 @@ const SearchBar = () => {
   const handleSelect = (e) => setSearch(e.target.value);
 
   const handleTitleSuggestion = (e) => {
-    setSearch(e.target.value);
-    findTitles(e.target.value);
+    if (e.target.value !== "") {
+      setSearch(e.target.value);
+      findTitles(e.target.value);
+    }
   };
 
   // Handler for what happens when the search form is submitted
