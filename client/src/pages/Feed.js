@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 const feedStyles = {
   gridContainer: {
-    maxWidth: '80%',
+    justifyItems: 'center',
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
-    gridTemplateColumns: '1fr',
+    gridTemplateColumns: '1fr 1fr',
   },
   gridItem: {
     display: 'grid',
