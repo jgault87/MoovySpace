@@ -6,6 +6,8 @@ import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
+// Would like to allow user to type, but in the end they need to choose a specific movie from the dropdown (stretch goal)
+
 // Handler for input changes to the search form
 const SearchBar = () => {
   // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
@@ -139,6 +141,9 @@ const SearchBar = () => {
 
   const [search, setSearch] = useState("");
   const [titles, setTitles] = useState("");
+  const [titleOptions, setTitleOptions] = useState(
+    top100Films.map((option) => option.title)
+  );
 
   const findTitles = (query) => {
     axios
@@ -147,7 +152,12 @@ const SearchBar = () => {
       )
       .then((response) => {
         setTitles(response.data.results);
-        return response.data;
+        let newTitleOptions = response.data.results.map(
+          (option) => option.original_title
+        );
+        setTitleOptions(newTitleOptions);
+        console.log(titleOptions);
+        // return titleOptions;
       });
   };
 
@@ -160,6 +170,7 @@ const SearchBar = () => {
   const handleSelect = (e) => setSearch(e.target.value);
 
   const handleTitleSuggestion = (e) => {
+    setSearch(e.target.value);
     findTitles(e.target.value);
   };
 
@@ -176,7 +187,7 @@ const SearchBar = () => {
           id="searchBar"
           onChange={handleInputChange}
           freeSolo
-          options={top100Films.map((option) => option.title)}
+          options={titleOptions}
           onSelect={handleSelect}
           renderInput={(params) => (
             <TextField
