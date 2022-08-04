@@ -5,11 +5,10 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import FavoriteMovies from '../components/FavoriteMovies';
-import LikedMovies from '../components/LikedMovies'
-import WatchListMovies from '../components/WatchListMovies'
+import LikedMovies from '../components/LikedMovies';
+import WatchListMovies from '../components/WatchListMovies';
 
 const Profile = () => {
-	
 	const { username: userParam } = useParams();
 	const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
 	const user = data?.me || data?.user || {};
@@ -35,11 +34,10 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="">
-								
-						<FavoriteMovies favoriteMovies={user.favoriteMovies}  />
+						<FavoriteMovies favoriteMovies={user.favoriteMovies} />
 
 						<LikedMovies likedMovies={user.likedMovies} />
-					
+
 						{/* <WatchListMovies savedMovies={user.savedMovies} />  */}
 					</div>
 				)}
