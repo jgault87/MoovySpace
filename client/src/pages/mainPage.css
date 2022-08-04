@@ -62,4 +62,8 @@ img {
 		height: 300px;
 		margin: 0;
 	}
+	.feedGridContainer {
+		grid-template-columns: 1fr;
+	}
+	
 }

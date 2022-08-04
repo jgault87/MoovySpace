@@ -3,6 +3,8 @@ import "./SearchBar.css";
 import { AppContext } from "../../App";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import axios from "axios";
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 // Handler for input changes to the search form
 const SearchBar = () => {
@@ -136,15 +138,34 @@ const SearchBar = () => {
   ];
 
   const [search, setSearch] = useState("");
+  const [titles, setTitles] = useState("");
+
+  const findTitles = (query) => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+      )
+      .then((response) => {
+        setTitles(response.data.results);
+        return response.data;
+      });
+  };
 
   const searchContext = useContext(AppContext);
 
-  const handleInputChange = (e) => setSearch(e.target.value);
+  const handleInputChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSelect = (e) => setSearch(e.target.value);
+
+  const handleTitleSuggestion = (e) => {
+    findTitles(e.target.value);
+  };
 
   // Handler for what happens when the search form is submitted
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(search);
     searchContext.searchMovie(search);
   };
 
@@ -154,12 +175,16 @@ const SearchBar = () => {
         <Autocomplete
           id="searchBar"
           onChange={handleInputChange}
-          // className="searchBar"
           freeSolo
           options={top100Films.map((option) => option.title)}
-          onSelect={handleInputChange}
+          onSelect={handleSelect}
           renderInput={(params) => (
-            <TextField {...params} label="Search Box" value={search} />
+            <TextField
+              {...params}
+              label="Search Box"
+              onChange={handleTitleSuggestion}
+              value={search}
+            />
           )}
         />
         {/* <input
