@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MOVIE_FEED } from '../utils/queries';
+import "./mainPage.css";
 
 const feedStyles = {
   gridContainer: {
@@ -12,7 +13,7 @@ const feedStyles = {
   gridItem: {
     display: 'grid',
     position: 'relative',
-    backgroundColor: 'var(--color-primary-variant)',
+    backgroundColor: 'var(--color-bg-variant)',
     justifyItems: 'center',
     alignItems: 'center',
     padding: '1rem',
@@ -35,7 +36,7 @@ const Feed = () => {
   return (
     <>
       <h2>Recent Activity:</h2>
-      <div style={feedStyles.gridContainer}>
+      <div className="feedGridContainer" style={feedStyles.gridContainer}>
         {loading ? (
           <div>Loading...</div>
         ) : (
@@ -58,15 +59,15 @@ const Feed = () => {
 
                   {/* <p>{user.savedMovies[0].description} </p> */}
 
-                  <p>
+                  {/* <p>
                     <a
                       href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`}
                     >
                       {' '}
                       Backdrop{' '}
                     </a>{' '}
-                  </p>
-                  <p>{user.savedMovies[0].trailer} </p>
+                  </p> */}
+                  <a href={`https://www.youtube.com/watch?v=${user.savedMovies[0].trailer}`} target="_blank" rel="noreferrer" className="btn btn-primary"> Watch the trailer on Youtube!  </a>
                   <p>{user.savedMovies[0].createdAt} </p>
                 </div>
               );
