@@ -35,8 +35,8 @@ nav a {
 }
 
 nav a:hover {
-    background: var(--color-primary-variant);
-
+    background: var(--color-primary);
+    color:black;
 }
 
 nav a.active {
