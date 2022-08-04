@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const feedStyles = {
   gridContainer: {
+    maxWidth: '80%',
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
@@ -54,7 +55,7 @@ const Feed = () => {
                   </h4>
                   <p>
                     recently saved <strong>{user.savedMovies[0].title}</strong>{' '}
-                    and {user.savedMovies.length} other movies to their
+                    and {user.savedMovies.length -1} other movies to their
                     collection
                   </p>
 
