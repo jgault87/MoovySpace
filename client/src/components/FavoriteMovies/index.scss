@@ -8,10 +8,9 @@ input[type=radio]{
     align-items: center;
     transition: background .5s ease-in;
     width: 100%;
-    height: 100%;
+    height: 80%;
     background-position: center;
     background-size: cover;
-    
 }
 
 
@@ -40,7 +39,7 @@ input[type=radio]{
   
 .cards {
     position: relative;
-    width: 95%;
+    width: 100%;
     height: 100%;
     margin-bottom: 20px;
     display: flex;
@@ -49,14 +48,14 @@ input[type=radio]{
   
 #item1:checked ~ .cards #project3, #item2:checked ~ .cards #project1, #item3:checked ~ .cards #project2 {
     transform: translatex(-50%) scale(.8);
-    opacity: .4;
+    opacity: .8;
     z-index: 0;
     transition: .5s ease-in;
 }
    
 #item1:checked ~ .cards #project2, #item2:checked ~ .cards #project3, #item3:checked ~ .cards #project1 {
     transform: translatex(50%) scale(.8);
-    opacity: .4;
+    opacity: .8;
     z-index: 0;
     transition: .5s ease-in;
 }
