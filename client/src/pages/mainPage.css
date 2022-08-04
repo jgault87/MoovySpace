@@ -2,6 +2,9 @@ img {
 	width: 300px;
 	height: 450px;
 }
+
+
+
 .movieContainer {
 	position: relative;
 	width: auto;
@@ -9,6 +12,8 @@ img {
 	background-color: transparent;
 	display: grid;
 	grid-template-columns: 30% auto;
+	transition: var(--transition);
+
 }
 #moviePoster {
 	margin: 30px;
@@ -18,17 +23,22 @@ img {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: var(--transition);
 }
 .movieDetails {
 	margin: 2%;
 	float: left;
 	background-color: rgb(208, 211, 208);
 	text-align: center;
+	
+	
 }
 .trailerContainer {
 	width: 500px;
 	height: 300px;
 	margin: auto;
+	
+	
 }
 .trailer {
 	width: 500px;
@@ -44,6 +54,7 @@ img {
 @media (max-width: 1000px) {
 	.movieContainer {
 		grid-template-columns: auto;
+		
 	}
 	#moviePoster {
 		position: relative;
@@ -64,6 +75,7 @@ img {
 	}
 	.feedGridContainer {
 		grid-template-columns: 1fr;
+		
 	}
 	
 }
