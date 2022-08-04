@@ -66,16 +66,6 @@ const Feed = () => {
 
                   <h4>{user.savedMovies[0].title}</h4>
 
-                  {/* <p>{user.savedMovies[0].description} </p> */}
-
-                  {/* <p>
-                    <a
-                      href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`}
-                    >
-                      {' '}
-                      Backdrop{' '}
-                    </a>{' '}
-                  </p> */}
                   <a
                     href={`https://www.youtube.com/watch?v=${user.savedMovies[0].trailer}`}
                     target='_blank'
