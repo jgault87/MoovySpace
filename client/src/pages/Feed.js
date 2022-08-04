@@ -1,18 +1,20 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MOVIE_FEED } from '../utils/queries';
+import './mainPage.css';
+import { Link } from 'react-router-dom';
 
 const feedStyles = {
   gridContainer: {
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: '1fr',
   },
   gridItem: {
     display: 'grid',
     position: 'relative',
-    backgroundColor: 'var(--color-primary-variant)',
+    backgroundColor: 'var(--color-bg-variant)',
     justifyItems: 'center',
     alignItems: 'center',
     padding: '1rem',
@@ -35,7 +37,7 @@ const Feed = () => {
   return (
     <>
       <h2>Recent Activity:</h2>
-      <div style={feedStyles.gridContainer}>
+      <div className='feedGridContainer' style={feedStyles.gridContainer}>
         {loading ? (
           <div>Loading...</div>
         ) : (
@@ -44,10 +46,20 @@ const Feed = () => {
               return (
                 <div style={feedStyles.gridItem} key={user._id}>
                   <h4>
-                    {user.username} recently saved{' '}
+                  <Link
+                  className="btn btn-primary"
+                  to={`/profiles/${user.username}`}
+                >
+                  
+                    {user.username} 
+                    </Link>
+                    </h4>
+                    <p>
+                    recently saved{' '}
                     <strong>{user.savedMovies[0].title}</strong> and{' '}
                     {user.savedMovies.length} other movies to their collection
-                  </h4>
+                    </p>
+                  
                   <img
                     style={feedStyles.gridImage}
                     src={`https://image.tmdb.org/t/p/w300${user.savedMovies[0].image}`}
@@ -58,15 +70,23 @@ const Feed = () => {
 
                   {/* <p>{user.savedMovies[0].description} </p> */}
 
-                  <p>
+                  {/* <p>
                     <a
                       href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`}
                     >
                       {' '}
                       Backdrop{' '}
                     </a>{' '}
-                  </p>
-                  <p>{user.savedMovies[0].trailer} </p>
+                  </p> */}
+                  <a
+                    href={`https://www.youtube.com/watch?v=${user.savedMovies[0].trailer}`}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='btn btn-primary'
+                  >
+                    {' '}
+                    Watch the trailer on Youtube!{' '}
+                  </a>
                   <p>{user.savedMovies[0].createdAt} </p>
                 </div>
               );
