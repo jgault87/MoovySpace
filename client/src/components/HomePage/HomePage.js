@@ -26,17 +26,14 @@ const HomePage = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
+  const [hide, setHide] = useState(false);
 
   return (
     <>
       <div className="split left">
         <div className="centered">
-          <img
-            src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg"
-            alt="Movies"
-            className=""
-          />
-          <h2 className="cinema"> What is your favorite cinema? 🎥 </h2>
+          <img src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg" alt="Movies" class=""/>
+          <h2 class="cinema"> What is your favorite cinema? 🎥 </h2>
           <p></p>
         </div>
       </div>
@@ -59,17 +56,23 @@ const HomePage = () => {
             ) : (
               <>
                 <div style={BUTTON_WRAPPER_STYLES}>
-                  <Login />
-                  <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                  {hide===true?"":<Login />}
+                  <Modal open={isOpen} onClose={() => {
+                    setHide(false);
+                    setIsOpen(false)}}>
                     <Signup />
                   </Modal>
                   <div className="signUpOne">
-                    <button
+                    {
+                      hide===true?"":<button
                       className="btn btn-primary "
-                      onClick={() => setIsOpen(true)}
+                      onClick={() => {
+                        setHide(true)
+                        setIsOpen(true)}}
                     >
                       Signup instead? ✍️
                     </button>
+                    }
                   </div>
                 </div>
               </>
