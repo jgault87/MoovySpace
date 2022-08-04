@@ -48,7 +48,7 @@ const client = new ApolloClient({
 export function App() {
   // Declare a new state variable called "results"
   const [details, setDetails] = useState([]);
-  const [trailer, setTrailer] = useState([]);
+  const [trailer, setTrailer] = useState("8trTO5mJYsg");
 
   // Get movie & trailer data from API
   // Add error catching for movies that don't have trailer videos & add rendering of something to show there's no trailer
@@ -67,7 +67,10 @@ export function App() {
             `https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
           )
           .then((responseTwo) => {
-            setTrailer(responseTwo.data.results[0]);
+            if (responseTwo.data.results.length === 0) {
+              setTrailer("");
+            }
+            setTrailer(responseTwo.data.results[0].key);
           });
       });
   };

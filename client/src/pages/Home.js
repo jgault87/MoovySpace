@@ -60,7 +60,11 @@ const Home = () => {
         <h1>{searchContext.details.title}</h1>
         <p>{searchContext.details.overview}</p>
         <div className="trailerContainer">
-          <Trailer className="trailer" embedId={searchContext.trailer.key} />
+          {searchContext.trailer ? (
+            <Trailer className="trailer" embedId={searchContext.trailer} />
+          ) : (
+            <p> VIDEO TRAILER IS NOT AVAILABLE</p>
+          )}
         </div>
         {Auth.loggedIn() && (
           <button
