@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./SearchBar.css";
 import { AppContext } from "../../App";
 import TextField from "@mui/material/TextField";
@@ -157,21 +157,24 @@ const SearchBar = () => {
         );
         setTitleOptions(newTitleOptions);
         console.log(titleOptions);
-        // return titleOptions;
       });
   };
 
   const searchContext = useContext(AppContext);
 
   const handleInputChange = (e) => {
-    setSearch(e.target.value);
+    if (e.target.value) {
+      setSearch(e.target.value);
+    }
   };
 
   const handleSelect = (e) => setSearch(e.target.value);
 
   const handleTitleSuggestion = (e) => {
-    setSearch(e.target.value);
-    findTitles(e.target.value);
+    if (e.target.value !== "") {
+      setSearch(e.target.value);
+      findTitles(e.target.value);
+    }
   };
 
   // Handler for what happens when the search form is submitted
@@ -182,7 +185,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form>
         <Autocomplete
           id="searchBar"
           onChange={handleInputChange}
@@ -192,19 +195,16 @@ const SearchBar = () => {
           renderInput={(params) => (
             <TextField
               {...params}
+              id="searchBox"
               label="Search Box"
               onChange={handleTitleSuggestion}
               value={search}
             />
           )}
         />
-        {/* <input
-          id="searchBar"
-          value={search}
-          onChange={handleInputChange}
-          placeholder="Search for a movie..."
-        /> */}
-        <button id="searchBtn">Search</button>
+        <button id="searchBtn" onClick={handleFormSubmit}>
+          Search
+        </button>
       </form>
     </div>
   );
