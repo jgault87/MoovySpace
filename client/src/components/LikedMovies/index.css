@@ -2,6 +2,11 @@ html {
   scroll-behavior: smooth;
 }
 
+#likedMovies-container {
+  position: relative;
+  margin-top: 400px;
+}
+
 .likedWrapper {
   display: -ms-grid;
   display: grid;
@@ -33,7 +38,8 @@ html {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
-  height: 440px;
+  height: auto;
+  width: auto;
   background: #fff;
   border: 2px solid #fff;
   -webkit-box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
@@ -68,6 +74,7 @@ html {
   left: 0px;
   background-color: black;
   color: white;
+  text-align: center;
   width: 100%;
   height: 100%;
   -webkit-transition: all .7s ease-in-out;

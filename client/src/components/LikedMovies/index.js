@@ -16,7 +16,7 @@ function LikedMovies(props) {
     console.log(user)
 
     return (
-        <div className="likedWrapper">
+        <div className="likedWrapper likedMovies-container">
             <section id="likedSection1">
                 <a href="#likedSection2"><ArrowBackIosIcon /></a>
                 {items.map((item) => (
@@ -33,7 +33,7 @@ function LikedMovies(props) {
                 <a href="#likedSection2"><ArrowForwardIosIcon /></a>
             </section>
 
-            <section id="likedSection2">
+            <section id="likedSection2 likedMovies-container">
                 <a href="#likedSection1"><ArrowBackIosIcon /></a>
                 {items.map((item) => (
                     <div className="item">

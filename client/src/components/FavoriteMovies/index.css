@@ -111,6 +111,7 @@ input[type=radio] {
   width: 30%;
   right: 10px;
   margin: auto;
+  top: -50px;
 }
 
 .upperpart {
