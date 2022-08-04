@@ -1,26 +1,16 @@
 import React from 'react';
 import './nav.css';
-
-
-
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
-  
   return (
     <nav>
-      <a href='/' >
-       Home 
-      </a>
-      <a href='/home' >
-        Search
-      </a>
-      <a href='/feed' >
-        Feed
-      </a>
-      <a href='/profile'>
-        Profile
-      </a>
-      
+      <>
+        <Link to='/'>Home</Link>
+        <Link to='/home'>Search</Link>
+        <Link to='/feed'>Feed</Link>
+        <Link to='/profile'>Profile</Link>
+      </>
     </nav>
   );
 };
