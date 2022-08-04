@@ -25,7 +25,7 @@ img {
 .movieDetails {
   margin: 2%;
   float: left;
-  background-color: rgb(208, 211, 208);
+  background-color: var(--color-primary-variant);
   text-align: center;
 }
 .trailerContainer {
