@@ -11,11 +11,11 @@ html {
 } 
 .likedWrapper {
     display: grid;
-    grid-template-columns: repeat(3,100%);
-    overflow:hidden;
+    grid-template-columns: repeat(5,100%);
+    overflow:auto;
     scroll-behavior: smooth;  
     position: relative;
-    top: 560px;
+    top: 800px;
     section {
         width: 100%;
         position: relative;
@@ -30,12 +30,10 @@ html {
         flex-grow: 0;
         height: auto;
         width: auto;
-        background: #fff;
-        border: 2px solid #fff;
         box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
         cursor: pointer;
         transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
-        overflow: hidden;
+        overflow: auto;
         position: relative;
         &:hover { 
           margin: 0 20px;

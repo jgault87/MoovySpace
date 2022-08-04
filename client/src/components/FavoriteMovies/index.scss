@@ -8,10 +8,12 @@ input[type=radio]{
     align-items: center;
     transition: background .5s ease-in;
     width: 100%;
-    height: 80%;
+    height: 100%;
     background-position: center;
     background-size: cover;
+    
 }
+
 
 .card {
     position: absolute;
