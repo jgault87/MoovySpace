@@ -98,7 +98,7 @@ export function App() {
                 </>
               }
             />
-            <Route path="/feed" element={<Feed />} />
+            <Route path="/feed" element={<><Header /><Feed /></>} />
             <Route
               path="/profile"
               element={
@@ -118,7 +118,6 @@ export function App() {
                 </>
               }
             />
-            <Route path="/LikedMovies" element={<LikedMovies />} />
           </Routes>
         </Router>
       </ApolloProvider>
