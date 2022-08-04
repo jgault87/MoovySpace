@@ -68,9 +68,9 @@ export function App() {
           )
           .then((responseTwo) => {
             if (responseTwo.data.results.length === 0) {
-              return;
+              setTrailer("");
             }
-            setTrailer(responseTwo.data.results[0]);
+            setTrailer(responseTwo.data.results[0].key);
           });
       });
   };

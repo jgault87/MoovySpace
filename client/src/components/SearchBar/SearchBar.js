@@ -6,8 +6,6 @@ import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
-// Would like to return something if there is no trailer for movie searched in Home.js (ie if no searchContext.trailer.key, return message inside)
-// Would like to preload trailer id number
 // Would like to allow user to type, but in the end they need to choose a specific movie from the dropdown (stretch goal)
 
 // Handler for input changes to the search form
