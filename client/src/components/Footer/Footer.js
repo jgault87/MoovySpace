@@ -1,14 +1,14 @@
 import React from 'react'
-import './footer.css' 
+import './footer.css'
 
 
 const Footer = () => {
   return (
     <footer>
-     
+
 
       <ul className="permalinks">
-      
+
       </ul>
 
       <div className="footer__socials">
