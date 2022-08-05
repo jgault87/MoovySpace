@@ -7,6 +7,7 @@ import Auth from '../utils/auth';
 import FavoriteMovies from '../components/FavoriteMovies';
 import LikedMovies from '../components/LikedMovies';
 import WatchListMovies from '../components/WatchListMovies';
+import './profile.css'
 
 const Profile = () => {
 	const { username: userParam } = useParams();
@@ -18,10 +19,16 @@ const Profile = () => {
 		return <Navigate to="/profile" />;
 	}
 	if (loading) {
-		return <div>Loading...</div>;
+		return <div class="loader">
+		<div class="loader__filmstrip">
+		</div>
+		<p class="loader__text">
+		  loading
+		</p>
+	  </div>;
 	}
 	if (!user?.username) {
-		return <h4>You need to be logged in to see this. Use the navigation links above to sign up or log in!</h4>;
+		return <h4>You need to be logged in to see this. Use the navigation links below to sign up or log in!</h4>;
 	}
 
 	return (
