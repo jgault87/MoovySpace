@@ -13,7 +13,7 @@ import Feed from "./pages/Feed";
 import MobileNav from "./components/nav/Nav";
 import Footer from "./components/Footer/Footer";
 
-import Header from "./components/Header/index";
+
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Welcome from "./components/HomePage/HomePage";
@@ -103,7 +103,7 @@ export function App() {
               element={
                 <>
                   <SearchBar />
-                  <Header />
+                
                   <Home />
                 </>
               }
@@ -113,7 +113,7 @@ export function App() {
               path='/feed'
               element={
                 <>
-                  <Header />
+                  
                   <Feed />
                 </>
               }
@@ -122,7 +122,7 @@ export function App() {
               path='/profile'
               element={
                 <>
-                  <Header />
+                  
                   <Profile />
                 </>
               }
@@ -132,7 +132,7 @@ export function App() {
               path='/FavoriteMovies'
               element={
                 <>
-                  <Header />
+                  
                   <FavoriteMovies />
                 </>
               }
