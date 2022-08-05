@@ -29,11 +29,6 @@ function FavoriteMovies(props) {
             document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop3})`;
         }
     }
-
-    const openInNewTab = url => {
-        window.open(url, '_blank', 'noopener,noreferrer');
-    };
-
     return (
 
         <section className="projectSection" id="backdrop">
@@ -67,8 +62,7 @@ function FavoriteMovies(props) {
                                         href={`https://www.youtube.com/watch?v=${favoriteMovies[0].trailer}`}
                                         target="_blank"
                                         rel="noreferrer"
-                                        
-                                    >Watch Trailer Here</a></div>
+                                    >Watch {favoriteMovies[0].title} Trailer</a></div>
                                     <VideocamIcon className="cameraIcon" />
                                 </div>
                             </label>
@@ -81,8 +75,7 @@ function FavoriteMovies(props) {
                                         href={`https://www.youtube.com/watch?v=${favoriteMovies[1].trailer}`}
                                         target="_blank"
                                         rel="noreferrer"
-                                        
-                                    >Watch Trailer Here</a></div>
+                                    >Watch {favoriteMovies[1].title} Trailer</a></div>
                                     <VideocamIcon className="cameraIcon" />
                                 </div>
                             </label>
@@ -95,8 +88,7 @@ function FavoriteMovies(props) {
                                         href={`https://www.youtube.com/watch?v=${favoriteMovies[2].trailer}`}
                                         target="_blank"
                                         rel="noreferrer"
-                                        
-                                    >Watch Trailer Here</a></div>
+                                    >Watch {favoriteMovies[2].title} Trailer</a></div>
                                     <VideocamIcon className="cameraIcon" />
                                 </div>
                             </label>
