@@ -10,7 +10,6 @@
 -   [Usage](#usage)
 -   [Screenshot](#Screenshot)
 -   [License](#license)
--   [Contributors](#contributors)
 -   [Questions](#questions)
 
 ## Description
