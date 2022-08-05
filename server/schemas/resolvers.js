@@ -6,7 +6,7 @@ const resolvers = {
 	// Queries
 	Query: {
 		users: async () => {
-			return User.find().populate('savedMovies');
+			return User.find().populate('savedMovies').sort({ savedMovies: 'ASC'});
 		},
 		user: async (parent, { username }) => {
 			return await User.findOne({ username }).populate('savedMovies').populate('likedMoves').populate('favoriteMovies');
