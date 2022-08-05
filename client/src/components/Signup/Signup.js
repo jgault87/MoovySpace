@@ -76,6 +76,7 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <input className="form-input" />
                 <div className='signUp'>
                 <button
                   className="btn btn-block btn-primary"

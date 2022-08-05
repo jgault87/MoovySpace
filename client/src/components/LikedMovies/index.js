@@ -45,7 +45,7 @@ function LikedMovies() {
         if (currentWidth > 800) {
             //5 cards in carousel 
             setCount(5)
-        } else if (currentWidth > 500) {
+        } else if (currentWidth > 600) {
             //4 cards in carousel
             setCount(4)
         } else {
@@ -66,34 +66,34 @@ function LikedMovies() {
         <div className="likedWrapper">
             {iterable.map((element, i) => (
                 (i === 0) &&
-                    (<section id={`likedSection${i + 1}`} >
-                        <a href={`#likedSection${iterable.length - 1}`}><ArrowBackIosIcon /></a>
+                    (<section id="likedSection1" >
+                        <a href="#likedSection2"><ArrowBackIosIcon /></a>
                         {user?.likedMovies.map((item, j) => (
                             j < count &&
                             <Carousel key={uuidv4()} item={item} />
                         ))}
-                        <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
+                        <a href="#likedSection2"><ArrowForwardIosIcon /></a>
                     </section>)
 
-                (i === (iterable.length - 1) && i !== 0) && 
-                    (<section id={`likedSection${i + 1}`} >
-                        <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
-                        {user?.likedMovies.map((item, j) => (
-                            j < count &&
-                            <Carousel key={uuidv4()} item={item} />
-                        ))}
-                        <a href={`#likedSection1`}><ArrowForwardIosIcon /></a>
-                    </section>)
+                // (i === (iterable.length - 1) && i !== 0) && 
+                //     (<section id="likedSection2" >
+                //         <a href="#likedSection1"><ArrowBackIosIcon /></a>
+                //         {user?.likedMovies.map((item, j) => (
+                //             j < count &&
+                //             <Carousel key={uuidv4()} item={item} />
+                //         ))}
+                //         <a href="#likedSection1"><ArrowForwardIosIcon /></a>
+                //     </section>)
 
-                (i !== (iterable.length - 1) && i !== 0) &&
-                    (<section id={`likedSection${i + 1}`} >
-                        <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
-                        {user?.likedMovies.map((item, j) => (
-                            j < count &&
-                            <Carousel key={uuidv4()} item={item} />
-                        ))}
-                        <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
-                    </section>)
+                // (i !== (iterable.length - 1) && i !== 0) &&
+                //     (<section id={`likedSection${i + 1}`} >
+                //         <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
+                //         {user?.likedMovies.map((item, j) => (
+                //             j < count &&
+                //             <Carousel key={uuidv4()} item={item} />
+                //         ))}
+                //         <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
+                //     </section>)
             ))}
         </div>
 
