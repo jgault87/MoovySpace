@@ -62,42 +62,44 @@ function LikedMovies() {
     console.log(iterable)
     console.log(user)
     return (
-
-        <div className="likedWrapper">
-            {iterable.map((element, i) => (
-                (i === 0) &&
-                    (<section id="likedSection1" >
-                        <a href="#likedSection2"><ArrowBackIosIcon /></a>
-                        {user?.likedMovies.map((item, j) => (
-                            j < count &&
-                            <Carousel key={uuidv4()} item={item} />
-                        ))}
-                        <a href="#likedSection2"><ArrowForwardIosIcon /></a>
-                    </section>)
-
-                // (i === (iterable.length - 1) && i !== 0) && 
-                //     (<section id="likedSection2" >
-                //         <a href="#likedSection1"><ArrowBackIosIcon /></a>
-                //         {user?.likedMovies.map((item, j) => (
-                //             j < count &&
-                //             <Carousel key={uuidv4()} item={item} />
-                //         ))}
-                //         <a href="#likedSection1"><ArrowForwardIosIcon /></a>
-                //     </section>)
-
-                // (i !== (iterable.length - 1) && i !== 0) &&
-                //     (<section id={`likedSection${i + 1}`} >
-                //         <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
-                //         {user?.likedMovies.map((item, j) => (
-                //             j < count &&
-                //             <Carousel key={uuidv4()} item={item} />
-                //         ))}
-                //         <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
-                //     </section>)
-            ))}
-        </div>
-
-    )
+            <div className="likedWrapper">
+                {iterable.map((element, i) => (
+                    
+                    <>
+                    {(i === 0) &&
+                        (<section id={`likedSection${i + 1}`} >
+                            <a href={`#likedSection${iterable.length - 1}`}><ArrowBackIosIcon /></a>
+                            {user.likedMovies.map((item, j) => (
+                                (j < count * (i + 1)) && (j >= count * i) &&
+                                <Carousel key={uuidv4()} item={item} />
+                            ))}
+                            <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
+                        </section>)}
+    
+                    {(i === (iterable.length - 1) && i !== 0) && 
+                        (<section id={`likedSection${i + 1}`} >
+                            <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
+                            {user.likedMovies.map((item, j) => (
+                                (j < count * (i + 1)) && (j >= count * i)  &&
+                                <Carousel key={uuidv4()} item={item} />
+                            ))}
+                            <a href={`#likedSection1`}><ArrowForwardIosIcon /></a>
+                        </section>)}
+    
+                    {(i !== (iterable.length - 1) && i !== 0) &&
+                        (<section id={`likedSection${i + 1}`} >
+                            <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
+                            {user.likedMovies.map((item, j) => (
+                                (j < count * (i + 1)) && (j >= count * i)  &&
+                                <Carousel key={uuidv4()} item={item} />
+                            ))}
+                            <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
+                        </section>)}
+                    </>
+                ))}
+            </div>
+    
+        )
 }
 
 export default LikedMovies
