@@ -21,7 +21,7 @@ nav a.active {
   color: var(--color-bg);
 }
 
-@media screen and (max-width: 1024px) {
+
   nav {
     background: rgba(0, 0, 0, 0.3);
     width: max-content;
@@ -38,4 +38,3 @@ nav a.active {
     backdrop-filter: blur(15px);
     color: white;
   }
-}
