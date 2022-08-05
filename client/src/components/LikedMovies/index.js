@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/client';
 import { v4 as uuidv4 } from 'uuid';
 import { ListItemSecondaryAction } from '@mui/material';
 import { canUseLayoutEffect } from '@apollo/client/utilities';
-import Carousel from '../Carousel';
+import Carousel from '../LikedCarousel';
 
 function LikedMovies() {
     const { username: userParam } = useParams();
@@ -48,19 +48,17 @@ function LikedMovies() {
         } else if (currentWidth > 600) {
             //4 cards in carousel
             setCount(4)
-        } else {
+        } else if (currentWidth > 500) {
             //3 cards in carousel
             setCount(3)
+        } else if (currentWidth > 400) {
+            setCount(2)
         }
         setIterable(new Array(Math.ceil(user.likedMovies.length / count)).fill(0))
     }, [currentWidth])
     //Constantly looking at the width of the users view port
     //And adjusting the cards count in the carousel 
 
-    console.log(count)
-    console.log(currentWidth)
-    console.log(iterable)
-    console.log(user)
     return (
             <div className="likedWrapper">
                 {iterable.map((element, i) => (

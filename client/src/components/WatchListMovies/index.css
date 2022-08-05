@@ -1,49 +1,105 @@
-html {
-  scroll-behavior: smooth;
+#watchMovies-container {
+  position: relative;
+  margin-top: 400px;
 }
 
-.WatchedWrapper {
+.watchWrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (100%)[3];
-      grid-template-columns: repeat(3, 100%);
+  -ms-grid-columns: (100%)[5];
+      grid-template-columns: repeat(5, 100%);
   overflow: hidden;
   scroll-behavior: smooth;
   position: relative;
-  top: 400px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: center;
+  top: 700px;
 }
 
-.WatchedWrapper section {
+.watchWrapper section {
   width: 100%;
   position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[5];
       grid-template-columns: repeat(5, auto);
-  margin: 0;
+  margin: 20px 0;
 }
 
-.WatchedWrapper section .item {
+.watchWrapper section .item {
   padding: 0 2px;
-  -webkit-transition: 250ms all;
-  transition: 250ms all;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 300px;
+      flex-basis: 300px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  overflow: hidden;
 }
 
-.WatchedWrapper section .item:hover {
-  margin: 0 40px;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+.watchWrapper section .item:hover {
+  margin: 0 20px;
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
 }
 
-.WatchedWrapper section a {
+.watchWrapper section .item img {
+  width: 100%;
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+}
+
+.watchWrapper section .watchedDescriptions {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-clip-path: circle(0% at 100% 100%);
+          clip-path: circle(0% at 100% 100%);
+  text-align: center;
+}
+
+.watchWrapper section .item:hover .watchedDescriptions {
+  left: 0px;
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
+  -webkit-clip-path: circle(75%);
+          clip-path: circle(75%);
+  overflow: scroll;
+}
+
+.watchWrapper section .item:hover {
+  -webkit-transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.watchWrapper section a {
   position: absolute;
   color: #fff;
   text-decoration: none;
-  font-size: 6em;
+  font-size: 11em;
   background: black;
   width: 80px;
   padding: 20px;
@@ -51,7 +107,7 @@ html {
   z-index: 1;
 }
 
-.WatchedWrapper section a:nth-of-type(1) {
+.watchWrapper section a:nth-of-type(1) {
   top: 0;
   bottom: 0;
   left: 0;
@@ -59,7 +115,7 @@ html {
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
 }
 
-.WatchedWrapper section a:nth-of-type(2) {
+.watchWrapper section a:nth-of-type(2) {
   top: 0;
   bottom: 0;
   right: 0;
