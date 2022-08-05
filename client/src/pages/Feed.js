@@ -1,11 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_MOVIE_FEED } from '../utils/queries';
-import './mainPage.css';
 import { Link } from 'react-router-dom';
 
 const feedStyles = {
   gridContainer: {
+    justifyItems: 'center',
     display: 'grid',
     gridGap: '3rem',
     padding: '3rem',
@@ -46,20 +46,19 @@ const Feed = () => {
               return (
                 <div style={feedStyles.gridItem} key={user._id}>
                   <h4>
-                  <Link
-                  className="btn btn-primary"
-                  to={`/profiles/${user.username}`}
-                >
-                  
-                    {user.username} 
+                    <Link
+                      className='btn btn-primary'
+                      to={`/profiles/${user.username}`}
+                    >
+                      {user.username}
                     </Link>
-                    </h4>
-                    <p>
-                    recently saved{' '}
-                    <strong>{user.savedMovies[0].title}</strong> and{' '}
-                    {user.savedMovies.length} other movies to their collection
-                    </p>
-                  
+                  </h4>
+                  <p>
+                    recently saved <strong>{user.savedMovies[0].title}</strong>{' '}
+                    and {user.savedMovies.length -1} other movies to their
+                    collection
+                  </p>
+
                   <img
                     style={feedStyles.gridImage}
                     src={`https://image.tmdb.org/t/p/w300${user.savedMovies[0].image}`}
@@ -68,16 +67,6 @@ const Feed = () => {
 
                   <h4>{user.savedMovies[0].title}</h4>
 
-                  {/* <p>{user.savedMovies[0].description} </p> */}
-
-                  {/* <p>
-                    <a
-                      href={`https://image.tmdb.org/t/p/original${user.savedMovies[0].backdrop}`}
-                    >
-                      {' '}
-                      Backdrop{' '}
-                    </a>{' '}
-                  </p> */}
                   <a
                     href={`https://www.youtube.com/watch?v=${user.savedMovies[0].trailer}`}
                     target='_blank'

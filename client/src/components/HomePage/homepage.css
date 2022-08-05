@@ -1,60 +1,85 @@
 .split {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  /* Control the left side */
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: var(--transition);
+}
+
+/* Control the left side */
+.left {
+  width: 60%;
+  left: 0;
+  background-color: #111;
+  color: white;
+}
+
+/* Control the right side */
+.right {
+  width: 40%;
+  right: 0;
+  background-color: var(--color-bg);
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 950px;
+  height: auto;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.cinema {
+  font-family: fantasy;
+}
+
+.login {
+  margin: 5%;
+  /* display: none; */
+}
+
+.signUpOne {
+  margin: 3%;
+}
+
+.toggle {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
   .left {
-    width: 60%;
-    left: 0;
-    background-color: #111;
-    color: white;
+    width: 100%;
+    top: 12rem;
+    bottom: 20rem;
+    
+   
   }
-  
-  /* Control the right side */
+
   .right {
-    width: 40%;
+    height: 50%;
+    width: 100%;
     right: 0;
     background-color: var(--color-bg);
+   
+    
   }
-  
-  /* If you want the content centered horizontally and vertically */
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  /* Style the image inside the centered container, if needed */
+
   .centered img {
-    width: 950px;
+    width: 400px;
     height: auto;
   }
-
-  .center{
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cinema {
-    font-family: fantasy;
-  }
-
-  .login {
-    margin: 5%;
-    /* display: none; */
-  }
-
-  .signUpOne {
-    margin: 3%;
-  }
-
-  .toggle {
-    display: none;
-  }
+}

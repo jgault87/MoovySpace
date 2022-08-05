@@ -12,12 +12,6 @@ const BUTTON_WRAPPER_STYLES = {
   zIndex: 1,
 };
 
-const OTHER_CONTENT_STYLES = {
-  position: "relative",
-  zIndex: 2,
-  backgroundColor: "blue",
-  padding: "10px",
-};
 
 const HomePage = () => {
   const logout = (event) => {
@@ -26,17 +20,14 @@ const HomePage = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
+  const [hide, setHide] = useState(false);
 
   return (
     <>
       <div className="split left">
         <div className="centered">
-          <img
-            src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg"
-            alt="Movies"
-            className=""
-          />
-          <h2 className="cinema"> What is your favorite cinema? 🎥 </h2>
+          <img src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg" alt="Movies" class=""/>
+          <h2 class="cinema"> What is your favorite movie? 🎥 </h2>
           <p></p>
         </div>
       </div>
@@ -52,24 +43,30 @@ const HomePage = () => {
                 <Link className="btn btn-lg btn-info m-2" to="/home">
                   Homepage
                 </Link>
-                <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                <p className="btn btn-primary" onClick={logout}>
                   Logout
-                </button>
+                </p>
               </>
             ) : (
               <>
                 <div style={BUTTON_WRAPPER_STYLES}>
-                  <Login />
-                  <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                  {hide===true?"":<Login />}
+                  <Modal open={isOpen} onClose={() => {
+                    setHide(false);
+                    setIsOpen(false)}}>
                     <Signup />
                   </Modal>
                   <div className="signUpOne">
-                    <button
+                    {
+                      hide===true?"":<button
                       className="btn btn-primary "
-                      onClick={() => setIsOpen(true)}
+                      onClick={() => {
+                        setHide(true)
+                        setIsOpen(true)}}
                     >
                       Signup instead? ✍️
                     </button>
+                    }
                   </div>
                 </div>
               </>
