@@ -152,7 +152,6 @@ const SearchBar = () => {
           (option) => option.original_title
         );
         setTitleOptions(newTitleOptions);
-        console.log(titleOptions);
       });
   };
 
