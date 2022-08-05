@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
+
 function Carousel(props) {
-    const {item} = props
+    const { item } = props
+    const openInNewTab = url => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      };
+    
     return (
         <div className="item">
             <div>
@@ -9,7 +14,7 @@ function Carousel(props) {
                 <div className="likedDescriptions">
                     <h1>{item.title}</h1>
                     <p>{item.description}</p>
-                    <button className="btn">Click me</button>
+                    <p onClick={() => openInNewTab(`https://www.youtube.com/watch?v=${item.trailer}`)} className="btn btn-primary">Click Me</p>
                 </div>
             </div>
         </div>

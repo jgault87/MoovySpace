@@ -6,10 +6,11 @@
   height: auto;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #f8f4f4;
+  border-bottom: 1px solid #ffffff;
   color: var(--color-light);
   font-size: large;
   text-align: center;
+
 }
 
 #searchArea {
@@ -24,6 +25,7 @@
   color: var(--color-light);
   font-size: large;
   text-align: center;
+  
 }
 
 #searchBtn {
