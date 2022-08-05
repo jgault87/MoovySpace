@@ -4,13 +4,15 @@ import { App, AppContext } from '../App';
 import './mainPage.css';
 import Trailer from '../components/Trailer/Trailer.js';
 import LikedMovies from '../components/LikedMovies';
-import { SAVE_MOVIE } from '../utils/mutations';
+import { LIKE_MOVIE, SAVE_MOVIE } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
+import { saveMovieIds, getSavedMovieIds, likeMovieIds, getLikedMovieIds } from '../utils/localStorage';
 
 const Home = () => {
 	const [saveMovie] = useMutation(SAVE_MOVIE);
+	const [likeMovie] = useMutation(LIKE_MOVIE);
 	const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
+	const [likedMovieIds, setLikedMovieIds] = useState(getLikedMovieIds());
 
 	const searchContext = useContext(AppContext);
 	let posterImage = 'https://image.tmdb.org/t/p/w500' + searchContext.details.poster_path;
@@ -30,7 +32,7 @@ const Home = () => {
 		backdrop: movieBackdrop,
 		trailer: movieTrailer
 	};
-	console.log(movieData);
+
 	const handleSaveMovie = async () => {
 		const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -43,6 +45,23 @@ const Home = () => {
 				variables: { movie: movieData }
 			});
 			setSavedMovieIds([...savedMovieIds, movieData.movieId]);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	const handleLikeMovie = async () => {
+		const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+		if (!token) {
+			return false;
+		}
+
+		try {
+			await likeMovie({
+				variables: { movie: movieData }
+			});
+			setLikedMovieIds([...likedMovieIds, movieData.movieId]);
 		} catch (err) {
 			console.error(err);
 		}
@@ -64,15 +83,26 @@ const Home = () => {
 					)}
 				</div>
 				{Auth.loggedIn() && (
-					<button
-						disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)}
-						onClick={handleSaveMovie}
-						className="btn btn-primary"
-					>
-						{savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)
-							? 'This movie has been add to your Watch List!'
-							: 'Add to Watch List'}
-					</button>
+					<div>
+						<button
+							disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)}
+							onClick={handleSaveMovie}
+							className="btn btn-primary"
+						>
+							{savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)
+								? 'This movie has been add to your Watch List!'
+								: 'Add to Watch List'}
+						</button>
+						<button
+							disabled={likedMovieIds?.some((likedMovieId) => likedMovieId === movieData.movieId)}
+							onClick={handleLikeMovie}
+							className="btn btn-primary"
+						>
+							{likedMovieIds?.some((likedMovieId) => likedMovieId === movieData.movieId)
+								? 'This movie has been liked!'
+								: 'Like Movie'}
+						</button>
+					</div>
 				)}
 			</div>
 		</main>
