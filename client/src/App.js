@@ -9,8 +9,8 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Feed from "./pages/Feed";
-import MobileNav from "./components/Nav/Nav"
-import Footer from "./components/Footer/Footer"
+import MobileNav from "./components/nav/Nav";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/index";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -19,6 +19,7 @@ import FavoriteMovies from "./components/FavoriteMovies/";
 import LikedMovies from "./components/LikedMovies/";
 import SearchBar from "./components/SearchBar/SearchBar";
 
+// import axios
 import axios from "axios";
 export const AppContext = React.createContext();
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
@@ -104,7 +105,15 @@ export function App() {
                 </>
               }
             />
-            <Route path="/feed" element={<><Header /><Feed /></>} />
+            <Route
+              path="/feed"
+              element={
+                <>
+                  <Header />
+                  <Feed />
+                </>
+              }
+            />
             <Route
               path="/profile"
               element={
@@ -124,7 +133,6 @@ export function App() {
                 </>
               }
             />
-            
           </Routes>
           <Footer />
         </Router>
