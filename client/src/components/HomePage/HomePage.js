@@ -12,7 +12,6 @@ const BUTTON_WRAPPER_STYLES = {
   zIndex: 1,
 };
 
-
 const HomePage = () => {
   const logout = (event) => {
     event.preventDefault();
@@ -26,8 +25,12 @@ const HomePage = () => {
     <>
       <div className="split left">
         <div className="centered">
-          <img src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg" alt="Movies" class=""/>
-          <h2 class="cinema"> What is your favorite cinema? 🎥 </h2>
+          <img
+            src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg"
+            alt="Movies"
+            className=""
+          />
+          <h2 className="cinema"> What is your favorite movie? 🎥 </h2>
           <p></p>
         </div>
       </div>
@@ -50,23 +53,30 @@ const HomePage = () => {
             ) : (
               <>
                 <div style={BUTTON_WRAPPER_STYLES}>
-                  {hide===true?"":<Login />}
-                  <Modal open={isOpen} onClose={() => {
-                    setHide(false);
-                    setIsOpen(false)}}>
+                  {hide === true ? "" : <Login />}
+                  <Modal
+                    open={isOpen}
+                    onClose={() => {
+                      setHide(false);
+                      setIsOpen(false);
+                    }}
+                  >
                     <Signup />
                   </Modal>
                   <div className="signUpOne">
-                    {
-                      hide===true?"":<button
-                      className="btn btn-primary "
-                      onClick={() => {
-                        setHide(true)
-                        setIsOpen(true)}}
-                    >
-                      Signup instead? ✍️
-                    </button>
-                    }
+                    {hide === true ? (
+                      ""
+                    ) : (
+                      <button
+                        className="btn btn-primary "
+                        onClick={() => {
+                          setHide(true);
+                          setIsOpen(true);
+                        }}
+                      >
+                        Signup instead? ✍️
+                      </button>
+                    )}
                   </div>
                 </div>
               </>

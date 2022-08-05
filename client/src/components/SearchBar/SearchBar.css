@@ -11,6 +11,21 @@
   font-size: large;
   text-align: center;
 }
+
+#searchArea {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 40%;
+  height: auto;
+  background: transparent;
+  border: none;
+  /* border-bottom: 1px solid #f8f4f4; */
+  color: var(--color-light);
+  font-size: large;
+  text-align: center;
+}
+
 #searchBtn {
   width: 150px;
   height: 50px;
