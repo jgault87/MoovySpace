@@ -192,6 +192,7 @@ const SearchBar = () => {
               {...params}
               id="searchBox"
               label="Search Box"
+              style={{color: 'white'}}
               onChange={handleTitleSuggestion}
               value={search}
             />

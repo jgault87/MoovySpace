@@ -1,58 +1,93 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
-
+import Carousel from '../Carousel';
+import { QUERY_USER, QUERY_ME } from '../../utils/queries';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { v4 as uuidv4 } from 'uuid';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function WatchListMovies(props) {
-	const { savedMovies } = props;
+	const { username: userParam } = useParams();
+    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
+    const user = data?.me || data?.user || {};
+
+    console.log(user)
+
+    const [currentWidth, setCurrentWidth] = useState(
+        Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+        //Looking at the width of the users view port
+    )
+
+    const [count, setCount] = useState(
+        currentWidth > 800 ? 5 : 3
+    )
+
+    const [iterable, setIterable] = useState(
+        new Array(Math.ceil(user.likedMovies.length / count))
+    )
+
+
+    const handleResize = () => {
+        setCurrentWidth(window.innerWidth) 
+      }
+      useEffect(() => {
+        window.addEventListener("resize", handleResize, false);
+      }, []);
+      //This is constantly looking for the width and setting it
+      //After it is set, it will useEffect 
+
+
+    useEffect(() => {
+        if (currentWidth > 800) {
+            //5 cards in carousel 
+            setCount(5)
+        } else if (currentWidth > 600) {
+            //4 cards in carousel
+            setCount(4)
+        } else {
+            //3 cards in carousel
+            setCount(3)
+        }
+        setIterable(new Array(Math.ceil(user.likedMovies.length / count)).fill(0))
+    }, [currentWidth])
+    //Constantly looking at the width of the users view port
+    //And adjusting the cards count in the carousel 
 	return (
-		<div className="wrapper">
-			<section id="watchSection1">
-				<a href="#watchSection2">
-					<ArrowBackIosIcon />
-				</a>
+		<div className="likedWrapper">
+            {iterable.map((element, i) => (
+                (i === 0) &&
+                    (<section id="likedSection1" >
+                        <a href="#likedSection2"><ArrowBackIosIcon /></a>
+                        {user?.likedMovies.map((item, j) => (
+                            j < count &&
+                            <Carousel key={uuidv4()} item={item} />
+                        ))}
+                        <a href="#likedSection2"><ArrowForwardIosIcon /></a>
+                    </section>)
 
-				<div className="item">
-					<img src={`https://image.tmdb.org/t/p/w500${savedMovies[0].image}`} alt="Describe Image" />
-				</div>
-				{/* <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[1].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[2].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[0].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[1].image}`} alt="Describe Image" />
-                </div> */}
-				<a href="#watchSection2">
-					<ArrowForwardIosIcon />
-				</a>
-			</section>
+                // (i === (iterable.length - 1) && i !== 0) && 
+                //     (<section id="likedSection2" >
+                //         <a href="#likedSection1"><ArrowBackIosIcon /></a>
+                //         {user?.likedMovies.map((item, j) => (
+                //             j < count &&
+                //             <Carousel key={uuidv4()} item={item} />
+                //         ))}
+                //         <a href="#likedSection1"><ArrowForwardIosIcon /></a>
+                //     </section>)
 
-			{/* <section id="watchSection2">
-                <a href="#watchSection1"><ArrowBackIosIcon /></a>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[0].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[1].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[2].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[0].image}`} alt="Describe Image" />
-                </div>
-                <div className="item">
-                    <img src={`https://image.tmdb.org/t/p/w500${savedMovies[1].image}`} alt="Describe Image" />
-                </div>
-                <a href="#watchSection1"><ArrowForwardIosIcon /></a>
-            </section> */}
-		</div>
+                // (i !== (iterable.length - 1) && i !== 0) &&
+                //     (<section id={`likedSection${i + 1}`} >
+                //         <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
+                //         {user?.likedMovies.map((item, j) => (
+                //             j < count &&
+                //             <Carousel key={uuidv4()} item={item} />
+                //         ))}
+                //         <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
+                //     </section>)
+            ))}
+        </div>
 	);
 }
 

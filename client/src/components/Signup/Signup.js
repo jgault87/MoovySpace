@@ -75,6 +75,7 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+
                 <div className="signUp">
                   <button
                     className="btn btn-block btn-primary"
@@ -83,6 +84,7 @@ const Signup = () => {
                   >
                     Submit 💾
                   </button>
+
                 </div>
               </form>
             )}

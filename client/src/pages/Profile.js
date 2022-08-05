@@ -34,9 +34,9 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="">
-						{/* <FavoriteMovies favoriteMovies={user.favoriteMovies} /> */}
+						<FavoriteMovies favoriteMovies={user.favoriteMovies} />
 
-						{/* <LikedMovies likedMovies={user.likedMovies} /> */}
+						<LikedMovies likedMovies={user.likedMovies} />
 
 						<WatchListMovies savedMovies={user.savedMovies} />
 					</div>

@@ -7,88 +7,104 @@ let backdrop3;
 
 function FavoriteMovies(props) {
     const { favoriteMovies } = props;
-   
+
     const handleBackground = (e) => {
         backdrop1 = 'https://image.tmdb.org/t/p/original' + favoriteMovies[0].backdrop;
         backdrop2 = 'https://image.tmdb.org/t/p/original' + favoriteMovies[1].backdrop;
         backdrop3 = 'https://image.tmdb.org/t/p/original' + favoriteMovies[2].backdrop;
 
-        if (e.target.id === 'item1'){
-            if (favoriteMovies[0].backdrop){
-                document.getElementById('backdrop').style.cssText+=`background-image:url(${backdrop1})`;
+        if (e.target.id === 'item1') {
+            if (favoriteMovies[0].backdrop) {
+                document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop1})`;
             }
-            else{
+            else {
                 document.getElementById('backdrop').style.backgroundColor = 'red'
             }
-            
+
         }
-        else if (e.target.id === 'item2'){
-            document.getElementById('backdrop').style.cssText+=`background-image:url(${backdrop2})`;
+        else if (e.target.id === 'item2') {
+            document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop2})`;
         }
-        else if (e.target.id === 'item3'){
-            document.getElementById('backdrop').style.cssText+=`background-image:url(${backdrop3})`;
+        else if (e.target.id === 'item3') {
+            document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop3})`;
         }
     }
 
+    const openInNewTab = url => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
     return (
-        
-            <section className="projectSection" id="backdrop">
-                <div className="posterContainer">
-                    <input type="radio" name="slider" id="item1" onClick={handleBackground} defaultChecked></input>
-                    <input type="radio" name="slider" id="item2" onClick={handleBackground} defaultChecked></input>
-                    <input type="radio" name="slider" id="item3" onClick={handleBackground} defaultChecked></input>
-                    <div className="cards">
-                        <label className="card" htmlFor="item1" id="project1">
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${favoriteMovies[0].image}`} alt={favoriteMovies[0].title}></img>
-                        </label>
-                        <label className="card" htmlFor="item2" id="project2">
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${favoriteMovies[1].image}`} alt={favoriteMovies[1].title}></img>
-                        </label>
-                        <label className="card" htmlFor="item3" id="project3">
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${favoriteMovies[2].image}`} alt={favoriteMovies[2].title}></img>
-                        </label>
-                    </div>
-                    <div className="infoContainer" id="infoContainer">
-                        <div className="upperpart">
-                            <div className="infoarea" id="test">
-                                <label className="projectinfo" id="projectinfo1">
-                                    <div className="title">
+
+        <section className="projectSection" id="backdrop">
+            <div className="posterContainer">
+                <input type="radio" name="slider" id="item1" onClick={handleBackground} defaultChecked></input>
+                <input type="radio" name="slider" id="item2" onClick={handleBackground} defaultChecked></input>
+                <input type="radio" name="slider" id="item3" onClick={handleBackground} defaultChecked></input>
+                <div className="cards">
+                    <label className="card" htmlFor="item1" id="project1">
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500${favoriteMovies[0].image}`} alt={favoriteMovies[0].title}></img>
+                    </label>
+                    <label className="card" htmlFor="item2" id="project2">
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500${favoriteMovies[1].image}`} alt={favoriteMovies[1].title}></img>
+                    </label>
+                    <label className="card" htmlFor="item3" id="project3">
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500${favoriteMovies[2].image}`} alt={favoriteMovies[2].title}></img>
+                    </label>
+                </div>
+                <div className="infoContainer" id="infoContainer">
+                    <div className="upperpart">
+                        <div className="infoarea" id="test">
+                            <label className="projectinfo" id="projectinfo1">
+                                <div className="title">
                                     {favoriteMovies[0].title}
-                                    </div>
-                                    <div className="subline">
-                                        <div className="liveLink"><a href="https://fierce-castle-22192.herokuapp.com/"
-                                            target="_blank" rel="noreferrer">Live Link Here</a></div>
-                                        <a className="cameraIcon" href="https://github.com/Noah8863/PWA-Text-Editor" target="_blank" rel="noreferrer"><VideocamIcon /></a>
-                                    </div>
-                                </label>
-                                <label className="projectinfo" id="projectinfo2">
-                                    <div className="title">
+                                </div>
+                                <div className="subline">
+                                    <div className="liveLink"><a
+                                        href={`https://www.youtube.com/watch?v=${favoriteMovies[0].trailer}`}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        
+                                    >Watch Trailer Here</a></div>
+                                    <VideocamIcon className="cameraIcon" />
+                                </div>
+                            </label>
+                            <label className="projectinfo" id="projectinfo2">
+                                <div className="title">
                                     {favoriteMovies[1].title}
-                                    </div>
-                                    <div className="subline">
-                                        <div className="liveLink"><a href="https://noah8863.github.io/Coffee-and-Book-Finder/"
-                                            target="_blank" rel="noreferrer">Live Link Here</a></div>
-                                        <a className="cameraIcon" href="https://github.com/Noah8863/PWA-Text-Editor" target="_blank" rel="noreferrer"><VideocamIcon /></a>
-                                    </div>
-                                </label>
-                                <label className="projectinfo" id="projectinfo3">
-                                    <div className="title">
-                                        {favoriteMovies[2].title}
-                                    </div>
-                                    <div className="subline">
-                                        <div className="liveLink"><a href="https://noah8863.github.io/Password-Generator/"
-                                            target="_blank" rel="noreferrer">Live Link Here</a></div>
-                                        <a className="cameraIcon" href="https://github.com/Noah8863/PWA-Text-Editor" target="_blank" rel="noreferrer"><VideocamIcon /></a>
-                                    </div>
-                                </label>
-                            </div>
+                                </div>
+                                <div className="subline">
+                                    <div className="liveLink"><a
+                                        href={`https://www.youtube.com/watch?v=${favoriteMovies[1].trailer}`}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        
+                                    >Watch Trailer Here</a></div>
+                                    <VideocamIcon className="cameraIcon" />
+                                </div>
+                            </label>
+                            <label className="projectinfo" id="projectinfo3">
+                                <div className="title">
+                                    {favoriteMovies[2].title}
+                                </div>
+                                <div className="subline">
+                                    <div className="liveLink"><a
+                                        href={`https://www.youtube.com/watch?v=${favoriteMovies[2].trailer}`}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        
+                                    >Watch Trailer Here</a></div>
+                                    <VideocamIcon className="cameraIcon" />
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
     )
 }
 
