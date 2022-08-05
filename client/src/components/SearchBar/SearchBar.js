@@ -183,7 +183,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <form>
+      <form id="searchArea">
         <Autocomplete
           id="searchBar"
           onChange={handleInputChange}
