@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_MOVIE_FEED } from "../utils/queries";
 import { Link } from "react-router-dom";
+import './feed.css'
 
 const feedStyles = {
   gridContainer: {
@@ -38,7 +39,14 @@ const Feed = () => {
       <h2>Recent Activity:</h2>
       <div className="feedGridContainer" style={feedStyles.gridContainer}>
         {loading ? (
-          <div>Loading...</div>
+
+          <div class="loader">
+            <div class="loader__filmstrip">
+            </div>
+            <p class="loader__text">
+              loading
+            </p>
+          </div>
         ) : (
           users.map((user) => {
             if (user.savedMovies.length) {

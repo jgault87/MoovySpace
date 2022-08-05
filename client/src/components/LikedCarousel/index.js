@@ -14,7 +14,7 @@ function Carousel(props) {
                 <div className="likedDescriptions">
                     <h1>{item.title}</h1>
                     <p>{item.description}</p>
-                    <p onClick={() => openInNewTab(`https://www.youtube.com/watch?v=${item.trailer}`)} className="btn btn-primary">Click Me</p>
+                    <p onClick={() => openInNewTab(`https://www.youtube.com/watch?v=${item.trailer}`)} className="btn btn-primary">Watch {item.title} Trailer</p>
                 </div>
             </div>
         </div>
