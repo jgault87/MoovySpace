@@ -12,8 +12,8 @@ const Footer = () => {
       </ul>
 
       <div className="footer__socials">
-        <a href="https://www.linkedin.com/in/jj-gault/" target="_blank" rel="noreferrer">About</a>
-        <a href="https://www.merriam-webster.com/dictionary/about" target="_blank" rel="noreferrer">MoovySpace Github</a>
+        <a href="https://www.merriam-webster.com/dictionary/about" target="_blank" rel="noreferrer">About</a>
+        <a href="https://github.com/jgault87/MoovySpace" target="_blank" rel="noreferrer">MoovySpace Github</a>
         <a href="#home" > </a>
 
       </div>
