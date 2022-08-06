@@ -99,4 +99,3 @@ function LikedMovies(props) {
 }
 
 export default LikedMovies;
-
