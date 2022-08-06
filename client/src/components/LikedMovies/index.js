@@ -10,6 +10,7 @@ import { ListItemSecondaryAction } from '@mui/material';
 import { canUseLayoutEffect } from '@apollo/client/utilities';
 import Carousel from '../LikedCarousel';
 
+
 function LikedMovies(props) {
     const { username: userParam } = useParams();
     const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
@@ -17,47 +18,76 @@ function LikedMovies(props) {
     const { likedMovies } = props
     console.log('hello')
 
-    const [currentWidth, setCurrentWidth] = useState(
-        Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-        //Looking at the width of the users view port
-    )
 
-    const [count, setCount] = useState(
-        currentWidth > 800 ? 5 : 3
-    )
+	const [currentWidth, setCurrentWidth] = useState(
+		Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+		//Looking at the width of the users view port
+	);
 
-    const [iterable, setIterable] = useState(
-        new Array(Math.ceil(user.likedMovies.length / count))
-    )
+	const [count, setCount] = useState(currentWidth > 800 ? 5 : 3);
 
+	const [iterable, setIterable] = useState(new Array(Math.ceil(user.likedMovies.length / count)));
 
-    const handleResize = () => {
-        setCurrentWidth(window.innerWidth) 
-      }
-      useEffect(() => {
-        window.addEventListener("resize", handleResize, false);
-      }, []);
-      //This is constantly looking for the width and setting it
-      //After it is set, it will useEffect 
+	const handleResize = () => {
+		setCurrentWidth(window.innerWidth);
+	};
+	useEffect(() => {
+		window.addEventListener('resize', handleResize, false);
+	}, []);
+	//This is constantly looking for the width and setting it
+	//After it is set, it will useEffect
 
+	useEffect(() => {
+		if (currentWidth > 800) {
+			//5 cards in carousel
+			setCount(5);
+		} else if (currentWidth > 600) {
+			//4 cards in carousel
+			setCount(4);
+		} else if (currentWidth > 500) {
+			//3 cards in carousel
+			setCount(3);
+		} else if (currentWidth > 400) {
+			setCount(2);
+		}
+		setIterable(new Array(Math.ceil(user.likedMovies.length / count)).fill(0));
+	}, [currentWidth]);
+	//Constantly looking at the width of the users view port
+	//And adjusting the cards count in the carousel
 
-    useEffect(() => {
-        if (currentWidth > 800) {
-            //5 cards in carousel 
-            setCount(5)
-        } else if (currentWidth > 600) {
-            //4 cards in carousel
-            setCount(4)
-        } else if (currentWidth > 500) {
-            //3 cards in carousel
-            setCount(3)
-        } else if (currentWidth > 400) {
-            setCount(2)
-        }
-        setIterable(new Array(Math.ceil(user.likedMovies.length / count)).fill(0))
-    }, [currentWidth])
-    //Constantly looking at the width of the users view port
-    //And adjusting the cards count in the carousel 
+	return (
+		<div className="likedWrapper">
+			{iterable.map((element, i) => (
+				<>
+					{i === 0 && (
+						<section id={`likedSection${i + 1}`}>
+							<a href={`#likedSection${iterable.length - 1}`}>
+								<ArrowBackIosIcon />
+							</a>
+							{user.likedMovies.map(
+								(item, j) =>
+									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
+							)}
+							<a href={`#likedSection${i + 2}`}>
+								<ArrowForwardIosIcon />
+							</a>
+						</section>
+					)}
+
+					{i === iterable.length - 1 && i !== 0 && (
+						<section id={`likedSection${i + 1}`}>
+							<a href={`#likedSection${i}`}>
+								<ArrowBackIosIcon />
+							</a>
+							{user.likedMovies.map(
+								(item, j) =>
+									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
+							)}
+							<a href={`#likedSection1`}>
+								<ArrowForwardIosIcon />
+							</a>
+						</section>
+					)}
 
     return (
             <div className="likedWrapper">
@@ -98,13 +128,13 @@ function LikedMovies(props) {
             </div>
     
         )
+
 }
 
-export default LikedMovies
+export default LikedMovies;
 
-
-
-{/* <section id="likedSection2">
+{
+	/* <section id="likedSection2">
                 <a href="#likedSection1"><ArrowBackIosIcon /></a>
                 {user.likedMovies.map((item) => (
                     <div className="item" key={uuidv4()}>
@@ -118,4 +148,5 @@ export default LikedMovies
                     </div>
                 ))}
                 <a href="#likedSection1"><ArrowForwardIosIcon /></a>
-            </section> */}
+            </section> */
+}

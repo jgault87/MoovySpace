@@ -10,8 +10,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function WatchListMovies(props) {
 	const { username: userParam } = useParams();
-    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
-    const user = data?.me || data?.user || {};
+	const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
+	const user = data?.me || data?.user || {};
 
     const [currentWidth, setCurrentWidth] = useState(
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
@@ -33,33 +33,35 @@ function WatchListMovies(props) {
         setWatchedSection(dest)
     }
 
-    const handleResize = () => {
-        setCurrentWidth(window.innerWidth) 
-      }
-      useEffect(() => {
-        window.addEventListener("resize", handleResize, false);
-      }, []);
-      //This is constantly looking for the width and setting it
-      //After it is set, it will useEffect 
 
+	const [iterable, setIterable] = useState(new Array(Math.ceil(user.savedMovies.length / count)));
 
-      useEffect(() => {
-        if (currentWidth > 800) {
-            //5 cards in carousel 
-            setCount(5)
-        } else if (currentWidth > 600) {
-            //4 cards in carousel
-            setCount(4)
-        } else if (currentWidth > 500) {
-            //3 cards in carousel
-            setCount(3)
-        } else if (currentWidth > 400) {
-            setCount(2)
-        }
-        setIterable(new Array(Math.ceil(user.savedMovies.length / count)).fill(0))
-    }, [currentWidth])
-    //Constantly looking at the width of the users view port
-    //And adjusting the cards count in the carousel 
+	const handleResize = () => {
+		setCurrentWidth(window.innerWidth);
+	};
+	useEffect(() => {
+		window.addEventListener('resize', handleResize, false);
+	}, []);
+	//This is constantly looking for the width and setting it
+	//After it is set, it will useEffect
+
+	useEffect(() => {
+		if (currentWidth > 800) {
+			//5 cards in carousel
+			setCount(5);
+		} else if (currentWidth > 600) {
+			//4 cards in carousel
+			setCount(4);
+		} else if (currentWidth > 500) {
+			//3 cards in carousel
+			setCount(3);
+		} else if (currentWidth > 400) {
+			setCount(2);
+		}
+		setIterable(new Array(Math.ceil(user.savedMovies.length / count)).fill(0));
+	}, [currentWidth]);
+	//Constantly looking at the width of the users view port
+	//And adjusting the cards count in the carousel
 
 	return (
 		<div className="watchWrapper">
@@ -98,6 +100,7 @@ function WatchListMovies(props) {
                     </div>
                 ))}
             </div>
+
 	);
 }
 
