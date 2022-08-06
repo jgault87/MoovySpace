@@ -11,7 +11,10 @@ import Carousel from '../LikedCarousel';
 
 function LikedMovies(props) {
     const { username: userParam } = useParams();
-    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
+    const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+
     const user = data?.me || data?.user || {};
     const { likedMovies } = props
     console.log('hello')
