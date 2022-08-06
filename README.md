@@ -65,4 +65,4 @@ JJ Gault: [JJ's Github](https://github.com/jgault87) <br />
 Shlomo Siegelman: [Shlomo's Github](https://github.com/ssiegelman15) <br />
 Marcus Herrera: [Marcus's Github](https://github.com/mahiv87) <br />
 Noah Hoffman: [Noah's Github](https://github.com/Noah8863) <br />
-Elias Vasquez [Elias's Github](https://github.com/gokublue007)
+Elias Vasquez: [Elias's Github](https://github.com/gokublue007)
