@@ -14,7 +14,7 @@
 
 ## Description
 
-MoovySpace is a platform for users to log movies they've watched, star movies they particularly liked, and see what movies other users have liked in a live feed.
+MoovySpace is a platform for cinephiles to log movies they've watched, star movies that they particularly liked, and see what movies other users have liked in a live feed.
 
 ## Technologies
 
