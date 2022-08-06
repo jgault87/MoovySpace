@@ -61,8 +61,8 @@ DEALINGS IN THE SOFTWARE. See more here [MIT](https://opensource.org/licenses/MI
 
 You can submit any questions to:
 
-JJ Gault: [JJ's Github](https://github.com/jgault87)
-Shlomo Siegelman: [Shlomo's Github](https://github.com/ssiegelman15)
-Marcus Herrera: [Marcus's Github](https://github.com/mahiv87)
-Noah Hoffman: [Noah's Github](https://github.com/Noah8863)
+JJ Gault: [JJ's Github](https://github.com/jgault87) <br />
+Shlomo Siegelman: [Shlomo's Github](https://github.com/ssiegelman15) <br />
+Marcus Herrera: [Marcus's Github](https://github.com/mahiv87) <br />
+Noah Hoffman: [Noah's Github](https://github.com/Noah8863) <br />
 Elias Vasquez [Elias's Github](https://github.com/gokublue007)
