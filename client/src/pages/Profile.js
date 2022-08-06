@@ -20,9 +20,9 @@ const Profile = () => {
 	}
 	if (loading) {
 		return (
-			<div class="loader">
-				<div class="loader__filmstrip"></div>
-				<p class="loader__text">loading</p>
+			<div className="loader">
+				<div className="loader__filmstrip"></div>
+				<p className="loader__text">loading</p>
 			</div>
 		);
 	}
@@ -40,11 +40,30 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="">
+						{user.favoriteMovies.length ? (
+							<FavoriteMovies favoriteMovies={user.favoriteMovies} />
+						) : (
+							<div className="errorMessage">
+								<h2>Add your favorite movies to view them here!</h2>
+							</div>
+						)}
 						{/* <FavoriteMovies favoriteMovies={user.favoriteMovies} /> */}
 
-						<LikedMovies likedMovies={user.likedMovies} />
+						{user.likedMovies.length ? (
+							<LikedMovies likedMovies={user.likedMovies} />
+						) : (
+							<div className="errorMessage">
+								<h2>Like some movies, you delinquent!</h2>
+							</div>
+						)}
 
-						<WatchListMovies savedMovies={user.savedMovies} />
+						{user.savedMovies.length ? (
+							<WatchListMovies savedMovies={user.savedMovies} />
+						) : (
+							<div className="errorMessage">
+								<h2>Watch something, scoundrel!</h2>
+							</div>
+						)}
 					</div>
 				)}
 			</div>

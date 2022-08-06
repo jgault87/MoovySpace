@@ -1,50 +1,56 @@
 .loader__text {
-    margin: 5px auto;
-    color: #3D314A;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: Anton, sans-serif;
-  }
-  
-  .loader__filmstrip {
-    position: relative;
-    width: 56px;
-    height: 70px;
-    background: #3D314A;
-    z-index: -1;
-  }
-  
-  .loader__filmstrip:before, .loader__filmstrip:after {
-    content: '';
-    position: absolute;
-    height: 120%;
-    border-left: 5px dashed #F5F1ED;
-    -webkit-animation: roll 130ms infinite;
-            animation: roll 130ms infinite;
-  }
-  
-  .loader__filmstrip:before {
-    left: 5px;
-  }
-  
-  .loader__filmstrip:after {
-    right: 5px;
-  }
-  
-  @-webkit-keyframes roll {
-    0% {
-      top: 0px;
-    }
-    100% {
-      top: -15px;
-    }
-  }
-  
-  @keyframes roll {
-    0% {
-      top: 0px;
-    }
-    100% {
-      top: -15px;
-    }
-  }
+	margin: 5px auto;
+	color: #3d314a;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: Anton, sans-serif;
+}
+
+.loader__filmstrip {
+	position: relative;
+	width: 56px;
+	height: 70px;
+	background: #3d314a;
+	z-index: -1;
+}
+
+.loader__filmstrip:before,
+.loader__filmstrip:after {
+	content: '';
+	position: absolute;
+	height: 120%;
+	border-left: 5px dashed #f5f1ed;
+	-webkit-animation: roll 130ms infinite;
+	animation: roll 130ms infinite;
+}
+
+.loader__filmstrip:before {
+	left: 5px;
+}
+
+.loader__filmstrip:after {
+	right: 5px;
+}
+
+/* Error element style */
+.errorMessage {
+	margin: 2rem;
+}
+
+@-webkit-keyframes roll {
+	0% {
+		top: 0px;
+	}
+	100% {
+		top: -15px;
+	}
+}
+
+@keyframes roll {
+	0% {
+		top: 0px;
+	}
+	100% {
+		top: -15px;
+	}
+}
