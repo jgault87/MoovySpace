@@ -10,7 +10,6 @@ const feedStyles = {
     justifyItems: 'center',
     display: 'grid',
     gridGap: '10px',
-    padding: '3rem',
     gridTemplateColumns: '1fr',
   },
   gridItem: {
@@ -75,7 +74,7 @@ const Feed = () => {
                         </ul>
                       </div>
                     </div>
-                    <img className="blur_back " src={`https://image.tmdb.org/t/p/original${user.savedMovies.at(-1).backdrop}`}></img>
+                    <img className="blur_back" src={`https://image.tmdb.org/t/p/original${user.savedMovies.at(-1).backdrop}`}></img>
                   </div>
                 </div>
               );
