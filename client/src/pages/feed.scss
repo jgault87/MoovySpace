@@ -9,9 +9,9 @@
   font-style: italic;
   color: #fff;  
   text-transform: uppercase;
-  animation: flicker 8.5s infinite alternate;   
-  width: 300px;  
+  animation: flicker 8.5s infinite alternate;     
   margin: auto;
+  margin-top: 20px;
 }
 
 .moovySpace:focus {
@@ -112,11 +112,11 @@
   
   #movieTitle {
     position: relative;
-    top: -30px;
+    
   }  
   .movieUser {
     position: relative;
-    top: -50px;
+   
   }
   #createdAt {
     position:relative;
@@ -125,13 +125,14 @@
   }
   .userText {
     position: relative;
-    top: -20px;
+    top: -25px;
   }
   
   .movie_card{
     position: relative;
     display: block;
     width: 80vw;
+    max-width: 1200px;
     height: 250px; 
     overflow: hidden;
     border-radius: 10px;
@@ -152,7 +153,7 @@
       overflow: scroll;
       .movie_header{
         position: relative;
-        padding: 25px;
+        padding: 5px;
         height: 40%;
         h1{
           color: black;
@@ -165,14 +166,6 @@
         p {
           color: black;
         }
-        .minutes{
-          display: inline-block;
-          margin-top: 15px;
-          color: rgb(0, 0, 0);
-          padding: 5px;
-          border-radius: 5px;
-          border: 1px solid rgba(0,0,0,0.05);
-        }
         .type{
           display: inline-block;
           color: #000000;
@@ -181,9 +174,9 @@
         .locandina{
           position: relative;
           float: left;
-          margin-right: 20px;
-          height: 200px;
-          width: 140px;
+          margin: 10px;
+          height: 300px;
+          width: 240px;
           box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
           
         }
@@ -249,14 +242,16 @@
     }
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 868px) {
     .movie_card{
       width: 95%;
       margin: 70px auto; 
       min-height: 350px;
       height: auto;
     }
-    
+    .moovySpace {
+      font-size: 2em;
+    }
     .blur_back{
       width: 100%;
       background-position: 50% 50% !important;  
@@ -279,8 +274,10 @@
       position: relative;
       text-align: center;
       left: 0;
-    }
   }
+}
+
+
 
 .reel{
 	position: relative;
