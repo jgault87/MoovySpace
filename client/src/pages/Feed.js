@@ -9,7 +9,7 @@ const feedStyles = {
   gridContainer: {
     justifyItems: 'center',
     display: 'grid',
-    gridGap: '3rem',
+    gridGap: '10px',
     padding: '3rem',
     gridTemplateColumns: '1fr',
   },
@@ -37,7 +37,8 @@ const Feed = () => {
 
   return (
     <>
-      <h2>Recent Activity:</h2>
+      <h2>MoovySpace</h2>
+      <p>Recent Activity</p>
       <div className='feedGridContainer' style={feedStyles.gridContainer}>
         {loading ? (
 
@@ -52,8 +53,8 @@ const Feed = () => {
           users.map((user) => {
             if (user.savedMovies.length) {
               return (
-                <div>
-                  <div className="movie_card" id="bright">
+                <div className="reel">
+                  <div className="movie_card single">
                     <div className="info_section">
                       <div className="movie_header">
                         <img className="locandina" src={`https://image.tmdb.org/t/p/w300${user.savedMovies.at(-1).image}`} />
@@ -66,7 +67,7 @@ const Feed = () => {
                         <p className="text">
                           {user.savedMovies.at(-1).description}
                         </p>
-                        <a href={`https://www.youtube.com/watch?v=${user.savedMovies.at(-1).trailer}`} target='_blank' rel='noreferrer' className='trailerBtn'> {' '} Watch the trailer on Youtube!{' '}</a>
+                        <a href={`https://www.youtube.com/watch?v=${user.savedMovies.at(-1).trailer}`} target='_blank' rel='noreferrer' className='trailerBtn'> Watch the trailer on Youtube!</a>
                       </div>
                       <div className="movie_social">
                         <ul>
@@ -88,47 +89,3 @@ const Feed = () => {
 };
 
 export default Feed;
-
-
-
-// return (
-//   <div style={feedStyles.gridItem} key={user._id}>
-//     <h4>
-//       <Link
-//         className='btn btn-primary'
-//         to={`/profiles/${user.username}`}
-//       >
-//         {user.username}
-//       </Link>
-//     </h4>
-//     <p>
-//       recently saved{' '}
-//       <strong>{user.savedMovies.at(-1).title}</strong> and{' '}
-//       {user.savedMovies.length - 1} other movies to their
-//       collection
-//     </p>
-
-//     <img
-//       style={feedStyles.gridImage}
-//       src={`https://image.tmdb.org/t/p/w300${
-//         user.savedMovies.at(-1).image
-//       }`}
-//       alt={user.savedMovies.at(-1).title}
-//     />
-
-//     <h4>{user.savedMovies.at(-1).title}</h4>
-
-//     <a
-//       href={`https://www.youtube.com/watch?v=${
-//         user.savedMovies.at(-1).trailer
-//       }`}
-//       target='_blank'
-//       rel='noreferrer'
-//       className='btn btn-primary'
-//     >
-//       {' '}
-//       Watch the trailer on Youtube!{' '}
-//     </a>
-//     <p>{user.savedMovies.at(-1).createdAt} </p>
-//   </div>
-// );

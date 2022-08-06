@@ -19,8 +19,8 @@
     position: absolute;
     height: 120%;
     border-left: 5px dashed #F5F1ED;
-    -webkit-animation: roll 130ms infinite;
-            animation: roll 130ms infinite;
+    -webkit-animation: roll 30ms infinite;
+            animation: roll 30ms infinite;
   }
   
   .loader__filmstrip:before {

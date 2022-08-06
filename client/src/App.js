@@ -103,8 +103,8 @@ export function App() {
               element={
                 <>
                   <SearchBar />
-                
                   <Home />
+                  <Footer />
                 </>
               }
             />
@@ -113,8 +113,8 @@ export function App() {
               path='/feed'
               element={
                 <>
-                  
                   <Feed />
+                  <Footer />
                 </>
               }
             />
@@ -138,7 +138,6 @@ export function App() {
               }
             />
           </Routes>
-          <Footer />
         </Router>
       </ApolloProvider>
     </AppContext.Provider>

@@ -1,3 +1,4 @@
+
 .loader__text {
     margin: 5px auto;
     color: #3D314A;
@@ -19,8 +20,8 @@
     position: absolute;
     height: 120%;
     border-left: 5px dashed #F5F1ED;
-    -webkit-animation: roll 130ms infinite;
-            animation: roll 130ms infinite;
+    -webkit-animation: roll 30ms infinite;
+            animation: roll 30ms infinite;
   }
   
   .loader__filmstrip:before {
@@ -78,8 +79,7 @@
     position: relative;
     display: block;
     width: 80vw;
-    height: 350px;
-    margin: 80px auto; 
+    height: 250px; 
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.4s;
@@ -123,7 +123,7 @@
         .type{
           display: inline-block;
           color: #000000;
-          margin-left: 10px;
+          
         }
         .locandina{
           position: relative;
@@ -147,7 +147,7 @@
       .movie_social{
         height: 10%;
         padding-left: 15px;
-        padding-bottom: 20px;
+        
        
         ul{
           list-style: none;
@@ -228,8 +228,19 @@
       left: 0;
     }
   }
-  
-  
-  .bright_back{
-    background: url("https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg");
-  }
+
+.reel{
+	position: relative;
+	background: #111;
+	padding: 5px;
+	border-left: 10px dashed #fff;
+	border-right: 10px dashed #fff;
+}
+
+.single {
+	height: 500px;
+	width: 80vw;
+	background-size: cover;
+	border-radius: 7px;
+	margin: 15px;
+}
