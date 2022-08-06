@@ -85,18 +85,6 @@ export function App() {
 	};
 
 	return (
-		<AppContext.Provider value={globalState}>
-			<ApolloProvider client={client}>
-				<Router>
-					<MobileNav />
-					<Routes>
-						<Route path="/" element={<Welcome />} />
-						<Route
-							path="/home"
-							element={
-								<>
-									<SearchBar />
-  return (
     <AppContext.Provider value={globalState}>
       <ApolloProvider client={client}>
         <Router>
