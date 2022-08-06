@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -7,7 +6,7 @@ import Auth from '../utils/auth';
 import FavoriteMovies from '../components/FavoriteMovies';
 import LikedMovies from '../components/LikedMovies';
 import WatchListMovies from '../components/WatchListMovies';
-import './profile.css'
+import './profile.css';
 
 const Profile = () => {
 	const { username: userParam } = useParams();
@@ -19,13 +18,12 @@ const Profile = () => {
 		return <Navigate to="/profile" />;
 	}
 	if (loading) {
-		return <div class="loader">
-		<div class="loader__filmstrip">
-		</div>
-		<p class="loader__text">
-		  loading
-		</p>
-	  </div>;
+		return (
+			<div className="loader">
+				<div className="loader__filmstrip"></div>
+				<p className="loader__text">loading</p>
+			</div>
+		);
 	}
 	if (!user?.username) {
 		return <h4>You need to be logged in to see this. Use the navigation links below to sign up or log in!</h4>;
@@ -41,11 +39,29 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="">
-						<FavoriteMovies favoriteMovies={user.favoriteMovies} />
+						{user.favoriteMovies.length ? (
+							<FavoriteMovies favoriteMovies={user.favoriteMovies} />
+						) : (
+							<div className="errorMessage">
+								<h2>Add your favorite movies to view them here!</h2>
+							</div>
+						)}
 
-						<LikedMovies likedMovies={user.likedMovies} />
+						{user.likedMovies.length ? (
+							<LikedMovies likedMovies={user.likedMovies} />
+						) : (
+							<div className="errorMessage">
+								<h2>Like some movies, you delinquent!</h2>
+							</div>
+						)}
 
-						<WatchListMovies savedMovies={user.savedMovies} />
+						{user.savedMovies.length ? (
+							<WatchListMovies savedMovies={user.savedMovies} />
+						) : (
+							<div className="errorMessage">
+								<h2>Watch something, scoundrel!</h2>
+							</div>
+						)}
 					</div>
 				)}
 			</div>
