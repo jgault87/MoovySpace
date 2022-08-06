@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
-import { App, AppContext } from '../App';
+import { useMutation } from '@apollo/client';
+import { AppContext } from '../App';
 import './mainPage.css';
 import Trailer from '../components/Trailer/Trailer.js';
-import LikedMovies from '../components/LikedMovies';
 import { LIKE_MOVIE, SAVE_MOVIE } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
-import { saveMovieIds, getSavedMovieIds, likeMovieIds, getLikedMovieIds } from '../utils/localStorage';
+import { getSavedMovieIds, getLikedMovieIds } from '../utils/localStorage';
 
 const Home = () => {
 	const [saveMovie] = useMutation(SAVE_MOVIE);

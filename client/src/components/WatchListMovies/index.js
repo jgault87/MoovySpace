@@ -33,9 +33,6 @@ function WatchListMovies(props) {
         setWatchedSection(dest)
     }
 
-
-	const [iterable, setIterable] = useState(new Array(Math.ceil(user.savedMovies.length / count)));
-
 	const handleResize = () => {
 		setCurrentWidth(window.innerWidth);
 	};

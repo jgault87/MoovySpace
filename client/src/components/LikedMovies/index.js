@@ -6,8 +6,6 @@ import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { v4 as uuidv4 } from 'uuid';
-import { ListItemSecondaryAction } from '@mui/material';
-import { canUseLayoutEffect } from '@apollo/client/utilities';
 import Carousel from '../LikedCarousel';
 
 
@@ -55,40 +53,6 @@ function LikedMovies(props) {
 	//Constantly looking at the width of the users view port
 	//And adjusting the cards count in the carousel
 
-	return (
-		<div className="likedWrapper">
-			{iterable.map((element, i) => (
-				<>
-					{i === 0 && (
-						<section id={`likedSection${i + 1}`}>
-							<a href={`#likedSection${iterable.length - 1}`}>
-								<ArrowBackIosIcon />
-							</a>
-							{user.likedMovies.map(
-								(item, j) =>
-									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
-							)}
-							<a href={`#likedSection${i + 2}`}>
-								<ArrowForwardIosIcon />
-							</a>
-						</section>
-					)}
-
-					{i === iterable.length - 1 && i !== 0 && (
-						<section id={`likedSection${i + 1}`}>
-							<a href={`#likedSection${i}`}>
-								<ArrowBackIosIcon />
-							</a>
-							{user.likedMovies.map(
-								(item, j) =>
-									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
-							)}
-							<a href={`#likedSection1`}>
-								<ArrowForwardIosIcon />
-							</a>
-						</section>
-					)}
-
     return (
             <div className="likedWrapper">
                 {iterable.map((element, i) => (
@@ -133,20 +97,3 @@ function LikedMovies(props) {
 
 export default LikedMovies;
 
-{
-	/* <section id="likedSection2">
-                <a href="#likedSection1"><ArrowBackIosIcon /></a>
-                {user.likedMovies.map((item) => (
-                    <div className="item" key={uuidv4()}>
-                        <div>
-                            <img src={`https://image.tmdb.org/t/p/w500${item.image}`} alt="Movie Poster" />
-                            <div className="likedDescriptions">
-                                <h1>{item.title}</h1>
-                                <p>{item.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-                <a href="#likedSection1"><ArrowForwardIosIcon /></a>
-            </section> */
-}

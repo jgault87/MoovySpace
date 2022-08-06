@@ -37,8 +37,8 @@ const Feed = () => {
 
   return (
     <>
-      <h2>MoovySpace</h2>
-      <p>Recent Activity</p>
+      <h1 className="moovySpace">MoovySpace</h1>
+      <p className="recentText">Recent Activity</p>
       <div className='feedGridContainer' style={feedStyles.gridContainer}>
         {loading ? (
 

@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Welcome from './components/HomePage/HomePage';
 import FavoriteMovies from './components/FavoriteMovies/';
-import LikedMovies from './components/LikedMovies/';
 import SearchBar from './components/SearchBar/SearchBar';
 
 // import axios
@@ -85,18 +84,6 @@ export function App() {
 	};
 
 	return (
-		<AppContext.Provider value={globalState}>
-			<ApolloProvider client={client}>
-				<Router>
-					<MobileNav />
-					<Routes>
-						<Route path="/" element={<Welcome />} />
-						<Route
-							path="/home"
-							element={
-								<>
-									<SearchBar />
-  return (
     <AppContext.Provider value={globalState}>
       <ApolloProvider client={client}>
         <Router>
