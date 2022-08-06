@@ -185,6 +185,7 @@ const SearchBar = () => {
           id="searchBar"
           onChange={handleInputChange}
           freeSolo
+          style={{color: 'white'}}
           options={titleOptions}
           onSelect={handleSelect}
           renderInput={(params) => (

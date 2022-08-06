@@ -2,7 +2,7 @@
   display: block;
   margin: 0 auto;
   margin-top: 15px;
-  width: 100px;
+  width: 100pxs;
   height: auto;
   background: transparent;
   border: none;
@@ -17,12 +17,12 @@
   display: block;
   margin: 0 auto;
   margin-top: 15px;
-  width: 40%;
+  width: 80%;
   height: auto;
   background: transparent;
   border: none;
   /* border-bottom: 1px solid #f8f4f4; */
-  color: var(--color-light);
+  color: white;
   font-size: large;
   text-align: center;
   

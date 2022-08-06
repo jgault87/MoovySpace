@@ -67,7 +67,7 @@ a {
 }
 
 a:hover {
-	color: var(--color-light);
+	color: rgb(82, 129, 224);
 }
 
 .btn {
@@ -113,14 +113,6 @@ a:hover {
 	padding-block: 5px;
 }
 
-.carousel {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	gap: 5px 5px;
-	/* background-color: gainsboro; */
-	color: #011034;
-	margin-inline: 20px;
-}
 
 .movieCard {
 	display: flex;
