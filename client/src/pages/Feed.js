@@ -59,13 +59,14 @@ const Feed = () => {
                         <img className="locandina" src={`https://image.tmdb.org/t/p/w300${user.savedMovies.at(-1).image}`} />
                         <h1 id='movieTitle'>{user.savedMovies.at(-1).title}</h1>
                         <div className='movieUser'>
-                          <Link to={`/profiles/${user.username}`}> {user.username}  </Link> <p>  recently saved{' '} <strong>{user.savedMovies.at(-1).title}</strong> and{' '} {user.savedMovies.length - 1} other movies to their collection </p>
+                          <Link to={`/profiles/${user.username}`}> {user.username}  </Link> <p className="userText">  recently saved{' '} <strong>{user.savedMovies.at(-1).title}</strong> and{' '} {user.savedMovies.length - 1} other movies to their collection </p>
                         </div>
                       </div>
                       <div className="movie_desc">
                         <p className="text">
                           {user.savedMovies.at(-1).description}
                         </p>
+                        <a href={`https://www.youtube.com/watch?v=${user.savedMovies.at(-1).trailer}`} target='_blank' rel='noreferrer' className='trailerBtn'> {' '} Watch the trailer on Youtube!{' '}</a>
                       </div>
                       <div className="movie_social">
                         <ul>

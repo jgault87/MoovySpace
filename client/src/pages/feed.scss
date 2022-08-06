@@ -62,17 +62,22 @@
   }  
   .movieUser {
     position: relative;
-    top: -40px;
+    top: -50px;
   }
   #createdAt {
-    position: relative;
+    position:relative;
     bottom: 20px;
     left: 70%;
   }
+  .userText {
+    position: relative;
+    top: -20px;
+  }
+  
   .movie_card{
     position: relative;
     display: block;
-    width: 800px;
+    width: 80vw;
     height: 350px;
     margin: 80px auto; 
     overflow: hidden;
@@ -88,9 +93,10 @@
       position: relative;
       width: 100%;
       height: 100%;
-        background-blend-mode: multiply;
+      background-blend-mode: multiply;
       z-index: 2;
       border-radius: 10px;
+      overflow: scroll;
       .movie_header{
         position: relative;
         padding: 25px;
@@ -126,13 +132,16 @@
           height: 200px;
           width: 140px;
           box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+          
         }
       }
       .movie_desc{
         padding: 25px;
         height: 50%;
+        
         .text{
           color: #545454;
+          margin-top:30px;
         }
       }
       .movie_social{
@@ -212,6 +221,11 @@
     .info_section{
       background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
       display: inline-grid;
+    }
+    #createdAt {
+      position: relative;
+      text-align: center;
+      left: 0;
     }
   }
   

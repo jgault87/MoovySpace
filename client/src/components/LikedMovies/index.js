@@ -10,12 +10,12 @@ import { ListItemSecondaryAction } from '@mui/material';
 import { canUseLayoutEffect } from '@apollo/client/utilities';
 import Carousel from '../LikedCarousel';
 
-function LikedMovies() {
+function LikedMovies(props) {
     const { username: userParam } = useParams();
     const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
     const user = data?.me || data?.user || {};
-
-    console.log(user)
+    const { likedMovies } = props
+    console.log('hello')
 
     const [currentWidth, setCurrentWidth] = useState(
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
@@ -63,11 +63,11 @@ function LikedMovies() {
             <div className="likedWrapper">
                 {iterable.map((element, i) => (
                     
-                    <>
+                    <div key={uuidv4()} id={`likedSection${i + 1}`}>
                     {(i === 0) &&
-                        (<section id={`likedSection${i + 1}`} >
+                        (<section key={uuidv4()} >
                             <a href={`#likedSection${iterable.length - 1}`}><ArrowBackIosIcon /></a>
-                            {user.likedMovies.map((item, j) => (
+                            {likedMovies.map((item, j) => (
                                 (j < count * (i + 1)) && (j >= count * i) &&
                                 <Carousel key={uuidv4()} item={item} />
                             ))}
@@ -75,25 +75,25 @@ function LikedMovies() {
                         </section>)}
     
                     {(i === (iterable.length - 1) && i !== 0) && 
-                        (<section id={`likedSection${i + 1}`} >
+                        (<section key={uuidv4()}  >
                             <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
-                            {user.likedMovies.map((item, j) => (
+                            {likedMovies.map((item, j) => (
                                 (j < count * (i + 1)) && (j >= count * i)  &&
                                 <Carousel key={uuidv4()} item={item} />
                             ))}
-                            <a href={`#likedSection1`}><ArrowForwardIosIcon /></a>
+                            <a href='#likedSection1'><ArrowForwardIosIcon /></a>
                         </section>)}
     
                     {(i !== (iterable.length - 1) && i !== 0) &&
-                        (<section id={`likedSection${i + 1}`} >
+                        (<section key={uuidv4()}  >
                             <a href={`#likedSection${i}`}><ArrowBackIosIcon /></a>
-                            {user.likedMovies.map((item, j) => (
+                            {likedMovies.map((item, j) => (
                                 (j < count * (i + 1)) && (j >= count * i)  &&
                                 <Carousel key={uuidv4()} item={item} />
                             ))}
                             <a href={`#likedSection${i + 2}`}><ArrowForwardIosIcon /></a>
                         </section>)}
-                    </>
+                    </div>
                 ))}
             </div>
     

@@ -64,7 +64,7 @@
 
 .movieUser {
   position: relative;
-  top: -40px;
+  top: -50px;
 }
 
 #createdAt {
@@ -73,10 +73,15 @@
   left: 70%;
 }
 
+.userText {
+  position: relative;
+  top: -20px;
+}
+
 .movie_card {
   position: relative;
   display: block;
-  width: 800px;
+  width: 80vw;
   height: 350px;
   margin: 80px auto;
   overflow: hidden;
@@ -103,6 +108,7 @@
   background-blend-mode: multiply;
   z-index: 2;
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .movie_card .info_section .movie_header {
@@ -157,6 +163,7 @@
 
 .movie_card .info_section .movie_desc .text {
   color: #545454;
+  margin-top: 30px;
 }
 
 .movie_card .info_section .movie_social {
@@ -236,6 +243,11 @@
     background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
     display: -ms-inline-grid;
     display: inline-grid;
+  }
+  #createdAt {
+    position: relative;
+    text-align: center;
+    left: 0;
   }
 }
 

@@ -20,12 +20,12 @@ const Profile = () => {
 	}
 	if (loading) {
 		return <div class="loader">
-		<div class="loader__filmstrip">
-		</div>
-		<p class="loader__text">
-		  loading
-		</p>
-	  </div>;
+			<div class="loader__filmstrip">
+			</div>
+			<p class="loader__text">
+				loading
+			</p>
+		</div>;
 	}
 	if (!user?.username) {
 		return <h4>You need to be logged in to see this. Use the navigation links below to sign up or log in!</h4>;
@@ -41,11 +41,15 @@ const Profile = () => {
 				<div className="col-12 col-md-10 mb-5"></div>
 				{!userParam && (
 					<div className="">
-						<FavoriteMovies favoriteMovies={user.favoriteMovies} />
-
-						<LikedMovies likedMovies={user.likedMovies} />
-
-						<WatchListMovies savedMovies={user.savedMovies} />
+						<div>
+							<FavoriteMovies favoriteMovies={user.favoriteMovies} />
+						</div>
+						<div>
+							<LikedMovies likedMovies={user.likedMovies} />
+						</div>
+						<div>
+							<WatchListMovies savedMovies={user.savedMovies} />
+						</div>
 					</div>
 				)}
 			</div>
