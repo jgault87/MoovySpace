@@ -98,6 +98,28 @@ const Home = () => {
 							<p className="text">
 								{searchContext.details.overview}
 							</p>
+							{Auth.loggedIn() && (
+								<div>
+									<button
+										disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)}
+										onClick={handleSaveMovie}
+										className="btn btn-primary"
+									>
+										{savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)
+											? 'This movie has been add to your Watch List!'
+											: 'Add to Watch List'}
+									</button>
+									<button
+										disabled={likedMovieIds?.some((likedMovieId) => likedMovieId === movieData.movieId)}
+										onClick={handleLikeMovie}
+										className="btn btn-primary"
+									>
+										{likedMovieIds?.some((likedMovieId) => likedMovieId === movieData.movieId)
+											? 'This movie has been liked!'
+											: 'Like Movie'}
+									</button>
+								</div>
+							)}
 						</div>
 						<div className="movie_desc">
 							<div className="trailerContainer">
@@ -112,28 +134,6 @@ const Home = () => {
 					<img className="blur_back" src={movieBackdrop}></img>
 				</div>
 			</div>
-			{Auth.loggedIn() && (
-				<div>
-					<button
-						disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)}
-						onClick={handleSaveMovie}
-						className="btn btn-primary"
-					>
-						{savedMovieIds?.some((savedMovieId) => savedMovieId === movieData.movieId)
-							? 'This movie has been add to your Watch List!'
-							: 'Add to Watch List'}
-					</button>
-					<button
-						disabled={likedMovieIds?.some((likedMovieId) => likedMovieId === movieData.movieId)}
-						onClick={handleLikeMovie}
-						className="btn btn-primary"
-					>
-						{likedMovieIds?.some((likedMovieId) => likedMovieId === movieData.movieId)
-							? 'This movie has been liked!'
-							: 'Like Movie'}
-					</button>
-				</div>
-			)}
 		</main >
 	);
 };
