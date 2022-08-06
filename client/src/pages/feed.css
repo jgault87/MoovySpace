@@ -19,8 +19,8 @@
   position: absolute;
   height: 120%;
   border-left: 5px dashed #F5F1ED;
-  -webkit-animation: roll 130ms infinite;
-  animation: roll 130ms infinite;
+  -webkit-animation: roll 30ms infinite;
+  animation: roll 30ms infinite;
 }
 
 .loader__filmstrip:before {
@@ -64,7 +64,7 @@
 
 .movieUser {
   position: relative;
-  top: -40px;
+  top: -50px;
 }
 
 #createdAt {
@@ -73,12 +73,16 @@
   left: 70%;
 }
 
+.userText {
+  position: relative;
+  top: -20px;
+}
+
 .movie_card {
   position: relative;
   display: block;
-  width: 800px;
-  height: 350px;
-  margin: 80px auto;
+  width: 80vw;
+  height: 250px;
   overflow: hidden;
   border-radius: 10px;
   -webkit-transition: all 0.4s;
@@ -103,6 +107,7 @@
   background-blend-mode: multiply;
   z-index: 2;
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .movie_card .info_section .movie_header {
@@ -137,7 +142,6 @@
 .movie_card .info_section .movie_header .type {
   display: inline-block;
   color: #000000;
-  margin-left: 10px;
 }
 
 .movie_card .info_section .movie_header .locandina {
@@ -157,12 +161,12 @@
 
 .movie_card .info_section .movie_desc .text {
   color: #545454;
+  margin-top: 30px;
 }
 
 .movie_card .info_section .movie_social {
   height: 10%;
   padding-left: 15px;
-  padding-bottom: 20px;
 }
 
 .movie_card .info_section .movie_social ul {
@@ -237,9 +241,26 @@
     display: -ms-inline-grid;
     display: inline-grid;
   }
+  #createdAt {
+    position: relative;
+    text-align: center;
+    left: 0;
+  }
 }
 
-.bright_back {
-  background: url("https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg");
+.reel {
+  position: relative;
+  background: #111;
+  padding: 5px;
+  border-left: 10px dashed #fff;
+  border-right: 10px dashed #fff;
+}
+
+.single {
+  height: 500px;
+  width: 80vw;
+  background-size: cover;
+  border-radius: 7px;
+  margin: 15px;
 }
 /*# sourceMappingURL=feed.css.map */

@@ -13,14 +13,26 @@ function WatchListMovies(props) {
 	const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME);
 	const user = data?.me || data?.user || {};
 
-	// console.log(user)
+    const [currentWidth, setCurrentWidth] = useState(
+        Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+        //Looking at the width of the users view port
+    )
 
-	const [currentWidth, setCurrentWidth] = useState(
-		Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-		//Looking at the width of the users view port
-	);
+    const [count, setCount] = useState(
+        currentWidth > 800 ? 5 : 3
+    )
 
-	const [count, setCount] = useState(currentWidth > 800 ? 5 : 3);
+    const [iterable, setIterable] = useState(
+        new Array(Math.ceil(user.savedMovies.length / count))
+    )
+
+    const [watchedSection, setWatchedSection] = useState(
+        1
+    )
+    const handleNav = (dest) => {
+        setWatchedSection(dest)
+    }
+
 
 	const [iterable, setIterable] = useState(new Array(Math.ceil(user.savedMovies.length / count)));
 
@@ -53,55 +65,42 @@ function WatchListMovies(props) {
 
 	return (
 		<div className="watchWrapper">
-			{iterable.map((element, i) => (
-				<>
-					{i === 0 && (
-						<section id={`watchSection${i + 1}`}>
-							<a href={`#watchSection${iterable.length - 1}`}>
-								<ArrowBackIosIcon />
-							</a>
-							{user.savedMovies.map(
-								(item, j) =>
-									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
-							)}
-							<a href={`#watchSection${i + 2}`}>
-								<ArrowForwardIosIcon />
-							</a>
-						</section>
-					)}
+                {iterable.map((element, i) => (
+                    
+                    <div key={uuidv4()} id={`watchSection${i + 1}`}>
+                    {(i === 0) &&
+                        (<section key={uuidv4()}  >
+                            <a href={`#watchSection${iterable.length - 1}`} onClick={() => handleNav(iterable.length - 1)}><ArrowBackIosIcon /></a>
+                            {user.savedMovies.map((item, j) => (
+                                (j < count * (i + 1)) && (j >= count * i) &&
+                                <Carousel key={uuidv4()} item={item} />
+                            ))}
+                            <a href={`#watchSection${i + 2}`} onClick={ () => handleNav(i + 2)}><ArrowForwardIosIcon /></a>
+                        </section>)}
+    
+                    {(i === (iterable.length - 1) && i !== 0) && 
+                        (<section key={uuidv4()}  >
+                            <a href={`#watchSection${i}`} onClick={() => handleNav(i)}><ArrowBackIosIcon /></a>
+                            {user.savedMovies.map((item, j) => (
+                                (j < count * (i + 1)) && (j >= count * i)  &&
+                                <Carousel key={uuidv4()} item={item} />
+                            ))}
+                            <a href='#watchSection1' onClick={() => handleNav(1)}><ArrowForwardIosIcon /></a>
+                        </section>)}
+    
+                    {(i !== (iterable.length - 1) && i !== 0) &&
+                        (<section key={uuidv4()} >
+                            <a href={`#watchSection${i}`} onClick={() => handleNav(i)} ><ArrowBackIosIcon /></a>
+                            {user.savedMovies.map((item, j) => (
+                                (j < count * (i + 1)) && (j >= count * i)  &&
+                                <Carousel key={uuidv4()} item={item} />
+                            ))}
+                            <a href={`#watchSection${i + 2}`} onClick={() => handleNav(i + 2)}><ArrowForwardIosIcon /></a>
+                        </section>)}
+                    </div>
+                ))}
+            </div>
 
-					{i === iterable.length - 1 && i !== 0 && (
-						<section id={`watchSection${i + 1}`}>
-							<a href={`#watchSection${i}`}>
-								<ArrowBackIosIcon />
-							</a>
-							{user.savedMovies.map(
-								(item, j) =>
-									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
-							)}
-							<a href={`#watchSection1`}>
-								<ArrowForwardIosIcon />
-							</a>
-						</section>
-					)}
-
-					{i !== iterable.length - 1 && i !== 0 && (
-						<section id={`watchSection${i + 1}`}>
-							<a href={`#watchSection${i}`}>
-								<ArrowBackIosIcon />
-							</a>
-							{user.savedMovies.map(
-								(item, j) =>
-									j < count * (i + 1) && j >= count * i && <Carousel key={uuidv4()} item={item} />
-							)}
-							<a href={`#watchSection${i + 2}`}>
-								<ArrowForwardIosIcon />
-							</a>
-						</section>
-					)}
-				</>
-			))}
-		</div>
 	);
 }
 

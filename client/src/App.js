@@ -96,41 +96,55 @@ export function App() {
 							element={
 								<>
 									<SearchBar />
+  return (
+    <AppContext.Provider value={globalState}>
+      <ApolloProvider client={client}>
+        <Router>
+          <MobileNav />
+          <Routes>
+            <Route path='/' element={<Welcome />} />
+            <Route
+              path='/home'
+              element={
+                <>
+                  <SearchBar />
+                  <Home />
+                  <Footer />
+                </>
+              }
+            />
 
-									<Home />
-								</>
-							}
-						/>
-
-						<Route
-							path="/feed"
-							element={
-								<>
-									<Feed />
-								</>
-							}
-						/>
-						<Route
-							path="/profile"
-							element={
-								<>
-									<Profile />
-								</>
-							}
-						/>
-						<Route path="/profiles/:username" element={<Profile />} />
-						<Route
-							path="/FavoriteMovies"
-							element={
-								<>
-									<FavoriteMovies />
-								</>
-							}
-						/>
-					</Routes>
-					<Footer />
-				</Router>
-			</ApolloProvider>
-		</AppContext.Provider>
-	);
+            <Route
+              path='/feed'
+              element={
+                <>
+                  <Feed />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path='/profile'
+              element={
+                <>
+                  
+                  <Profile />
+                </>
+              }
+            />
+            <Route path='/profiles/:username' element={<Profile />} />
+            <Route
+              path='/FavoriteMovies'
+              element={
+                <>
+                  
+                  <FavoriteMovies />
+                </>
+              }
+            />
+          </Routes>
+        </Router>
+      </ApolloProvider>
+    </AppContext.Provider>
+  );
 }

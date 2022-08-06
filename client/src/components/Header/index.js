@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SearchBar from '../SearchBar/SearchBar';
 
 import Auth from '../../utils/auth';
 
