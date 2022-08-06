@@ -47,7 +47,6 @@ const Profile = () => {
 								<h2>Add your favorite movies to view them here!</h2>
 							</div>
 						)}
-						{/* <FavoriteMovies favoriteMovies={user.favoriteMovies} /> */}
 
 						{user.likedMovies.length ? (
 							<LikedMovies likedMovies={user.likedMovies} />
