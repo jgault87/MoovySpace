@@ -1,5 +1,6 @@
 import React from 'react';
 import VideocamIcon from '@mui/icons-material/Videocam';
+
 import './index.scss';
 let backdrop1;
 let backdrop2;
@@ -20,9 +21,17 @@ function FavoriteMovies(props) {
 				document.getElementById('backdrop').style.backgroundColor = 'red';
 			}
 		} else if (e.target.id === 'item2') {
-			document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop2})`;
+			if (favoriteMovies[1].backdrop) {
+				document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop2})`;
+			} else {
+				document.getElementById('backdrop').style.backgroundColor = 'blue';
+			}
 		} else if (e.target.id === 'item3') {
-			document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop3})`;
+			if (favoriteMovies[2].backdrop) {
+				document.getElementById('backdrop').style.cssText += `background-image:url(${backdrop3})`;
+			} else {
+				document.getElementById('backdrop').style.backgroundColor = 'green';
+			}
 		}
 	};
 
