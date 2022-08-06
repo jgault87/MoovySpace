@@ -27,9 +27,28 @@ export const ADD_USER = gql`
 export const SAVE_MOVIE = gql`
 	mutation saveMovie($movie: inputMovie!) {
 		saveMovie(movie: $movie) {
+			_id
 			username
 			email
 			savedMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+			likedMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+			favoriteMovies {
 				movieId
 				title
 				description
@@ -45,9 +64,28 @@ export const SAVE_MOVIE = gql`
 export const LIKE_MOVIE = gql`
 	mutation likeMovie($movie: inputMovie!) {
 		likeMovie(movie: $movie) {
+			_id
 			username
 			email
+			savedMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
 			likedMovies {
+				movieId
+				title
+				description
+				image
+				backdrop
+				trailer
+				createdAt
+			}
+			favoriteMovies {
 				movieId
 				title
 				description
@@ -62,6 +100,7 @@ export const LIKE_MOVIE = gql`
 export const FAVORITE_MOVIE = gql`
 	mutation favoriteMovie($movie: inputMovie!) {
 		favoriteMovie(movie: $movie) {
+			_id
 			username
 			email
 			favoriteMovies {
@@ -128,4 +167,3 @@ export const UNFAVORITE_MOVIE = gql`
 		}
 	}
 `;
-

@@ -5,6 +5,7 @@ import './mainPage.css';
 import Trailer from '../components/Trailer/Trailer.js';
 import LikedMovies from '../components/LikedMovies';
 import { LIKE_MOVIE, SAVE_MOVIE } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import { saveMovieIds, getSavedMovieIds, likeMovieIds, getLikedMovieIds } from '../utils/localStorage';
 
@@ -42,7 +43,17 @@ const Home = () => {
 
 		try {
 			await saveMovie({
-				variables: { movie: movieData }
+				variables: { movie: movieData },
+				update(cache, { data: { saveMovie } }) {
+					try {
+						cache.writeQuery({
+							query: QUERY_ME,
+							data: { me: saveMovie }
+						});
+					} catch (err) {
+						console.error(err);
+					}
+				}
 			});
 			setSavedMovieIds([...savedMovieIds, movieData.movieId]);
 		} catch (err) {
@@ -59,7 +70,17 @@ const Home = () => {
 
 		try {
 			await likeMovie({
-				variables: { movie: movieData }
+				variables: { movie: movieData },
+				update(cache, { data: { likeMovie } }) {
+					try {
+						cache.writeQuery({
+							query: QUERY_ME,
+							data: { me: likeMovie }
+						});
+					} catch (err) {
+						console.error(err);
+					}
+				}
 			});
 			setLikedMovieIds([...likedMovieIds, movieData.movieId]);
 		} catch (err) {
