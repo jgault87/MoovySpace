@@ -21,6 +21,10 @@ const userSchema = new Schema(
 			required: true,
 			minlength: 5
 		},
+		following: {
+			type: String
+			
+		},
 		savedMovies: [movieSchema],
 		likedMovies: [movieSchema],
 		favoriteMovies: [movieSchema]

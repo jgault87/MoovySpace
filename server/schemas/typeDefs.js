@@ -6,6 +6,7 @@ const typeDefs = gql`
 		username: String
 		email: String
 		password: String
+		following: [User]!
 		savedMovies: [Movie]!
 		likedMovies: [Movie]!
 		favoriteMovies: [Movie]!
@@ -31,6 +32,12 @@ const typeDefs = gql`
 		createdAt: String
 	}
 
+	input inputUser {
+		username: String
+		
+	}
+
+
 	type Auth {
 		token: ID!
 		user: User
@@ -53,6 +60,8 @@ const typeDefs = gql`
 		removeMovie(movieId: Int!): User
 		unlikeMovie(movieId: Int!): User
 		unfavoriteMovie(movieId: Int!): User
+		followUser(username: inputUser!): User
+		unfollowUser(username: inputUser!): User
 	}
 `;
 

@@ -91,3 +91,22 @@ export const QUERY_MOVIE_FEED = gql`
     }
   }
 `;
+
+
+export const QUERY_FOLLOW_FEED = gql`
+  query users {
+    users {
+      _id
+      username
+      savedMovies {
+        movieId
+        title
+        description
+        image
+        backdrop
+        trailer
+        createdAt
+      }
+    }
+  }
+`;

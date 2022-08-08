@@ -9,7 +9,7 @@ const resolvers = {
 			return User.find().populate('savedMovies').sort({ savedMovies: 'ASC'});
 		},
 		user: async (parent, { username }) => {
-			return await User.findOne({ username }).populate('savedMovies').populate('likedMovies').populate('favoriteMovies');
+			return await User.findOne({ username }).populate('savedMovies').populate('likedMovies').populate('favoriteMovies').populate('following');
 		},
 		movies: async (parent, { username }) => {
 			const params = username ? { username } : {};
@@ -20,7 +20,7 @@ const resolvers = {
 		},
 		me: async (parent, args, context) => {
 			if (context.user) {
-				return await User.findOne({ _id: context.user._id }).populate('savedMovies').populate('likedMovies').populate('favoriteMovies');
+				return await User.findOne({ _id: context.user._id }).populate('savedMovies').populate('likedMovies').populate('favoriteMovies').populate('following');
 			}
 			throw new AuthenticationError('You need to be logged in!');
 		}
@@ -140,6 +140,38 @@ const resolvers = {
 					{ new: true }
 				);
 			}
+			throw new AuthenticationError('You need to be logged in!');
+		},
+
+		// follow user mutation
+		followUser: async (parent, { username }, context) => {
+			if (context.user) {
+				return User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{
+						$addToSet: {
+							following: username
+						}
+					},
+					{
+						new: true
+					}
+				);
+			}
+		},
+
+		// unfollow user mutation
+		unfollowUser: async (parent, { username }, context) => {
+			if (context.user) {
+				return User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{
+						$pull: { following: username }
+					},
+					{ new: true }
+				);
+			}
+
 			throw new AuthenticationError('You need to be logged in!');
 		},
 	}
