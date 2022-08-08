@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_MOVIE_FEED } from "../utils/queries";
+import { QUERY_MOVIE_FEED } from "../../utils/queries";
 import { Link } from "react-router-dom";
 import './feed.scss'
 
