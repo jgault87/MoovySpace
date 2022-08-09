@@ -55,3 +55,33 @@ export const removeLikedMovieId = (movieId) => {
 
 	return true;
 };
+
+export const getFollowedUsers = () => {
+	const followedUsers = localStorage.getItem('followed_users') ? JSON.parse(localStorage.getItem('followed_users')) : [];
+
+	return followedUsers;
+};
+
+export const saveFollowedUser = (followedUserArr) => {
+if (followedUserArr.length) {
+	localStorage.setItem('followed_users', JSON.stringify(followedUserArr));
+} else {
+	localStorage.removeItem('followed_users')
+}
+};
+
+export const removeFollowedUser = (username) => {
+	const followedUsers = localStorage.getItem('followed_users') 
+	  ? JSON.parse(localStorage.getItem('followed_users'))
+	  : null;
+  
+	if (!followedUsers) {
+	  return false;
+	}
+  
+	const updatedFollowedUsers = followedUsers?.filter((user) => user !== username);
+	localStorage.setItem('followed_users', JSON.stringify(updatedFollowedUsers));
+  
+	return true;
+  };
+  

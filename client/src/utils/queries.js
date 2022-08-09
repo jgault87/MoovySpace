@@ -43,6 +43,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      following
       savedMovies {
         movieId
         title

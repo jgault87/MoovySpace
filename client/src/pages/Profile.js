@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import FavoriteMovies from '../components/FavoriteMovies';
 import LikedMovies from '../components/LikedMovies';
 import WatchListMovies from '../components/WatchListMovies';
+import { getFollowedUsers, saveFollowedUser, removeFollowedUser } from '../utils/localStorage';
 import './profile.css';
 
 const Profile = () => {
+  
+  
+  //function to handle saving a user to database
+  const followUser =  async (userId) => {
+    console.log(userId);
+    
+  };
+  //use state with local storage hook to get and set followed users
+  const [followedUsers, setFollowedUsers] = useState(getFollowedUsers());
+
+  //use effect to read followed user from local storage upon initial page load
+  useEffect(() => {
+		return () => getFollowedUsers(followedUsers);
+	});   
+
+  
+
   const { username: userParam } = useParams();
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
@@ -36,42 +54,44 @@ const Profile = () => {
     );
   }
 
-  console.log(user)
+  console.log(user);
   return (
     <div>
-      <div className='flex-row justify-center mb-3'>
-        <h2 className='col-12 col-md-10 bg-dark text-light p-3 mb-5'>
+      <div className=''>
+        <h2 className='text-light'>
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
+        <p className='btn' onClick={() => followUser(user.username)}>
+          {userParam ? `follow ${user.username}` : ''}
+        </p>
 
-        <div className='col-12 col-md-10 mb-5'></div>
-        
-          <div className=''>
-            {user.favoriteMovies.length > 0 ? (
-              <FavoriteMovies favoriteMovies={user.favoriteMovies} />
-            ) : (
-              <div className='errorMessage'>
-                <h2>Add your favorite movies to view them here!</h2>
-              </div>
-            )}
+        <div className=''></div>
 
-            {user.likedMovies.length > 0 ? (
-              <LikedMovies likedMovies={user.likedMovies} />
-            ) : (
-              <div className='errorMessage'>
-                <h2>Like some movies, you delinquent!</h2>
-              </div>
-            )}
+        <div className=''>
+          {user.favoriteMovies.length > 0 ? (
+            <FavoriteMovies favoriteMovies={user.favoriteMovies} />
+          ) : (
+            <div className='errorMessage'>
+              <h2>Add your favorite movies to view them here!</h2>
+            </div>
+          )}
 
-            {user.savedMovies.length > 0 ? (
-              <WatchListMovies savedMovies={user.savedMovies} />
-            ) : (
-              <div className='errorMessage'>
-                <h2>Watch something, scoundrel!</h2>
-              </div>
-            )}
-          </div>
-       
+          {user.likedMovies.length > 0 ? (
+            <LikedMovies likedMovies={user.likedMovies} />
+          ) : (
+            <div className='errorMessage'>
+              <h2>Like some movies, you delinquent!</h2>
+            </div>
+          )}
+
+          {user.savedMovies.length > 0 ? (
+            <WatchListMovies savedMovies={user.savedMovies} />
+          ) : (
+            <div className='errorMessage'>
+              <h2>Watch something, scoundrel!</h2>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
