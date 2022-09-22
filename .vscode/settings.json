@@ -1,0 +1,13 @@
+{
+    "prettier.enable": true,
+    "prettier.tabWidth": 2,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript"]
+}
