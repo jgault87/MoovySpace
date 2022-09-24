@@ -13,6 +13,7 @@ import Auth from "../../utils/auth";
 import "./Signup.css";
 
 export default function Signup() {
+  //Grabbing the ID's of each input field to check if the user filled it out before the animation
   const userName = document.getElementById("userName");
   const password = document.getElementById("password");
   const email = document.getElementById("email");
@@ -48,35 +49,49 @@ export default function Signup() {
     } catch (e) {
       console.error(e);
     }
-
-    if (userName.value) {
-      leftSequence();
-      rightSequence();
-      console.log("Success");
-    }
   };
 
+  //Giving each function the animation state
   const leftSpotLightAnimation = useAnimation();
   const rightSpotLightAnimation = useAnimation();
 
+  //Initialize the animation to be off the screen
   const startLeftSpotLight = {
     hidden: {
       x: "-100vw",
     },
   };
-
   const startRightSpotLight = {
     hidden: {
-      x: "200vw",
+      x: "100vw",
     },
   };
 
+  //Functions for the animation
   async function leftSequence() {
-    await leftSpotLightAnimation.start({ x: "-20vw" });
+    await leftSpotLightAnimation.start({
+      x: "-20vw",
+      transition: {
+        type: "tween",
+      },
+    });
   }
 
   async function rightSequence() {
-    await rightSpotLightAnimation.start({ x: "10vw" });
+    await rightSpotLightAnimation.start({
+      //Changing the x value will change the position of the spot light
+      x: "10vw",
+      transition: {
+        //Stiffness will change how much 'springiness' is applied
+        type: "tween",
+      },
+    });
+  }
+
+  if (userName && userName.value && email.value && password.value) {
+    leftSequence();
+    rightSequence();
+    console.log("Success");
   }
 
   return (
@@ -90,6 +105,8 @@ export default function Signup() {
         ) : (
           <form onSubmit={handleFormSubmit}>
             <div className="userInfoForm">
+              {/* Set each div to their variant and call the animations when called */}
+              {/* Each div will have a starting position and end position with the animation being handled by the framer motion library */}
               <motion.div
                 variants={startLeftSpotLight}
                 animate={leftSpotLightAnimation}

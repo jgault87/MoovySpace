@@ -15,6 +15,7 @@ textarea {
   color: white;
 }
 
+/* Set each PNG to be absolute so it can overlap other components */
 #leftSpotLight {
   position: absolute;
   width: 50%;
