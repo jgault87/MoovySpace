@@ -17,8 +17,6 @@ function LikedMovies(props) {
 
     const user = data?.me || data?.user || {};
     const { likedMovies } = props
-    console.log('hello')
-
 
 	const [currentWidth, setCurrentWidth] = useState(
 		Math.max(document.documentElement.clientWidth, window.innerWidth || 0)

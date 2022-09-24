@@ -63,13 +63,13 @@ const Profile = () => {
               </div>
             )}
 
-            {user.savedMovies.length > 0 ? (
+            {/* {user.savedMovies.length > 0 ? (
               <WatchListMovies savedMovies={user.savedMovies} />
             ) : (
               <div className='errorMessage'>
                 <h2>Watch something, scoundrel!</h2>
               </div>
-            )}
+            )} */}
           </div>
        
       </div>
