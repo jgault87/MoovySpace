@@ -7,14 +7,17 @@
 input,
 textarea {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   background: transparent;
   border: 2px solid teal;
   resize: none;
   color: white;
 }
-
+input {
+  margin: 10px;
+}
+/* Set each PNG to be absolute so it can overlap other components */
 #leftSpotLight {
   position: absolute;
   width: 50%;
