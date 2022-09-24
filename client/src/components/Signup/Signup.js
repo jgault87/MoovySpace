@@ -72,7 +72,9 @@ export default function Signup() {
     await leftSpotLightAnimation.start({
       x: "-20vw",
       transition: {
-        type: "tween",
+        //different types can be applied such as 'tween' or 'inertia'
+        type: "spring",
+        stiffness: "40",
       },
     });
   }
@@ -83,7 +85,8 @@ export default function Signup() {
       x: "10vw",
       transition: {
         //Stiffness will change how much 'springiness' is applied
-        type: "tween",
+        type: "spring",
+        stiffness: "40",
       },
     });
   }
@@ -158,30 +161,32 @@ export default function Signup() {
               />
             </div>
             <h4>Tells us your top 3 favorite movies!</h4>
-            <input
-              className="form-input"
-              placeholder="Ex: The Other Guys"
-              name="firstFavMovie"
-              type="text"
-              value={formState.firstFavMovie}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="Ex: Forst Gump"
-              name="secondFavMovie"
-              type="text"
-              value={formState.secondFavMovie}
-              onChange={handleChange}
-            />
-            <input
-              className="form-input"
-              placeholder="Ex: Cars"
-              name="thirdFavMovie"
-              type="text"
-              value={formState.thirdFavMovie}
-              onChange={handleChange}
-            />
+            <div className="userInfoForm">
+              <input
+                className="form-input"
+                placeholder="Ex: The Other Guys"
+                name="firstFavMovie"
+                type="text"
+                value={formState.firstFavMovie}
+                onChange={handleChange}
+              />
+              <input
+                className="form-input"
+                placeholder="Ex: Forst Gump"
+                name="secondFavMovie"
+                type="text"
+                value={formState.secondFavMovie}
+                onChange={handleChange}
+              />
+              <input
+                className="form-input"
+                placeholder="Ex: Cars"
+                name="thirdFavMovie"
+                type="text"
+                value={formState.thirdFavMovie}
+                onChange={handleChange}
+              />
+            </div>
             <div className="signUp">
               <button
                 className="btn btn-block btn-primary"
