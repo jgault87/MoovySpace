@@ -21,24 +21,42 @@
 
 /* Animate neon flicker */
 @-webkit-keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
     text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color), 0 0 10rem var(--neon-text-color);
     -webkit-box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
             box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     text-shadow: none;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
 }
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
     text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color), 0 0 10rem var(--neon-text-color);
     -webkit-box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
             box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     text-shadow: none;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -52,9 +70,25 @@
   margin: auto;
 }
 
+.loader {
+  margin: auto;
+  width: 100px;
+}
+
 .loader__text {
-  margin: 5px auto;
-  color: #3D314A;
+  position: relative;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 20px;
+  color: #4f4f50;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: Anton, sans-serif;
@@ -62,19 +96,31 @@
 
 .loader__filmstrip {
   position: relative;
-  width: 56px;
-  height: 70px;
-  background: #3D314A;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 200px;
+  background: #4f4f50;
   z-index: -1;
 }
 
-.loader__filmstrip:before, .loader__filmstrip:after {
-  content: '';
+.loader__filmstrip:before,
+.loader__filmstrip:after {
+  content: "";
   position: absolute;
-  height: 120%;
-  border-left: 5px dashed #F5F1ED;
-  -webkit-animation: roll 30ms infinite;
-  animation: roll 30ms infinite;
+  height: 105%;
+  border-left: 5px dashed #f5f1ed;
+  -webkit-animation: roll 230ms infinite;
+  animation: roll 140ms infinite;
 }
 
 .loader__filmstrip:before {
@@ -83,6 +129,11 @@
 
 .loader__filmstrip:after {
   right: 5px;
+}
+
+/* Error element style */
+.errorMessage {
+  margin: 2rem;
 }
 
 @-webkit-keyframes roll {
