@@ -160,19 +160,3 @@ const Home = () => {
 };
 
 export default Home;
-
-{
-  /* <div id="moviePoster">
-				<img src={posterImage} alt="Movie Poster" />
-			</div>
-			<div className="movieDetails">
-				<h1>{searchContext.details.title}</h1>
-				<p>{searchContext.details.overview}</p>
-				<div className="trailerContainer">
-					{searchContext.trailer ? (
-						<Trailer className="trailer" embedId={searchContext.trailer} />
-					) : (
-						<p> VIDEO TRAILER IS NOT AVAILABLE</p>
-					)}
-				</div> */
-}

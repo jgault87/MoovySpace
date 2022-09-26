@@ -2,17 +2,19 @@
   display: block;
   margin: 0 auto;
   margin-top: 15px;
-  width: 100pxs;
+  width: 100px;
   height: auto;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #ffffff;
-  color: var(--color-light);
-  font-size: large;
+  border-bottom: 1px solid #5e5c5c;
+  color: rgb(143, 136, 136);
+  font-size: larger;
   text-align: center;
-
 }
-
+#searchBox {
+  color: white;
+  background-color: rgb(138, 52, 52);
+}
 #searchArea {
   display: block;
   margin: 0 auto;
@@ -21,11 +23,7 @@
   height: auto;
   background: transparent;
   border: none;
-  /* border-bottom: 1px solid #f8f4f4; */
-  color: white;
-  font-size: large;
   text-align: center;
-  
 }
 
 #searchBtn {
