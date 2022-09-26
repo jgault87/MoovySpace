@@ -43,12 +43,9 @@ function FavoriteMovies(props) {
 				<input type="radio" name="slider" id="item3" onClick={handleBackground} defaultChecked></input>
 				<div className="cards">
 					<label className="card" htmlFor="item1" id="project1">
-						<img
-							src={`https://image.tmdb.org/t/p/w500${favoriteMovies[0].image}`}
-							alt={favoriteMovies[0].title}
-						></img>
+						<img src={`https://image.tmdb.org/t/p/w500${favoriteMovies[0].image}`} alt={favoriteMovies[0].title}></img>
 					</label>
-					<label className="card" htmlFor="item2" id="project2">
+					{/* <label className="card" htmlFor="item2" id="project2">
 						<img
 							src={`https://image.tmdb.org/t/p/w500${favoriteMovies[1].image}`}
 							alt={favoriteMovies[1].title}
@@ -59,7 +56,7 @@ function FavoriteMovies(props) {
 							src={`https://image.tmdb.org/t/p/w500${favoriteMovies[2].image}`}
 							alt={favoriteMovies[2].title}
 						></img>
-					</label>
+					</label> */}
 				</div>
 				<div className="infoContainer" id="infoContainer">
 					<div className="upperpart">
@@ -79,7 +76,7 @@ function FavoriteMovies(props) {
 									<VideocamIcon className="cameraIcon" />
 								</div>
 							</label>
-							<label className="projectinfo" id="projectinfo2">
+							{/* <label className="projectinfo" id="projectinfo2">
 								<div className="title">{favoriteMovies[1].title}</div>
 								<div className="subline">
 									<div className="liveLink">
@@ -108,7 +105,7 @@ function FavoriteMovies(props) {
 									</div>
 									<VideocamIcon className="cameraIcon" />
 								</div>
-							</label>
+							</label> */}
 						</div>
 					</div>
 				</div>
