@@ -7,13 +7,9 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid #5e5c5c;
-  color: rgb(143, 136, 136);
+  color: rgb(175, 171, 171);
   font-size: larger;
   text-align: center;
-}
-#searchBox {
-  color: white;
-  background-color: rgb(138, 52, 52);
 }
 #searchArea {
   display: block;
@@ -42,7 +38,7 @@
   transition: 500ms;
   margin: 0 auto;
   margin-top: 15px;
-  color: white;
+  color: rgb(175, 171, 171);
 }
 #searchBtn:before {
   color: rgba(255, 255, 255, 0.5);

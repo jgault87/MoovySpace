@@ -18,13 +18,14 @@
   background-color: var(--color-primary-variant);
   text-align: center;
 }
+
 .trailerContainer {
   position: relative;
-  margin-top: 10px;
   width: 100%;
   height: auto;
+  top: 30px;
+  margin-bottom: 300px;
 }
-
 #movieTitle {
   position: relative;
 }

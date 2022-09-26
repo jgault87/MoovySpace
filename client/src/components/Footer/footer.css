@@ -61,7 +61,7 @@
 
 .footWrapper .tooltip::before {
   position: absolute;
-  content: "";
+  content: '';
   height: 8px;
   width: 8px;
   background: #ffffff;
@@ -88,21 +88,21 @@
 .footWrapper .sourceCode:hover,
 .footWrapper .sourceCode:hover .tooltip,
 .footWrapper .sourceCode:hover .tooltip::before {
-  background: #1877F2;
+  background: #1877f2;
   color: #ffffff;
 }
 
 .footWrapper .noah:hover,
 .footWrapper .noah:hover .tooltip,
 .footWrapper .noah:hover .tooltip::before {
-  background: #E4405F;
+  background: #e4405f;
   color: #ffffff;
 }
 
 .footWrapper .jj:hover,
 .footWrapper .jj:hover .tooltip,
 .footWrapper .jj:hover .tooltip::before {
-  background: #1DA1F2;
+  background: #1da1f2;
   color: #ffffff;
 }
 

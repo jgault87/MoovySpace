@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../../utils/mutations";
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
 
-import { useAnimation, motion } from "framer-motion";
+import { useAnimation, motion } from 'framer-motion';
 
-import leftSpotLight from "../../images/leftSpotLight.png";
-import rightSpotLight from "../../images/rightSpotLight.png";
+import leftSpotLight from '../../images/leftSpotLight.png';
+import rightSpotLight from '../../images/rightSpotLight.png';
 
-import Auth from "../../utils/auth";
-import "./Signup.css";
+import Auth from '../../utils/auth';
+import './Signup.css';
 
 export default function Signup() {
   //Grabbing the ID's of each input field to check if the user filled it out before the animation
-  const userName = document.getElementById("userName");
-  const password = document.getElementById("password");
-  const email = document.getElementById("email");
+  const userName = document.getElementById('userName');
+  const password = document.getElementById('password');
+  const email = document.getElementById('email');
 
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
-    firstFavMovie: "",
-    secondFavMovie: "",
-    thirdFavMovie: "",
+    username: '',
+    email: '',
+    password: '',
+    firstFavMovie: '',
+    secondFavMovie: '',
+    thirdFavMovie: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -58,23 +58,23 @@ export default function Signup() {
   //Initialize the animation to be off the screen
   const startLeftSpotLight = {
     hidden: {
-      x: "-100vw",
+      x: '-100vw',
     },
   };
   const startRightSpotLight = {
     hidden: {
-      x: "100vw",
+      x: '100vw',
     },
   };
 
   //Functions for the animation
   async function leftSequence() {
     await leftSpotLightAnimation.start({
-      x: "-20vw",
+      x: '-20vw',
       transition: {
         //different types can be applied such as 'tween' or 'inertia'
-        type: "spring",
-        stiffness: "40",
+        type: 'spring',
+        stiffness: '40',
       },
     });
   }
@@ -82,11 +82,11 @@ export default function Signup() {
   async function rightSequence() {
     await rightSpotLightAnimation.start({
       //Changing the x value will change the position of the spot light
-      x: "10vw",
+      x: '10vw',
       transition: {
         //Stiffness will change how much 'springiness' is applied
-        type: "spring",
-        stiffness: "40",
+        type: 'spring',
+        stiffness: '40',
       },
     });
   }
@@ -94,7 +94,7 @@ export default function Signup() {
   if (userName && userName.value && email.value && password.value) {
     leftSequence();
     rightSequence();
-    console.log("Success");
+    console.log('Success');
   }
 
   return (
@@ -190,7 +190,7 @@ export default function Signup() {
             <div className="signUp">
               <button
                 className="btn btn-block btn-primary"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
                 type="submit"
               >
                 Action! 🎥

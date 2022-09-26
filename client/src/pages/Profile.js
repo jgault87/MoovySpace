@@ -1,12 +1,12 @@
-import React from "react";
-import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import Auth from "../utils/auth";
-import FavoriteMovies from "../components/FavoriteMovies";
-import LikedMovies from "../components/LikedMovies";
-import WatchListMovies from "../components/WatchListMovies";
-import "./profile.css";
+import React from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import Auth from '../utils/auth';
+import FavoriteMovies from '../components/FavoriteMovies';
+import LikedMovies from '../components/LikedMovies';
+import WatchListMovies from '../components/WatchListMovies';
+import './profile.css';
 
 const Profile = () => {
   const { username: userParam } = useParams();

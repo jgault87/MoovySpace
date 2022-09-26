@@ -1,31 +1,31 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { QUERY_MOVIE_FEED } from "../../utils/queries";
-import { Link } from "react-router-dom";
-import "./feed.scss";
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_MOVIE_FEED } from '../../utils/queries';
+import { Link } from 'react-router-dom';
+import './feed.scss';
 
 const feedStyles = {
   gridContainer: {
-    justifyItems: "center",
-    display: "grid",
-    gridGap: "10px",
-    gridTemplateColumns: "1fr",
+    justifyItems: 'center',
+    display: 'grid',
+    gridGap: '10px',
+    gridTemplateColumns: '1fr',
   },
   gridItem: {
-    display: "grid",
-    position: "relative",
-    backgroundColor: "var(--color-bg-variant)",
-    justifyItems: "center",
-    alignItems: "center",
-    padding: "1rem",
-    borderRadius: "1rem",
+    display: 'grid',
+    position: 'relative',
+    backgroundColor: 'var(--color-bg-variant)',
+    justifyItems: 'center',
+    alignItems: 'center',
+    padding: '1rem',
+    borderRadius: '1rem',
   },
   gridImage: {
-    borderRadius: ".5rem",
-    border: "1px solid #ddd",
-    padding: "5px",
-    maxWidth: "50%",
-    height: "auto",
+    borderRadius: '.5rem',
+    border: '1px solid #ddd',
+    padding: '5px',
+    maxWidth: '50%',
+    height: 'auto',
   },
 };
 
@@ -60,16 +60,16 @@ const Feed = () => {
                         <h1 id="movieTitle">{user.savedMovies.at(-1).title}</h1>
                         <div className="movieUser">
                           <Link to={`/profiles/${user.username}`}>
-                            {" "}
-                            {user.username}{" "}
-                          </Link>{" "}
+                            {' '}
+                            {user.username}{' '}
+                          </Link>{' '}
                           <p className="userText">
-                            {" "}
-                            recently saved{" "}
+                            {' '}
+                            recently saved{' '}
                             <strong>
                               {user.savedMovies.at(-1).title}
                             </strong> and {user.savedMovies.length - 1} other
-                            movies to their collection{" "}
+                            movies to their collection{' '}
                           </p>
                         </div>
                       </div>
@@ -85,14 +85,14 @@ const Feed = () => {
                           rel="noreferrer"
                           className="trailerBtn"
                         >
-                          {" "}
+                          {' '}
                           Watch the trailer on Youtube!
                         </a>
                       </div>
                       <div className="movie_social">
                         <ul>
                           <li id="createdAt">
-                            {user.savedMovies.at(-1).createdAt}{" "}
+                            {user.savedMovies.at(-1).createdAt}{' '}
                           </li>
                         </ul>
                       </div>

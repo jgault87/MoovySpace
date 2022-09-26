@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
-import { useQuery } from "@apollo/client";
-import { useMutation } from "@apollo/client";
-import { AppContext } from "../../App";
-import "./mainPage.scss";
-import Trailer from "../../components/Trailer/Trailer.js";
-import { LIKE_MOVIE, SAVE_MOVIE } from "../../utils/mutations";
-import { QUERY_MOVIE_FEED } from "../../utils/queries";
-import { QUERY_ME } from "../../utils/queries";
-import Auth from "../../utils/auth";
-import { getSavedMovieIds, getLikedMovieIds } from "../../utils/localStorage";
+import React, { useContext, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+import { AppContext } from '../../App';
+import './mainPage.scss';
+import Trailer from '../../components/Trailer/Trailer.js';
+import { LIKE_MOVIE, SAVE_MOVIE } from '../../utils/mutations';
+import { QUERY_MOVIE_FEED } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
+import { getSavedMovieIds, getLikedMovieIds } from '../../utils/localStorage';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MOVIE_FEED);
@@ -19,9 +19,9 @@ const Home = () => {
 
   const searchContext = useContext(AppContext);
   let posterImage =
-    "https://image.tmdb.org/t/p/w500" + searchContext.details.poster_path;
+    'https://image.tmdb.org/t/p/w500' + searchContext.details.poster_path;
   let movieBackdrop =
-    "https://image.tmdb.org/t/p/w500" + searchContext.details.backdrop_path;
+    'https://image.tmdb.org/t/p/w500' + searchContext.details.backdrop_path;
 
   const movieId = searchContext.details.id;
   const movieTitle = searchContext.details.original_title;
@@ -119,8 +119,8 @@ const Home = () => {
                       {savedMovieIds?.some(
                         (savedMovieId) => savedMovieId === movieData.movieId
                       )
-                        ? "This movie has been add to your Watch List!"
-                        : "Add to Watch List"}
+                        ? 'This movie has been add to your Watch List!'
+                        : 'Add to Watch List'}
                     </button>
                     <button
                       disabled={likedMovieIds?.some(
@@ -132,8 +132,8 @@ const Home = () => {
                       {likedMovieIds?.some(
                         (likedMovieId) => likedMovieId === movieData.movieId
                       )
-                        ? "This movie has been liked!"
-                        : "Like Movie"}
+                        ? 'This movie has been liked!'
+                        : 'Like Movie'}
                     </button>
                   </div>
                 )}
