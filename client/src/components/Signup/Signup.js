@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AppContext } from '../../App';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
+import { ADD_USER, FAVORITE_MOVIE } from '../../utils/mutations';
 
 import { useAnimation, motion } from 'framer-motion';
 
@@ -26,7 +27,46 @@ export default function Signup() {
     secondFavMovie: '',
     thirdFavMovie: '',
   });
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
+
+  const searchContext = useContext(AppContext);
+  let posterImage =
+    'https://image.tmdb.org/t/p/w500' + searchContext.details.poster_path;
+  let movieBackdrop =
+    'https://image.tmdb.org/t/p/w500' + searchContext.details.backdrop_path;
+
+  const movieId = searchContext.details.id;
+  const movieTitle = searchContext.details.original_title;
+  const movieDescription = searchContext.details.overview;
+  const moviePoster = searchContext.details.poster_path;
+  const movieTrailer = searchContext.trailer;
+
+  const movieData = {
+    movieId: movieId,
+    title: movieTitle,
+    description: movieDescription,
+    image: moviePoster,
+    backdrop: movieBackdrop,
+    trailer: movieTrailer,
+  };
+
+  const handleFavoriteMovie = async () => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await favoriteMovie({
+        variables: { movie: movieData },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,6 +75,8 @@ export default function Signup() {
       ...formState,
       [name]: value,
     });
+    searchContext.searchMovie(formState.firstFavMovie);
+    handleFavoriteMovie(searchContext);
   };
 
   const handleFormSubmit = async (event) => {

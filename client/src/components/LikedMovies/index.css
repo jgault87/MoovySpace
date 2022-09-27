@@ -79,8 +79,8 @@
 
 .likedWrapper section .item:hover .likedDescriptions {
   left: 0px;
-  -webkit-transition: all 0.7s ease-in-out;
-  transition: all 0.7s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-clip-path: circle(75%);
           clip-path: circle(75%);
   overflow: scroll;
