@@ -1,81 +1,81 @@
 .split {
-	height: 100%;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	overflow-x: hidden;
-	padding-top: 20px;
-	transition: var(--transition);
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: var(--transition);
 }
 
 /* Control the left side */
 .left {
-	width: 60%;
-	left: 0;
-	background-color: #111;
-	color: white;
+  width: 60%;
+  left: 0;
+  background-color: #111;
+  color: white;
 }
 
 /* Control the right side */
 .right {
-	width: 40%;
-	right: 0;
-	background-color: var(--color-bg);
+  width: 40%;
+  right: 0;
+  background-color: var(--color-bg);
 }
 
 /* If you want the content centered horizontally and vertically */
 .centered {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 /* Style the image inside the centered container, if needed */
 .centered img {
-	width: 950px;
-	height: auto;
+  width: 950px;
+  height: auto;
 }
 
 .center {
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .cinema {
-	font-family: fantasy;
+  font-family: fantasy;
 }
 
 .login {
-	margin: 5%;
-	/* display: none; */
+  margin: 5%;
+  /* display: none; */
 }
 
 .signUpOne {
-	margin: 3%;
+  margin: 3%;
 }
 
 .toggle {
-	display: none;
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {
-	.left {
-		width: 100%;
-		top: 12rem;
-		bottom: 20rem;
-	}
+  .left {
+    width: 100%;
+    top: 12rem;
+    bottom: 20rem;
+  }
 
-	.right {
-		height: 50%;
-		width: 100%;
-		right: 0;
-		background-color: var(--color-bg);
-	}
+  .right {
+    height: 50%;
+    width: 100%;
+    right: 0;
+    background-color: var(--color-bg);
+  }
 
-	.centered img {
-		width: 400px;
-		height: auto;
-	}
+  .centered img {
+    width: 400px;
+    height: auto;
+  }
 }

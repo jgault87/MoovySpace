@@ -10,7 +10,7 @@
   color: #fff;
   text-transform: uppercase;
   -webkit-animation: flicker 8.5s infinite alternate;
-          animation: flicker 8.5s infinite alternate;
+  animation: flicker 8.5s infinite alternate;
   margin: auto;
   margin-top: 20px;
 }
@@ -21,27 +21,59 @@
 
 /* Animate neon flicker */
 @-webkit-keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color), 0 0 10rem var(--neon-text-color);
-    -webkit-box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
-            box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
+      0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
+      0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
+      0 0 10rem var(--neon-text-color);
+    -webkit-box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
+      0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+      0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
+      0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+      0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     text-shadow: none;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
 }
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color), 0 0 10rem var(--neon-text-color);
-    -webkit-box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
-            box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
+      0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
+      0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
+      0 0 10rem var(--neon-text-color);
+    -webkit-box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
+      0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+      0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
+      0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+      0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     text-shadow: none;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
 }
 
@@ -54,7 +86,7 @@
 
 .loader__text {
   margin: 5px auto;
-  color: #3D314A;
+  color: #3d314a;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: Anton, sans-serif;
@@ -64,15 +96,16 @@
   position: relative;
   width: 56px;
   height: 70px;
-  background: #3D314A;
+  background: #3d314a;
   z-index: -1;
 }
 
-.loader__filmstrip:before, .loader__filmstrip:after {
+.loader__filmstrip:before,
+.loader__filmstrip:after {
   content: '';
   position: absolute;
   height: 120%;
-  border-left: 5px dashed #F5F1ED;
+  border-left: 5px dashed #f5f1ed;
   -webkit-animation: roll 30ms infinite;
   animation: roll 30ms infinite;
 }
@@ -141,14 +174,14 @@
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   -webkit-box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
 }
 
 .movie_card:hover {
   -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
   -webkit-box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
@@ -195,7 +228,7 @@
   height: 300px;
   width: 240px;
   -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
 }
 
 .movie_card .info_section .movie_desc {
@@ -224,7 +257,7 @@
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
   -webkit-transition-delay: 0.15s;
-          transition-delay: 0.15s;
+  transition-delay: 0.15s;
   margin: 0 10px;
 }
 
@@ -252,7 +285,13 @@
     width: 50%;
   }
   .info_section {
-    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #e5e6e6), to(transparent));
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(50%, #e5e6e6),
+      to(transparent)
+    );
     background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
   }
   .blur_back {
@@ -283,7 +322,13 @@
     width: 100%;
   }
   .info_section {
-    background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #e5e6e6), to(transparent));
+    background: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(50%, #e5e6e6),
+      to(transparent)
+    );
     background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
     display: -ms-inline-grid;
     display: inline-grid;
