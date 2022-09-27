@@ -3,7 +3,6 @@
   margin: auto;
 }
 #moviePoster {
-  margin: 30px;
   width: auto;
   height: auto;
   float: left;
@@ -12,6 +11,13 @@
   justify-content: center;
   transition: var(--transition);
 }
+.movie_desc {
+  position: relative;
+  width: auto;
+  height: auto;
+  top: 75px;
+}
+
 .movieDetails {
   margin: 2%;
   float: left;
@@ -22,9 +28,8 @@
 .trailerContainer {
   position: relative;
   width: 100%;
-  height: auto;
-  top: 30px;
-  margin-bottom: 300px;
+  height: 100%;
+  bottom: 10%;
 }
 #movieTitle {
   position: relative;
