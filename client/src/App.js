@@ -52,6 +52,7 @@ export function App() {
   // Declare a new state variable called "results"
   const [details, setDetails] = useState([]);
   const [trailer, setTrailer] = useState('8trTO5mJYsg');
+  const [APIErrors, setAPIErrors] = useState(null);
 
   // Get movie & trailer data from API
   // Add error catching for movies that don't have trailer videos & add rendering of something to show there's no trailer
@@ -61,10 +62,20 @@ export function App() {
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
       )
       .then((response) => {
+        // console.log(response);
+        if (response.data.results.length === 0) {
+          console.warn(`No results found for ${query}`);
+          setAPIErrors(`No results found for ${query}`);
+          return undefined;
+        }
         setDetails(response.data.results[0]);
         return response.data;
       })
       .then((response) => {
+        // console.log(response);
+        if (!response) {
+          return undefined;
+        }
         axios
           .get(
             `https://api.themoviedb.org/3/movie/${response.results[0].id}/videos?api_key=${API_KEY}&language=en-US`
@@ -99,8 +110,9 @@ export function App() {
               path="/home"
               element={
                 <>
-                  <SearchBar />
+                  <SearchBar errors={APIErrors} setAPIErrors={setAPIErrors} />
                   <Home />
+                  <Footer />
                 </>
               }
             />
@@ -110,6 +122,7 @@ export function App() {
               element={
                 <>
                   <Feed />
+                  <Footer />
                 </>
               }
             />

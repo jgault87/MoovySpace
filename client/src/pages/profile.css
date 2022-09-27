@@ -40,7 +40,7 @@
 
 .loader__filmstrip:before,
 .loader__filmstrip:after {
-  content: "";
+  content: '';
   position: absolute;
   height: 105%;
   border-left: 5px dashed #f5f1ed;
