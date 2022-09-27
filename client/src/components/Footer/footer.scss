@@ -1,85 +1,84 @@
 #contact {
-    border-bottom: 1px solid rgb(0, 0, 0);
-    height: auto;
-    text-align: center;
-    position: relative;
-    margin-bottom: 90px;
-    margin-top: 20px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  height: auto;
+  text-align: center;
+  position: relative;
+  margin-bottom: 90px;
+  margin-top: 20px;
 }
 .footWrapper {
-    display: inline-flex;
-    list-style: none;
+  display: inline-flex;
+  list-style: none;
 }
 .footWrapper .icon {
-    position: relative;
-    background: rgb(71, 70, 70);
-    border-radius: 50%;
-    padding: 15px;
-    margin: 10px;
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  background: rgb(71, 70, 70);
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .footWrapper .tooltip {
-    position: absolute;
-    top: 0;
-    font-size: 14px;
-    background: #ffffff;
-    color: #000000;
-    padding: 5px 8px;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #000000;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-  
+
 .footWrapper .tooltip::before {
-    position: absolute;
-    content: "";
-    height: 8px;
-    width: 8px;
-    background: #ffffff;
-    bottom: -3px;
-    left: 50%;
-    transform: translate(-50%) rotate(45deg);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: absolute;
+  content: '';
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-  
+
 .footWrapper .icon:hover .tooltip {
-    top: -45px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .footWrapper .icon:hover span,
 .footWrapper .icon:hover .tooltip {
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-    
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 .footWrapper .sourceCode:hover,
 .footWrapper .sourceCode:hover .tooltip,
 .footWrapper .sourceCode:hover .tooltip::before {
-    background: #1877F2;
-    color: #ffffff;
+  background: #1877f2;
+  color: #ffffff;
 }
 .footWrapper .noah:hover,
 .footWrapper .noah:hover .tooltip,
 .footWrapper .noah:hover .tooltip::before {
-  background: #E4405F;
+  background: #e4405f;
   color: #ffffff;
 }
 .footWrapper .jj:hover,
 .footWrapper .jj:hover .tooltip,
 .footWrapper .jj:hover .tooltip::before {
-  background: #1DA1F2;
+  background: #1da1f2;
   color: #ffffff;
 }
 .footWrapper .marcus:hover,
@@ -101,38 +100,34 @@
   color: #ffffff;
 }
 @media screen and (max-width: 640px) {
-      .footWrapper .icon {
-          width: 20px;
-          height: 20px;
-          right: 25%;
-      }
-      
+  .footWrapper .icon {
+    width: 20px;
+    height: 20px;
+    right: 25%;
   }
-  
-  @media screen and (max-width: 445px) {
-      .footWrapper .icon {
-        margin: 0%;
-    }
+}
+
+@media screen and (max-width: 445px) {
+  .footWrapper .icon {
+    margin: 0%;
   }
-  
-  @media screen and (max-width: 400px) {
-      .contact-info {
-          width: 100vmin;
-      }
-      .footWrapper .icon {
-          width: 15px;
-          height: 15px;
-          
-      }
+}
+
+@media screen and (max-width: 400px) {
+  .contact-info {
+    width: 100vmin;
   }
-  
-  
-  @media screen and (max-width: 390px) {
-    .contact-info {
-      margin: 0;
-      }
-    .footWrapper .icon {
-      margin: 0%;
-      }
-      
+  .footWrapper .icon {
+    width: 15px;
+    height: 15px;
   }
+}
+
+@media screen and (max-width: 390px) {
+  .contact-info {
+    margin: 0;
+  }
+  .footWrapper .icon {
+    margin: 0%;
+  }
+}
