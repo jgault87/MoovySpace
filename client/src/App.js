@@ -56,7 +56,7 @@ export function App() {
 
   // Get movie & trailer data from API
   // Add error catching for movies that don't have trailer videos & add rendering of something to show there's no trailer
-  const searchMovie = async (query) => {
+  const searchMovie = (query) => {
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`

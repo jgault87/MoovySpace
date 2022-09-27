@@ -52,7 +52,7 @@
     }
     .item:hover .likedDescriptions {
       left: 0px;
-      transition: all 0.7s ease-in-out;
+      transition: all 0.3s ease-in-out;
       clip-path: circle(75%);
       overflow: scroll;
     }
