@@ -3,21 +3,28 @@
   margin: auto;
 }
 #moviePoster {
-  margin: 30px;
   width: auto;
-  height: 90%;
+  height: auto;
   float: left;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition);
 }
+.movie_desc {
+  position: relative;
+  width: auto;
+  height: auto;
+  top: 75px;
+}
+
 .movieDetails {
   margin: 2%;
   float: left;
   background-color: var(--color-primary-variant);
   text-align: center;
 }
+
 .trailerContainer {
   position: relative;
   width: 100%;

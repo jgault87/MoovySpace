@@ -50,9 +50,18 @@
   top: 30px;
   margin: auto;
 }
+.loader {
+  margin: auto;
+  width: 100px;
+}
 .loader__text {
-  margin: 5px auto;
-  color: #3d314a;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  color: #4f4f50;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: Anton, sans-serif;
@@ -60,9 +69,14 @@
 
 .loader__filmstrip {
   position: relative;
-  width: 56px;
-  height: 70px;
-  background: #3d314a;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 200px;
+  background: #4f4f50;
   z-index: -1;
 }
 
@@ -70,10 +84,10 @@
 .loader__filmstrip:after {
   content: '';
   position: absolute;
-  height: 120%;
+  height: 105%;
   border-left: 5px dashed #f5f1ed;
-  -webkit-animation: roll 30ms infinite;
-  animation: roll 30ms infinite;
+  -webkit-animation: roll 230ms infinite;
+  animation: roll 140ms infinite;
 }
 
 .loader__filmstrip:before {
@@ -82,6 +96,11 @@
 
 .loader__filmstrip:after {
   right: 5px;
+}
+
+/* Error element style */
+.errorMessage {
+  margin: 2rem;
 }
 
 @-webkit-keyframes roll {

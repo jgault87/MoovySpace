@@ -40,13 +40,16 @@ const Profile = () => {
   return (
     <div>
       <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+        <h2
+          className="col-12 col-md-10 bg-dark text-light p-3 mb-5"
+          id="profile-header"
+        >
+          {userParam
+            ? `You're on ${user.username}'s profile`
+            : `Your top movie picks`}
         </h2>
-
         <div className="col-12 col-md-10 mb-5"></div>
-
-        <div className="">
+        <div>
           {user.favoriteMovies.length > 0 ? (
             <FavoriteMovies favoriteMovies={user.favoriteMovies} />
           ) : (
@@ -56,20 +59,26 @@ const Profile = () => {
           )}
 
           {user.likedMovies.length > 0 ? (
-            <LikedMovies likedMovies={user.likedMovies} />
+            <div>
+              <LikedMovies likedMovies={user.likedMovies}></LikedMovies>
+              <h2 className="movie-headers">Liked Movies</h2>
+            </div>
           ) : (
             <div className="errorMessage">
               <h2>Like some movies, you delinquent!</h2>
             </div>
           )}
 
-          {/* {user.savedMovies.length > 0 ? (
+          {user.savedMovies.length > 0 ? (
+            <div>
               <WatchListMovies savedMovies={user.savedMovies} />
-            ) : (
-              <div className='errorMessage'>
-                <h2>Watch something, scoundrel!</h2>
-              </div>
-            )} */}
+              <h2 className="movie-headers">Watch Later</h2>
+            </div>
+          ) : (
+            <div className="errorMessage">
+              <h2>Watch something, scoundrel!</h2>
+            </div>
+          )}
         </div>
       </div>
     </div>

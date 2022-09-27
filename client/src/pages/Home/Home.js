@@ -1,14 +1,17 @@
 import React, { useContext, useState } from 'react';
+import { useQuery } from '@apollo/client';
 import { useMutation } from '@apollo/client';
 import { AppContext } from '../../App';
 import './mainPage.scss';
 import Trailer from '../../components/Trailer/Trailer.js';
 import { LIKE_MOVIE, SAVE_MOVIE } from '../../utils/mutations';
+import { QUERY_MOVIE_FEED } from '../../utils/queries';
 import { QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import { getSavedMovieIds, getLikedMovieIds } from '../../utils/localStorage';
 
 const Home = () => {
+  const { loading, data } = useQuery(QUERY_MOVIE_FEED);
   const [saveMovie] = useMutation(SAVE_MOVIE);
   const [likeMovie] = useMutation(LIKE_MOVIE);
   const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
@@ -91,78 +94,69 @@ const Home = () => {
 
   return (
     <main className="movieContainer">
-      <div>
-        <div className="movie_card single">
-          <div className="info_section">
-            <div className="movie_header">
-              <img className="locandina" src={posterImage} />
-              <h1 id="movieTitle">{searchContext.details.title}</h1>
-              <p className="text">{searchContext.details.overview}</p>
-              {Auth.loggedIn() && (
-                <div>
-                  <button
-                    disabled={savedMovieIds?.some(
-                      (savedMovieId) => savedMovieId === movieData.movieId
-                    )}
-                    onClick={handleSaveMovie}
-                    className="btn btn-primary"
-                  >
-                    {savedMovieIds?.some(
-                      (savedMovieId) => savedMovieId === movieData.movieId
-                    )
-                      ? 'This movie has been add to your Watch List!'
-                      : 'Add to Watch List'}
-                  </button>
-                  <button
-                    disabled={likedMovieIds?.some(
-                      (likedMovieId) => likedMovieId === movieData.movieId
-                    )}
-                    onClick={handleLikeMovie}
-                    className="btn btn-primary"
-                  >
-                    {likedMovieIds?.some(
-                      (likedMovieId) => likedMovieId === movieData.movieId
-                    )
-                      ? 'This movie has been liked!'
-                      : 'Like Movie'}
-                  </button>
-                </div>
-              )}
-            </div>
-            <div className="movie_desc">
-              <div className="trailerContainer">
-                {searchContext.trailer ? (
-                  <Trailer
-                    className="trailer"
-                    embedId={searchContext.trailer}
-                  />
-                ) : (
-                  <p> VIDEO TRAILER IS NOT AVAILABLE</p>
+      {loading ? (
+        <div className="loader">
+          <div className="loader__filmstrip"></div>
+          <p className="loader__text">loading</p>
+        </div>
+      ) : (
+        <div>
+          <div className="movie_card single">
+            <div className="info_section">
+              <div className="movie_header">
+                <img className="locandina" src={posterImage} />
+                <h1 id="movieTitle">{searchContext.details.title}</h1>
+                <p className="text">{searchContext.details.overview}</p>
+                {Auth.loggedIn() && (
+                  <div>
+                    <button
+                      disabled={savedMovieIds?.some(
+                        (savedMovieId) => savedMovieId === movieData.movieId
+                      )}
+                      onClick={handleSaveMovie}
+                      className="btn btn-primary"
+                    >
+                      {savedMovieIds?.some(
+                        (savedMovieId) => savedMovieId === movieData.movieId
+                      )
+                        ? 'This movie has been add to your Watch List!'
+                        : 'Add to Watch List'}
+                    </button>
+                    <button
+                      disabled={likedMovieIds?.some(
+                        (likedMovieId) => likedMovieId === movieData.movieId
+                      )}
+                      onClick={handleLikeMovie}
+                      className="btn btn-primary"
+                    >
+                      {likedMovieIds?.some(
+                        (likedMovieId) => likedMovieId === movieData.movieId
+                      )
+                        ? 'This movie has been liked!'
+                        : 'Like Movie'}
+                    </button>
+                  </div>
                 )}
               </div>
+              <div className="movie_desc">
+                <div className="trailerContainer">
+                  {searchContext.trailer ? (
+                    <Trailer
+                      className="trailer"
+                      embedId={searchContext.trailer}
+                    />
+                  ) : (
+                    <p> VIDEO TRAILER IS NOT AVAILABLE</p>
+                  )}
+                </div>
+              </div>
             </div>
+            <img className="blur_back" src={movieBackdrop}></img>
           </div>
-          <img className="blur_back" src={movieBackdrop}></img>
         </div>
-      </div>
+      )}
     </main>
   );
 };
 
 export default Home;
-
-{
-  /* <div id="moviePoster">
-				<img src={posterImage} alt="Movie Poster" />
-			</div>
-			<div className="movieDetails">
-				<h1>{searchContext.details.title}</h1>
-				<p>{searchContext.details.overview}</p>
-				<div className="trailerContainer">
-					{searchContext.trailer ? (
-						<Trailer className="trailer" embedId={searchContext.trailer} />
-					) : (
-						<p> VIDEO TRAILER IS NOT AVAILABLE</p>
-					)}
-				</div> */
-}

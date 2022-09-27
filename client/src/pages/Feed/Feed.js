@@ -39,9 +39,9 @@ const Feed = () => {
       <p className="recentText">Recent Activity</p>
       <div className="feedGridContainer" style={feedStyles.gridContainer}>
         {loading ? (
-          <div class="loader">
-            <div class="loader__filmstrip"></div>
-            <p class="loader__text">loading</p>
+          <div className="loader">
+            <div className="loader__filmstrip"></div>
+            <p className="loader__text">loading</p>
           </div>
         ) : (
           users.map((user) => {

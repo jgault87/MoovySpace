@@ -2,16 +2,15 @@
   display: block;
   margin: 0 auto;
   margin-top: 15px;
-  width: 100pxs;
+  width: 100px;
   height: auto;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #ffffff;
-  color: var(--color-light);
-  font-size: large;
+  border-bottom: 1px solid #5e5c5c;
+  color: rgb(175, 171, 171);
+  font-size: larger;
   text-align: center;
 }
-
 #searchArea {
   display: block;
   margin: 0 auto;
@@ -20,9 +19,6 @@
   height: auto;
   background: transparent;
   border: none;
-  /* border-bottom: 1px solid #f8f4f4; */
-  color: white;
-  font-size: large;
   text-align: center;
 }
 
@@ -42,7 +38,7 @@
   transition: 500ms;
   margin: 0 auto;
   margin-top: 15px;
-  color: white;
+  color: rgb(175, 171, 171);
 }
 #searchBtn:before {
   color: rgba(255, 255, 255, 0.5);

@@ -14,7 +14,7 @@
   --color-bg-variant: #402c6c;
   --color-primary: #48cce9;
   --color-primary-variant: rgba(77, 142, 255, 0.4);
-  --color-white: #fff;
+  --color-white: rgb(184, 183, 183);
   --color-light: rgba(255, 255, 255, 0.6);
   --transition: all 400ms ease;
   --container-width-lg: 75%;
@@ -37,9 +37,6 @@ body {
   line-height: 1.7;
   /* background-image: url(../src/assets/texture.jpg); */
 }
-
-/* general styles */
-
 .container {
   width: var(--container-width-lg);
   margin: 0 auto;
