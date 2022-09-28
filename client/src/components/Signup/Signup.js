@@ -14,237 +14,231 @@ import Auth from '../../utils/auth';
 import './Signup.css';
 
 export default function Signup() {
-  //Grabbing the ID's of each input field to check if the user filled it out before the animation
-  const userName = document.getElementById('userName');
-  const password = document.getElementById('password');
-  const email = document.getElementById('email');
+	//Grabbing the ID's of each input field to check if the user filled it out before the animation
+	const userName = document.getElementById('userName');
+	const password = document.getElementById('password');
+	const email = document.getElementById('email');
 
-  const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
-    firstFavMovie: '',
-    secondFavMovie: '',
-    thirdFavMovie: '',
-  });
+	const [formState, setFormState] = useState({
+		username: '',
+		email: '',
+		password: '',
+		firstFavMovie: '',
+		secondFavMovie: '',
+		thirdFavMovie: ''
+	});
 
-  const [addUser, { error, data }] = useMutation(ADD_USER);
-  const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
+	const [addUser, { error, data }] = useMutation(ADD_USER);
+	const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
 
-  const searchContext = useContext(AppContext);
-  let posterImage =
-    'https://image.tmdb.org/t/p/w500' + searchContext.details.poster_path;
-  let movieBackdrop =
-    'https://image.tmdb.org/t/p/w500' + searchContext.details.backdrop_path;
+	const searchContext = useContext(AppContext);
 
-  const movieId = searchContext.details.id;
-  const movieTitle = searchContext.details.original_title;
-  const movieDescription = searchContext.details.overview;
-  const moviePoster = searchContext.details.poster_path;
-  const movieTrailer = searchContext.trailer;
+	// Saves movieData to favorite movies
+	const handleFavoriteMovie = async (movieData) => {
+		const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  const movieData = {
-    movieId: movieId,
-    title: movieTitle,
-    description: movieDescription,
-    image: moviePoster,
-    backdrop: movieBackdrop,
-    trailer: movieTrailer,
-  };
+		if (!token) {
+			return false;
+		}
 
-  const handleFavoriteMovie = async () => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+		try {
+			await favoriteMovie({
+				variables: { movie: movieData }
+			});
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
-    if (!token) {
-      return false;
-    }
+	const handleChange = async (event) => {
+		const { name, value } = event.target;
 
-    try {
-      await favoriteMovie({
-        variables: { movie: movieData },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+		setFormState({
+			...formState,
+			[name]: value
+		});
+	};
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+	// Returns both responses as movieData object
+	const createDataInputObj = async (input) => {
+		const { details, trailer } = await searchContext.searchMovie(formState[input]);
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-    searchContext.searchMovie(formState.firstFavMovie);
-    handleFavoriteMovie(searchContext);
-  };
+		let posterImage = 'https://image.tmdb.org/t/p/w500' + details.poster_path;
+		let movieBackdrop = 'https://image.tmdb.org/t/p/w500' + details.backdrop_path;
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+		const movieId = details.id;
+		const movieTitle = details.original_title;
+		const movieDescription = details.overview;
+		const moviePoster = details.poster_path;
+		const movieTrailer = trailer;
 
-    try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
+		const movieData = {
+			movieId: movieId,
+			title: movieTitle,
+			description: movieDescription,
+			image: moviePoster,
+			backdrop: movieBackdrop,
+			trailer: movieTrailer
+		};
 
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+		return movieData;
+	};
 
-  //Giving each function the animation state
-  const leftSpotLightAnimation = useAnimation();
-  const rightSpotLightAnimation = useAnimation();
+	const handleFormSubmit = async (event) => {
+		event.preventDefault();
 
-  //Initialize the animation to be off the screen
-  const startLeftSpotLight = {
-    hidden: {
-      x: '-100vw',
-    },
-  };
-  const startRightSpotLight = {
-    hidden: {
-      x: '100vw',
-    },
-  };
+		try {
+			const { data } = await addUser({
+				variables: { ...formState }
+			});
 
-  //Functions for the animation
-  async function leftSequence() {
-    await leftSpotLightAnimation.start({
-      x: '-20vw',
-      transition: {
-        //different types can be applied such as 'tween' or 'inertia'
-        type: 'spring',
-        stiffness: '40',
-      },
-    });
-  }
+			Auth.login(data.addUser.token);
 
-  async function rightSequence() {
-    await rightSpotLightAnimation.start({
-      //Changing the x value will change the position of the spot light
-      x: '10vw',
-      transition: {
-        //Stiffness will change how much 'springiness' is applied
-        type: 'spring',
-        stiffness: '40',
-      },
-    });
-  }
+			const movieData1 = await createDataInputObj('firstFavMovie');
+			await handleFavoriteMovie(movieData1);
+			const movieData2 = await createDataInputObj('secondFavMovie');
+			await handleFavoriteMovie(movieData2);
+			const movieData3 = await createDataInputObj('thirdFavMovie');
+			await handleFavoriteMovie(movieData3);
 
-  if (userName && userName.value && email.value && password.value) {
-    leftSequence();
-    rightSequence();
-    console.log('Success');
-  }
+			window.location.assign('/');
 
-  return (
-    <main className="form">
-      <h4>User Information</h4>
-      <div>
-        {data ? (
-          <p>
-            Success! You may now head <Link to="/">back to the homepage.</Link>
-          </p>
-        ) : (
-          <form onSubmit={handleFormSubmit}>
-            <div className="userInfoForm">
-              {/* Set each div to their variant and call the animations when called */}
-              {/* Each div will have a starting position and end position with the animation being handled by the framer motion library */}
-              <motion.div
-                variants={startLeftSpotLight}
-                animate={leftSpotLightAnimation}
-                initial="hidden"
-              >
-                <img
-                  id="leftSpotLight"
-                  src={leftSpotLight}
-                  alt={leftSpotLight}
-                />
-              </motion.div>
-              <motion.div
-                variants={startRightSpotLight}
-                animate={rightSpotLightAnimation}
-                initial="hidden"
-              >
-                <img
-                  id="rightSpotLight"
-                  src={rightSpotLight}
-                  alt={rightSpotLight}
-                />
-              </motion.div>
-              <input
-                id="userName"
-                className="form-input"
-                placeholder="Your username"
-                name="username"
-                type="text"
-                value={formState.name}
-                onChange={handleChange}
-              />
-              <input
-                id="email"
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                id="password"
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-            </div>
-            <h4>Tells us your top 3 favorite movies!</h4>
-            <div className="userInfoForm">
-              <input
-                className="form-input"
-                placeholder="Ex: The Other Guys"
-                name="firstFavMovie"
-                type="text"
-                value={formState.firstFavMovie}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="Ex: Forst Gump"
-                name="secondFavMovie"
-                type="text"
-                value={formState.secondFavMovie}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="Ex: Cars"
-                name="thirdFavMovie"
-                type="text"
-                value={formState.thirdFavMovie}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="signUp">
-              <button
-                className="btn btn-block btn-primary"
-                style={{ cursor: 'pointer' }}
-                type="submit"
-              >
-                Action! 🎥
-              </button>
-            </div>
-          </form>
-        )}
+			console.log(data);
+		} catch (e) {
+			console.error(e);
+		}
+	};
 
-        {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-        )}
-      </div>
-    </main>
-  );
+	//Giving each function the animation state
+	const leftSpotLightAnimation = useAnimation();
+	const rightSpotLightAnimation = useAnimation();
+
+	//Initialize the animation to be off the screen
+	const startLeftSpotLight = {
+		hidden: {
+			x: '-100vw'
+		}
+	};
+	const startRightSpotLight = {
+		hidden: {
+			x: '100vw'
+		}
+	};
+
+	//Functions for the animation
+	async function leftSequence() {
+		await leftSpotLightAnimation.start({
+			x: '-20vw',
+			transition: {
+				//different types can be applied such as 'tween' or 'inertia'
+				type: 'spring',
+				stiffness: '40'
+			}
+		});
+	}
+
+	async function rightSequence() {
+		await rightSpotLightAnimation.start({
+			//Changing the x value will change the position of the spot light
+			x: '10vw',
+			transition: {
+				//Stiffness will change how much 'springiness' is applied
+				type: 'spring',
+				stiffness: '40'
+			}
+		});
+	}
+
+	if (userName && userName.value && email.value && password.value) {
+		leftSequence();
+		rightSequence();
+		console.log('Success');
+	}
+
+	return (
+		<main className="form">
+			<h4>User Information</h4>
+			<div>
+				{data ? (
+					<p>
+						Success! You may now head <Link to="/">back to the homepage.</Link>
+					</p>
+				) : (
+					<form onSubmit={handleFormSubmit}>
+						<div className="userInfoForm">
+							{/* Set each div to their variant and call the animations when called */}
+							{/* Each div will have a starting position and end position with the animation being handled by the framer motion library */}
+							<motion.div variants={startLeftSpotLight} animate={leftSpotLightAnimation} initial="hidden">
+								<img id="leftSpotLight" src={leftSpotLight} alt={leftSpotLight} />
+							</motion.div>
+							<motion.div variants={startRightSpotLight} animate={rightSpotLightAnimation} initial="hidden">
+								<img id="rightSpotLight" src={rightSpotLight} alt={rightSpotLight} />
+							</motion.div>
+							<input
+								id="userName"
+								className="form-input"
+								placeholder="Your username"
+								name="username"
+								type="text"
+								value={formState.name}
+								onChange={handleChange}
+							/>
+							<input
+								id="email"
+								className="form-input"
+								placeholder="Your email"
+								name="email"
+								type="email"
+								value={formState.email}
+								onChange={handleChange}
+							/>
+							<input
+								id="password"
+								className="form-input"
+								placeholder="******"
+								name="password"
+								type="password"
+								value={formState.password}
+								onChange={handleChange}
+							/>
+						</div>
+						<h4>Tells us your top 3 favorite movies!</h4>
+						<div className="userInfoForm">
+							<input
+								className="form-input"
+								placeholder="Ex: The Other Guys"
+								name="firstFavMovie"
+								type="text"
+								value={formState.firstFavMovie}
+								onChange={handleChange}
+							/>
+							<input
+								className="form-input"
+								placeholder="Ex: Forst Gump"
+								name="secondFavMovie"
+								type="text"
+								value={formState.secondFavMovie}
+								onChange={handleChange}
+							/>
+							<input
+								className="form-input"
+								placeholder="Ex: Cars"
+								name="thirdFavMovie"
+								type="text"
+								value={formState.thirdFavMovie}
+								onChange={handleChange}
+							/>
+						</div>
+						<div className="signUp">
+							<button className="btn btn-block btn-primary" style={{ cursor: 'pointer' }} type="submit">
+								Action! 🎥
+							</button>
+						</div>
+					</form>
+				)}
+
+				{error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
+			</div>
+		</main>
+	);
 }
