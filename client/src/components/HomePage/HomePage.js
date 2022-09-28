@@ -28,18 +28,18 @@ const HomePage = () => {
           <img
             src="https://i.ytimg.com/vi/FgOogVddW2I/maxresdefault.jpg"
             alt="Movies"
-            className=""
+            id="movie-logos-picture"
           />
           <h2 className="cinema"> What is your favorite movie? 🎥 </h2>
-          <p></p>
         </div>
       </div>
 
       <div className="split right">
         <div className="centered">
-          <div>
+          <div className="signup-action-btns">
             {Auth.loggedIn() ? (
               <>
+                <h1 className="homepage-moovy-space">MoovySpace</h1>
                 <Link className="btn btn-lg btn-info m-2" to="/profile">
                   {Auth.getProfile().data.username}'s profile
                 </Link>

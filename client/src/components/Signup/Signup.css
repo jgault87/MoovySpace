@@ -3,11 +3,14 @@
   flex-direction: column;
   gap: 1.2rem;
 }
-
+.userInfoForm {
+  position: relative;
+  margin: 0;
+}
 input,
 textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   background: transparent;
   border: 2px solid teal;
@@ -17,6 +20,13 @@ textarea {
 input {
   margin: 10px;
 }
+#favoriteMovie1,
+#favoriteMovie2,
+#favoriteMovie3,
+#action-btn {
+  position: relative;
+  bottom: 60px;
+}
 /* Set each PNG to be absolute so it can overlap other components */
 #leftSpotLight {
   position: absolute;
@@ -25,4 +35,43 @@ input {
 #rightSpotLight {
   position: absolute;
   width: 50%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 70px;
+}
+.loader__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+.loader__film {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  display: flex;
+}
+.loader__film-img {
+  animation: rotate 1.5s linear infinite;
+}
+
+.loader__film img {
+  width: auto;
+  height: auto;
+}
+.camera-body img {
+  width: auto;
+  height: auto;
 }

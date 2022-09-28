@@ -1,6 +1,7 @@
 img {
   width: 300px;
   height: 450px;
+  opacity: 1;
 }
 body {
   margin: 0;
@@ -18,9 +19,6 @@ input[type='radio'] {
   height: 80%;
   background-position: center;
   background-size: cover;
-}
-#backdrop {
-  width: 100vw;
 }
 
 .card {
@@ -52,7 +50,11 @@ input[type='radio'] {
   display: flex;
   justify-content: center;
 }
-
+#item1,
+#item2,
+#item3 {
+  opacity: 1;
+}
 #item1:checked ~ .cards #project3,
 #item2:checked ~ .cards #project1,
 #item3:checked ~ .cards #project2 {
@@ -140,7 +142,7 @@ input[type='radio'] {
   transition: transform 0.4s ease-in;
 }
 #item1:checked ~ .infoContainer #test {
-  transform: translateY(0);
+  transform: translateY(-5px);
 }
 
 #item2:checked ~ .infoContainer #test {
