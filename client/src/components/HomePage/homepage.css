@@ -1,3 +1,19 @@
+.homepage-moovy-space {
+  position: relative;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 200;
+  font-style: italic;
+  color: #fff;
+  text-transform: uppercase;
+  animation: flicker 8.5s infinite alternate;
+  margin: auto;
+  top: -50px;
+  margin-bottom: 10px;
+}
+.homepage-moovy-space:focus {
+  outline: none;
+}
 .split {
   height: 100%;
   position: fixed;
@@ -63,19 +79,30 @@
 @media screen and (max-width: 1024px) {
   .left {
     width: 100%;
-    top: 12rem;
+    top: 5rem;
     bottom: 20rem;
   }
-
   .right {
-    height: 50%;
+    height: 40%;
     width: 100%;
     right: 0;
     background-color: var(--color-bg);
   }
-
   .centered img {
     width: 400px;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .homepage-moovy-space {
+    top: 20px;
+    font-size: 1.5rem;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    height: 100%;
   }
 }

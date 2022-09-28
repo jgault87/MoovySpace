@@ -119,7 +119,7 @@ const Home = () => {
                       {savedMovieIds?.some(
                         (savedMovieId) => savedMovieId === movieData.movieId
                       )
-                        ? 'This movie has been add to your Watch List!'
+                        ? 'Added to watch list!'
                         : 'Add to Watch List'}
                     </button>
                     <button
@@ -132,7 +132,7 @@ const Home = () => {
                       {likedMovieIds?.some(
                         (likedMovieId) => likedMovieId === movieData.movieId
                       )
-                        ? 'This movie has been liked!'
+                        ? 'Movie has been liked!'
                         : 'Like Movie'}
                     </button>
                   </div>
