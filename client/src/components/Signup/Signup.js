@@ -14,10 +14,10 @@ import Auth from '../../utils/auth';
 import './Signup.css';
 
 export default function Signup() {
-  //Grabbing the ID's of each input field to check if the user filled it out before the animation
-  const userName = document.getElementById('userName');
-  const password = document.getElementById('password');
-  const email = document.getElementById('email');
+	//Grabbing the ID's of each input field to check if the user filled it out before the animation
+	const userName = document.getElementById('userName');
+	const password = document.getElementById('password');
+	const email = document.getElementById('email');
 
   const favoriteMovie1 = document.getElementById('favoriteMovie1');
   const favoriteMovie2 = document.getElementById('favoriteMovie2');
@@ -34,72 +34,88 @@ export default function Signup() {
     thirdFavMovie: '',
   });
 
-  const [addUser, { error, data }] = useMutation(ADD_USER);
-  const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
+	const [addUser, { error, data }] = useMutation(ADD_USER);
+	const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
 
-  const searchContext = useContext(AppContext);
-  let posterImage =
-    'https://image.tmdb.org/t/p/w500' + searchContext.details.poster_path;
-  let movieBackdrop =
-    'https://image.tmdb.org/t/p/w500' + searchContext.details.backdrop_path;
+	const searchContext = useContext(AppContext);
 
-  const movieId = searchContext.details.id;
-  const movieTitle = searchContext.details.original_title;
-  const movieDescription = searchContext.details.overview;
-  const moviePoster = searchContext.details.poster_path;
-  const movieTrailer = searchContext.trailer;
+	// Saves movieData to favorite movies
+	const handleFavoriteMovie = async (movieData) => {
+		const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  const movieData = {
-    movieId: movieId,
-    title: movieTitle,
-    description: movieDescription,
-    image: moviePoster,
-    backdrop: movieBackdrop,
-    trailer: movieTrailer,
-  };
+		if (!token) {
+			return false;
+		}
 
-  const handleFavoriteMovie = async () => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+		try {
+			await favoriteMovie({
+				variables: { movie: movieData }
+			});
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
-    if (!token) {
-      return false;
-    }
+	const handleChange = async (event) => {
+		const { name, value } = event.target;
 
-    try {
-      await favoriteMovie({
-        variables: { movie: movieData },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+		setFormState({
+			...formState,
+			[name]: value
+		});
+	};
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+	// Returns both responses as movieData object
+	const createDataInputObj = async (input) => {
+		const { details, trailer } = await searchContext.searchMovie(formState[input]);
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-    searchContext.searchMovie(formState.firstFavMovie);
-    handleFavoriteMovie(searchContext);
-  };
+		let posterImage = 'https://image.tmdb.org/t/p/w500' + details.poster_path;
+		let movieBackdrop = 'https://image.tmdb.org/t/p/w500' + details.backdrop_path;
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+		const movieId = details.id;
+		const movieTitle = details.original_title;
+		const movieDescription = details.overview;
+		const moviePoster = details.poster_path;
+		const movieTrailer = trailer;
 
-    try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
+		const movieData = {
+			movieId: movieId,
+			title: movieTitle,
+			description: movieDescription,
+			image: moviePoster,
+			backdrop: movieBackdrop,
+			trailer: movieTrailer
+		};
 
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+		return movieData;
+	};
 
-  //Giving each function the animation state
+	const handleFormSubmit = async (event) => {
+		event.preventDefault();
+
+		try {
+			const { data } = await addUser({
+				variables: { ...formState }
+			});
+
+			Auth.login(data.addUser.token);
+
+			const movieData1 = await createDataInputObj('firstFavMovie');
+			await handleFavoriteMovie(movieData1);
+			const movieData2 = await createDataInputObj('secondFavMovie');
+			await handleFavoriteMovie(movieData2);
+			const movieData3 = await createDataInputObj('thirdFavMovie');
+			await handleFavoriteMovie(movieData3);
+
+			window.location.assign('/');
+
+			console.log(data);
+		} catch (e) {
+			console.error(e);
+		}
+	};
+  
+//Giving each function the animation state
   const leftSpotLightAnimation = useAnimation();
   const rightSpotLightAnimation = useAnimation();
   const cameraAnimation = useAnimation();
@@ -308,11 +324,8 @@ export default function Signup() {
             </div>
           </form>
         )}
+        </div>
+        </main>
 
-        {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-        )}
-      </div>
-    </main>
-  );
+)
 }
