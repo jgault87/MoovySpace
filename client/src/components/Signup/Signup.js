@@ -8,22 +8,23 @@ import { ADD_USER, FAVORITE_MOVIE } from '../../utils/mutations';
 import { useAnimation, motion } from 'framer-motion';
 
 import leftSpotLight from '../../images/leftSpotLight.png';
-import rightSpotLight from '../../images/rightSpotLight.png';
+import rightSpotLight from '../../images/mirrorSpotLight.png';
 
 import Auth from '../../utils/auth';
 import './Signup.css';
 
 export default function Signup() {
-	//Grabbing the ID's of each input field to check if the user filled it out before the animation
-	const userName = document.getElementById('userName');
-	const password = document.getElementById('password');
-	const email = document.getElementById('email');
+  //Grabbing the ID's of each input field to check if the user filled it out before the animation
+  const userName = document.getElementById('userName');
+  const password = document.getElementById('password');
+  const email = document.getElementById('email');
 
   const favoriteMovie1 = document.getElementById('favoriteMovie1');
   const favoriteMovie2 = document.getElementById('favoriteMovie2');
   const favoriteMovie3 = document.getElementById('favoriteMovie3');
 
-  var windowSize = window.width;
+  var windowSize = window.innerWidth;
+  console.log(windowSize);
 
   const [formState, setFormState] = useState({
     username: '',
@@ -34,88 +35,91 @@ export default function Signup() {
     thirdFavMovie: '',
   });
 
-	const [addUser, { error, data }] = useMutation(ADD_USER);
-	const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [favoriteMovie] = useMutation(FAVORITE_MOVIE);
 
-	const searchContext = useContext(AppContext);
+  const searchContext = useContext(AppContext);
 
-	// Saves movieData to favorite movies
-	const handleFavoriteMovie = async (movieData) => {
-		const token = Auth.loggedIn() ? Auth.getToken() : null;
+  // Saves movieData to favorite movies
+  const handleFavoriteMovie = async (movieData) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-		if (!token) {
-			return false;
-		}
+    if (!token) {
+      return false;
+    }
 
-		try {
-			await favoriteMovie({
-				variables: { movie: movieData }
-			});
-		} catch (err) {
-			console.error(err);
-		}
-	};
+    try {
+      await favoriteMovie({
+        variables: { movie: movieData },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-	const handleChange = async (event) => {
-		const { name, value } = event.target;
+  const handleChange = async (event) => {
+    const { name, value } = event.target;
 
-		setFormState({
-			...formState,
-			[name]: value
-		});
-	};
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-	// Returns both responses as movieData object
-	const createDataInputObj = async (input) => {
-		const { details, trailer } = await searchContext.searchMovie(formState[input]);
+  // Returns both responses as movieData object
+  const createDataInputObj = async (input) => {
+    const { details, trailer } = await searchContext.searchMovie(
+      formState[input]
+    );
 
-		let posterImage = 'https://image.tmdb.org/t/p/w500' + details.poster_path;
-		let movieBackdrop = 'https://image.tmdb.org/t/p/w500' + details.backdrop_path;
+    let posterImage = 'https://image.tmdb.org/t/p/w500' + details.poster_path;
+    let movieBackdrop =
+      'https://image.tmdb.org/t/p/w500' + details.backdrop_path;
 
-		const movieId = details.id;
-		const movieTitle = details.original_title;
-		const movieDescription = details.overview;
-		const moviePoster = details.poster_path;
-		const movieTrailer = trailer;
+    const movieId = details.id;
+    const movieTitle = details.original_title;
+    const movieDescription = details.overview;
+    const moviePoster = details.poster_path;
+    const movieTrailer = trailer;
 
-		const movieData = {
-			movieId: movieId,
-			title: movieTitle,
-			description: movieDescription,
-			image: moviePoster,
-			backdrop: movieBackdrop,
-			trailer: movieTrailer
-		};
+    const movieData = {
+      movieId: movieId,
+      title: movieTitle,
+      description: movieDescription,
+      image: moviePoster,
+      backdrop: movieBackdrop,
+      trailer: movieTrailer,
+    };
 
-		return movieData;
-	};
+    return movieData;
+  };
 
-	const handleFormSubmit = async (event) => {
-		event.preventDefault();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-		try {
-			const { data } = await addUser({
-				variables: { ...formState }
-			});
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
 
-			Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token);
 
-			const movieData1 = await createDataInputObj('firstFavMovie');
-			await handleFavoriteMovie(movieData1);
-			const movieData2 = await createDataInputObj('secondFavMovie');
-			await handleFavoriteMovie(movieData2);
-			const movieData3 = await createDataInputObj('thirdFavMovie');
-			await handleFavoriteMovie(movieData3);
+      const movieData1 = await createDataInputObj('firstFavMovie');
+      await handleFavoriteMovie(movieData1);
+      const movieData2 = await createDataInputObj('secondFavMovie');
+      await handleFavoriteMovie(movieData2);
+      const movieData3 = await createDataInputObj('thirdFavMovie');
+      await handleFavoriteMovie(movieData3);
 
-			window.location.assign('/');
+      window.location.assign('/');
 
-			console.log(data);
-		} catch (e) {
-			console.error(e);
-		}
-	};
-  
-//Giving each function the animation state
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  //Giving each function the animation state
   const leftSpotLightAnimation = useAnimation();
   const rightSpotLightAnimation = useAnimation();
   const cameraAnimation = useAnimation();
@@ -175,7 +179,7 @@ export default function Signup() {
     userName.value &&
     email.value &&
     password.value &&
-    windowSize > '500px'
+    windowSize > 500
   ) {
     leftSequence();
     rightSequence();
@@ -186,7 +190,10 @@ export default function Signup() {
     favoriteMovie1.value &&
     favoriteMovie2.value &&
     favoriteMovie3.value &&
-    windowSize > '500px'
+    userName.value &&
+    email.value &&
+    password.value &&
+    windowSize > 500
   ) {
     cameraSequence();
   }
@@ -282,8 +289,10 @@ export default function Signup() {
                       />
                     </div>
                   </div>
+                  <div className="arrow-left"></div>
                 </div>
               </motion.div>
+
               <input
                 id="favoriteMovie1"
                 className="form-input"
@@ -324,8 +333,7 @@ export default function Signup() {
             </div>
           </form>
         )}
-        </div>
-        </main>
-
-)
+      </div>
+    </main>
+  );
 }

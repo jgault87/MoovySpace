@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VideocamIcon from '@mui/icons-material/Videocam';
 
 import './index.scss';
@@ -9,8 +9,13 @@ let backdrop3;
 function FavoriteMovies(props) {
   const { favoriteMovies } = props;
 
-  const defaultBackGround =
-    'https://image.tmdb.org/t/p/original' + favoriteMovies[2].backdrop;
+  useEffect(() => {
+    backdrop3 =
+      'https://image.tmdb.org/t/p/original' + favoriteMovies[2].backdrop;
+    document.getElementById(
+      'backdrop'
+    ).style.cssText += `background-image:url(${backdrop3})`;
+  }, []);
 
   const handleBackground = (e) => {
     backdrop1 =
@@ -48,11 +53,7 @@ function FavoriteMovies(props) {
   };
 
   return (
-    <section
-      className="projectSection"
-      id="backdrop"
-      style={{ backgroundImage: `url(${defaultBackGround})` }}
-    >
+    <section className="projectSection" id="backdrop">
       <div className="posterContainer">
         <input
           type="radio"

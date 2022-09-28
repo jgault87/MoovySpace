@@ -101,7 +101,7 @@ const Home = () => {
         </div>
       ) : (
         <div>
-          <div className="movie_card single">
+          <div className="movie_card_search single">
             <div className="info_section">
               <div className="movie_header">
                 <img className="locandina" src={posterImage} />
