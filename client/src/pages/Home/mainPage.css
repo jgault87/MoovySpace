@@ -208,6 +208,10 @@
 }
 
 @media screen and (max-width: 868px) {
+  .trailerContainer {
+    height: 0;
+    top: -190px;
+  }
   .movie_card {
     width: 95%;
     margin: 70px auto;
@@ -225,8 +229,12 @@
     width: 100%;
     margin-top: 85px;
   }
+  #movieTitle {
+    margin-top: 350px;
+  }
   .movie_desc {
     width: 100%;
+    margin-top: 0;
   }
   .info_section {
     background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #e5e6e6), to(transparent));

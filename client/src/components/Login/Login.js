@@ -41,55 +41,58 @@ const Login = (props) => {
   };
 
   return (
-    <main className="cinema">
-      <div className="">
+    <>
+      <h1 className="login-moovy-space">MoovySpace</h1>
+      <main className="cinema">
         <div className="">
-          <h4 className="">Login 🎬 </h4>
           <div className="">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <div>
-                  <button
-                    className="btn btn-primary center"
-                    style={{ cursor: 'pointer' }}
-                    type="submit"
-                  >
-                    Submit 💾
-                  </button>
-                </div>
-              </form>
-            )}
+            <h4 className="">Login 🎬 </h4>
+            <div className="">
+              {data ? (
+                <p>
+                  Success! You may now head{' '}
+                  <Link to="/">back to the homepage.</Link>
+                </p>
+              ) : (
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    className="form-input"
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <div>
+                    <button
+                      className="btn btn-primary center"
+                      style={{ cursor: 'pointer' }}
+                      type="submit"
+                    >
+                      Submit 💾
+                    </button>
+                  </div>
+                </form>
+              )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white login">
-                {error.message}
-              </div>
-            )}
+              {error && (
+                <div className="my-3 p-3 bg-danger text-white login">
+                  {error.message}
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
